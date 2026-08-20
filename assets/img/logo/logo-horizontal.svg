@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="474" height="90" viewBox="0 0 474 90">
+  <g transform="translate(0,-3)">
+  <defs><clipPath id="m2"><circle cx="60" cy="60" r="45.5"></circle></clipPath></defs>
+  <g clip-path="url(#m2)"><path d="M 8 70.4 Q 28 56.4 48 70.4 T 88 70.4 T 128 70.4" stroke="#5B6CFF" stroke-width="12" fill="none"></path><circle cx="70.4" cy="44.5" r="8.5" fill="#F2F2F0"></circle></g>
+  <circle cx="60" cy="60" r="50" stroke="#F2F2F0" stroke-width="11" fill="none"></circle>
+</g>
+  <text x="128" y="60" font-family="Space Grotesk, sans-serif" font-size="54" font-weight="700" letter-spacing="-1.6" fill="#F2F2F0">ceanAstra</text>
+</svg>

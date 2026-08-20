@@ -15,8 +15,10 @@ index.html  solutions/  about/  contact/  privacy/  terms/   ← 页面（各 14
 assets/
   fonts/fonts.css       ← 336 条 @font-face，六页共享
   fonts/*.woff2         ← 118 个字体分片，按 unicode-range 需要时才下载
-  img/favicon.svg       ← favicon（取自 VI 的海浪 + 星辰标志）
+  img/favicon.svg       ← favicon（几何取自 logo-mark-only.svg，另加深色底盘）
   img/*.jpg             ← 页面配图
+  img/logo/             ← OceanAstra 品牌标志（SVG + PNG，多种版本；站内未引用，供对外物料使用）
+  img/partners/         ← 合作伙伴标志，已按 3:1 槽位合成好（见 tools/make-partner-logo.sh）
 404.html  sitemap.xml  robots.txt  .nojekyll                 ← 站点配置
 content/
   company.json          ← 公司信息事实来源（法人名、执照号、地址、电话、邮箱）
@@ -116,7 +118,7 @@ Apple 在审核 Organization 账号时会人工查看官网。以下**加粗**�
 
 ### 强烈建议
 
-- [ ] 电话号码真实可接通，且与 D-U-N-S 记录一致 —— Apple 可能会打电话核实公司身份，接电话的人要知道这回事。
+- [ ] 电话号码真实可接通，且与 D-U-N-S 记录一致 —— **网站上不再展示电话**（公司不提供电话支持渠道），但 Apple 申请表单里填写的号码必须真实可接通，审核员可能致电核实公司身份，接电话的人要知道这回事。号码保留在 `company.json` 作为事实来源。
 - [ ] 网站有实质内容：公司做什么、提供什么产品/服务、如何联系。本站的首页、解决方案、关于我们三页已覆盖。
 - [ ] 具备隐私政策与使用条款页面（已包含）。App 上架时也需要隐私政策 URL。
 - [ ] App 上架需要提供 Support URL —— 独立的 `/support/` 页已随改版删除，改用 **`https://oceanastra.net/contact/`**，该页有「服务支持」卡片与 `support@oceanastra.net`，满足要求。
@@ -144,9 +146,10 @@ Apple 在审核 Organization 账号时会人工查看官网。以下**加粗**�
 
 - 域名：**oceanastra.net**（站点与邮箱同域）
 - `hello@oceanastra.net` —— 咨询、新项目、商务、媒体，以及隐私政策与使用条款的联系方式
-- `support@oceanastra.net` —— 技术支持，同时作为 App Store 的 App 支持联系方式
+- `support@oceanastra.net` —— 服务支持，同时作为 App Store 的 App 支持联系方式
+- `partners@oceanastra.net` —— 合作伙伴、渠道与生态洽谈
 
-只有这两个信箱，全站不出现第三个地址。
+全站只出现这三个地址，且都在公司域名下。
 
 ### 待办状态（更新于 2026-08-20）
 
@@ -154,7 +157,7 @@ Apple 在审核 Organization 账号时会人工查看官网。以下**加粗**�
 
 | 项 | 状态 | 说明 |
 |---|---|---|
-| 两个信箱开通 | ✅ 已完成 | `hello@` / `support@` 已在 Lark Mail 生效。注意 Apple 申请不接受 Gmail，执照上登记的那个个人 Gmail 不能用于账号申请 |
+| 三个信箱开通 | ✅ 已完成 | `hello@` / `support@` / `partners@` 已在 Lark Mail 生效。注意 Apple 申请不接受 Gmail，执照上登记的那个个人 Gmail 不能用于账号申请 |
 | DNS 解析 | ✅ 已完成 | 根域 A/AAAA 指向 GitHub Pages、`www` CNAME 指向 `zysncb.github.io`、MX 未受影响，站点已在 https://oceanastra.net 通过 HTTPS 正常访问 |
 | `dunsNumber` | ⏳ 等待发放 | 已于 2026-08-20 向邓白氏提交申请，预计数天内发放。拿到号码后填入 `content/company.json` 的 `dunsNumber` 并重新生成 —— 这是 Apple 企业账号的前置条件 |
 
@@ -172,10 +175,14 @@ D-U-N-S 号码到手后填入 `company.json`，并把 `"_placeholders"` 改成 `
 
 **为什么三语不再是三套 URL。** 改版前是 `/`、`/zh/`、`/ar/` 各一套静态页，带 hreflang，三语都能被搜索引擎索引。现在语言在页面内切换，只有一套 URL —— 代价是中文与阿拉伯文内容对 SEO 不可见，搜索引擎只读得到英文那一版。如果中东本地搜索流量重要，这一点需要重新评估。
 
-**为什么没有联系表单。** 静态站的表单必须依赖第三方服务（Formspree 等），多一个可能挂掉的外部依赖，而 Apple 审核只需要看到可用的联系方式。目前直接展示邮箱和电话，更可靠也更容易核实。
+**为什么没有联系表单。** 静态站的表单必须依赖第三方服务（Formspree 等），多一个可能挂掉的外部依赖，而 Apple 审核只需要看到可用的联系方式。目前展示三个公司域名邮箱（咨询 / 服务支持 / 合作伙伴），更可靠也更容易核实。
+
+**为什么网站上没有电话。** 公司不提供电话支持渠道，所以联系页原本那一栏（含一条电话支持的描述）已整栏移除，办公地点的「来信或来电」也改成只说来信 —— 留着会与实际服务方式矛盾。注意这只是不对外宣传电话渠道：Apple 申请仍需填写可接通的公司电话。
 
 **为什么没有第三方分析和 Cookie 横幅。** 不装分析工具就不需要 Cookie 同意横幅，隐私政策也能写得干净。语言偏好只存在浏览器 localStorage，不回传。
 
-**关于第三方软件代理的措辞。** 「精选企业软件代理」一节已按确认的合作关系点名 **Lark** 与 **Amap**，并在该节末尾附商标归属声明（「Lark 与 Amap 为其各自权利人的商标，每项合作的具体范围及商务性质在商务洽谈阶段书面确认」）。措辞刻意停留在「我们代理的平台 / Platforms we represent」，未使用「官方授权经销商」「Authorised Reseller」这类需要厂商书面授权背书的表述 —— 如果确有对应授权书，可以再升级措辞。
+**关于合作关系的措辞。** 「集成合作方案」一节按确认的合作关系点名 **Lark** 与 **Amap**，并在末尾附商标归属声明（「Lark 与 Amap 为其各自权利人的商标，每项合作的具体范围及商务性质在商务洽谈阶段书面确认」）。措辞刻意停留在「我们代理的平台 / Platforms we work with」，未使用「官方授权经销商」「Authorised Reseller」这类需要厂商书面授权背书的表述 —— 如果确有对应授权书，可以再升级措辞。
 
-**经营范围提示。** 执照登记的两项活动是 *IT Infrastructure* 和 *Computer Systems & Communication Equipment Software Design*，均属软件设计/IT 基建。官网上的「ERP 自研」和「CorpOS」落在这个范围内，但「第三方软件代理」通常对应的是贸易类活动。这不影响 Apple 审核，但建议向注册代理（PRO）确认是否需要增补经营活动。
+合作伙伴 logo 直接使用厂商原始文件、未改色：两个标志都是深色字，放在深色卡片上看不见，因此预先合成到浅色底板上（`tools/make-partner-logo.sh`），而不是给别人的商标换颜色。
+
+**经营范围提示。** 执照登记的两项活动是 *IT Infrastructure* 和 *Computer Systems & Communication Equipment Software Design*，均属软件设计/IT 基建。官网上的「AI 组织方案」「行业管理方案」落在这个范围内，但「集成合作方案」涉及的软件代理通常对应贸易类活动。这不影响 Apple 审核，但建议向注册代理（PRO）确认是否需要增补经营活动。

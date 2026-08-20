@@ -20,7 +20,8 @@ export cannot produce any of it on its own:
      stylesheet instead of 331 KB repeated six times.
   6. Loops the export left unwired are connected to their copy, and the empty
      partner logo slots are filled.
-  7. sitemap.xml is regenerated.
+  7. Sections the company asked to drop are removed, copy included.
+  8. sitemap.xml is regenerated.
 
 Two things are deliberately NOT automated: image cropping/compression (a
 judgement call about composition — see README) and anything inside content/.
@@ -147,9 +148,13 @@ def wire_up_loops(template, page):
 # stripped), and that lands on the same value in all three languages —
 # "لارك (Lark)" reduces to "lark" — so it is a safe lookup key.
 
+# Pre-composed at the slot's own 3:1 by tools/make-partner-logo.sh — the source
+# files carry heavy canvas padding (Lark's artwork fills only 643x184 of a
+# 766x400 canvas), so scaling them by canvas height rendered the artwork at
+# less than half the intended size.
 PARTNER_LOGOS = {
-    "oa-logo-lark": "/assets/img/lark.png",
-    "oa-logo-amap": "/assets/img/Amap.png",
+    "oa-logo-lark": "/assets/img/partners/lark.png",
+    "oa-logo-amap": "/assets/img/partners/amap.png",
 }
 
 OLD_PARTNER_MAP = ('partnerItems: t.partners.items.map(i => ({ title: i[0], body: i[1], '
@@ -161,10 +166,9 @@ NEW_PARTNER_MAP = ('partnerItems: t.partners.items.map(i => { '
 
 LOGO_MARKUP = ('<div style="height:40px; display:flex; align-items:center;">'
                '<sc-if value="{{ p.logo }}">'
-               '<span style="background:#F2F2F0; border-radius:5px; padding:7px 11px; '
-               'display:inline-flex; align-items:center;">'
                '<img src="{{ p.logo }}" alt="{{ p.title }}" loading="lazy" '
-               'style="height:24px; width:auto; display:block;"></span>'
+               'width="120" height="40" '
+               'style="height:40px; width:auto; border-radius:5px; display:block;">'
                '</sc-if></div>')
 
 
@@ -182,6 +186,74 @@ def fill_partner_logos(template):
     if not slot:
         sys.exit("partner logo slot markup changed — re-check the export before shipping")
     return template[:slot.start()] + LOGO_MARKUP + template[slot.end():], True
+
+
+
+# Sections the company does not want shipped ----------------------------------
+#
+# Contact's "How to reach us" duplicated the three contact cards above it and
+# offered a telephone support line, which OceanAstra does not run. Dropped at
+# the company's instruction, along with its copy, so the claim is not sitting
+# in the page source either. The office note lost its "or call ahead" for the
+# same reason.
+
+DROP_SECTIONS = {
+    "contact/index.html": ["reach"],
+}
+
+PHONE_WORDING = [
+    ('note: "到访请提前预约。烦请先来信或来电，以便我们安排相关同事在场。"',
+     'note: "到访请提前预约。烦请先来信，以便我们安排相关同事在场。"'),
+    ('note: "Visits are by appointment. Please write or call ahead so we can make sure the right people are available."',
+     'note: "Visits are by appointment. Please email ahead so we can make sure the right people are available."'),
+    ('note: "الزيارات بموعد مسبق. يُرجى المراسلة أو الاتصال قبل الحضور حتى نضمن وجود الأشخاص المعنيين."',
+     'note: "الزيارات بموعد مسبق. يُرجى المراسلة قبل الحضور حتى نضمن وجود الأشخاص المعنيين."'),
+]
+
+
+def _cut_data_block(text, key):
+    """Delete `key: { ... },` by matching braces so nested objects survive."""
+    out, cut = text, 0
+    while True:
+        i = out.find(key + ": {")
+        if i < 0:
+            return out, cut
+        depth, j = 0, out.find("{", i)
+        for k in range(j, len(out)):
+            if out[k] == "{":
+                depth += 1
+            elif out[k] == "}":
+                depth -= 1
+                if depth == 0:
+                    end = k + 1
+                    if out[end:end + 1] == ",":
+                        end += 1
+                    while out[end:end + 1] in (" ", "\n"):
+                        end += 1
+                    out, cut = out[:i] + out[end:], cut + 1
+                    break
+        else:
+            return out, cut
+
+
+def drop_sections(template, page):
+    """Remove unwanted sections: the markup, then the copy behind it."""
+    dropped = []
+    for key in DROP_SECTIONS.get(page, []):
+        anchor = template.find("{{ t.%s.heading }}" % key)
+        if anchor < 0:
+            continue
+        start = template.rfind('<div style="border-top:1px solid #1A1F2E;', 0, anchor)
+        nxt = template.find('<div style="border-top:1px solid #1A1F2E;', anchor)
+        if start < 0 or nxt < 0:
+            sys.exit(f"{page}: could not bound the '{key}' section — check the export markup")
+        template = template[:start] + template[nxt:]
+        template, _ = _cut_data_block(template, key)
+        dropped.append(key)
+
+    for old, new in PHONE_WORDING:
+        template = template.replace(old, new)
+    return template, dropped
 
 
 def block(doc, kind):
@@ -230,6 +302,7 @@ def main(export_dir):
         manifest = json.loads(man_m.group(2))
         template = json.loads(tpl_m.group(2))
         template = template.replace("<html><head>", '<html lang="en" dir="ltr"><head>\n' + meta, 1)
+        template, dropped = drop_sections(template, page)
         template, wired = wire_up_loops(template, page)
         template, logos_in = fill_partner_logos(template)
 
@@ -283,6 +356,7 @@ def main(export_dir):
         total += len(doc)
         note = f"   接回空循环 {len(wired)}" if wired else ""
         if logos_in: note += "   合作伙伴 logo 已填入"
+        if dropped: note += f"   移除板块 {','.join(dropped)}"
         print(f"  {page:<22} {len(doc)/1024:>6.0f} KB   资源外置 {len(moved):>3}{note}")
 
     urls = "".join(

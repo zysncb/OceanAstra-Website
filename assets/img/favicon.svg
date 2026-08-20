@@ -1,11 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="OceanAstra">
-  <defs>
-    <clipPath id="oa-clip"><circle cx="60" cy="60" r="42"/></clipPath>
-  </defs>
-  <circle cx="60" cy="60" r="50" fill="#07090F"/>
-  <g clip-path="url(#oa-clip)">
+  <!-- Geometry follows assets/img/logo/logo-mark-only.svg. The official mark is
+       transparent, which disappears against a light tab strip, so the disc is
+       added here — a favicon has to carry its own ground. -->
+  <defs><clipPath id="oa-mark"><circle cx="60" cy="60" r="46.5"/></clipPath></defs>
+  <circle cx="60" cy="60" r="56" fill="#07090F"/>
+  <g clip-path="url(#oa-mark)">
     <path d="M 8 70.4 Q 28 56.4 48 70.4 T 88 70.4 T 128 70.4" stroke="#5B6CFF" stroke-width="9" fill="none"/>
     <circle cx="70.4" cy="46" r="6" fill="#F2F2F0"/>
   </g>
-  <circle cx="60" cy="60" r="46" stroke="#F2F2F0" stroke-width="8" fill="none"/>
+  <circle cx="60" cy="60" r="50" stroke="#F2F2F0" stroke-width="8" fill="none"/>
 </svg>
