@@ -2,14 +2,14 @@
   "_comment": "SINGLE SOURCE OF TRUTH for all company facts. Values below are transcribed from the Dubai Commercial License No. 1646635 (issued 20/08/2026). Anything published here must match the trade licence and the D-U-N-S record exactly. Run `node build/build.mjs` after editing.",
   "_placeholders": true,
   "_needsReview": [
-    "domain / siteUrl — confirm the registered domain; it must be owned by the company",
-    "email.* — these four mailboxes must actually exist on the company domain (Apple will not accept a Gmail address on the enrolment)",
-    "dunsNumber — the D&B D-U-N-S field is blank on the trade licence; required for Apple Developer Program enrolment"
+    "Both mailboxes must be live and receiving before the Apple enrolment is submitted — Apple emails the address on file and will not accept a Gmail address",
+    "dunsNumber — the D&B D-U-N-S field is blank on the trade licence; required for Apple Developer Program enrolment",
+    "DNS for oceanastra.net must resolve to GitHub Pages BEFORE the CNAME file is added (see README)"
   ],
 
   "brand": "OceanAstra",
-  "domain": "oceanastra.com",
-  "siteUrl": "https://oceanastra.com",
+  "domain": "oceanastra.net",
+  "siteUrl": "https://oceanastra.net",
   "founded": "2026",
 
   "_basePathNote": "Leave empty for a custom domain (the intended setup). Set to \"/OceanAstra-Website\" only if the site is served from a GitHub project-pages subpath.",
@@ -22,11 +22,10 @@
     "ar": "أوشن أسترا للتكنولوجيا ذ.م.م"
   },
 
+  "_emailNote": "Two mailboxes only. `general` carries enquiries, sales and all legal/privacy correspondence; `support` carries technical support for clients and application users.",
   "email": {
-    "general": "info@oceanastra.com",
-    "sales": "sales@oceanastra.com",
-    "support": "support@oceanastra.com",
-    "privacy": "privacy@oceanastra.com"
+    "general": "hello@oceanastra.net",
+    "support": "support@oceanastra.net"
   },
 
   "phone": {

@@ -63,9 +63,11 @@ python3 -m http.server 4173
 2. 仓库 Settings → Pages → Source 选 **Deploy from a branch**，分支 `main`，目录 `/ (root)`。
 3. 绑定自定义域名（见下）。
 
-### 自定义域名
+### 自定义域名 oceanastra.net
 
-在仓库根目录创建 `CNAME` 文件，内容为一行域名（例如 `oceanastra.com`），然后在域名 DNS 处配置：
+**顺序很重要：先配 DNS，等解析生效，再加 `CNAME` 文件。** 反过来做会让 GitHub Pages 把 `zysncb.github.io` 重定向到一个还没解析的域名，站点在这段时间内无法访问。
+
+第一步，在域名商处配置 DNS：
 
 | 类型 | 主机 | 值 |
 |---|---|---|
@@ -73,7 +75,21 @@ python3 -m http.server 4173
 | AAAA | `@` | `2606:50c0:8000::153` `2606:50c0:8001::153` `2606:50c0:8002::153` `2606:50c0:8003::153` |
 | CNAME | `www` | `zysncb.github.io` |
 
-上述 IP 请以 [GitHub Pages 官方文档](https://docs.github.com/pages/configuring-a-custom-domain-for-your-github-pages-site) 为准，GitHub 偶尔会调整。生效后在 Settings → Pages 勾选 **Enforce HTTPS**。
+上述 IP 请以 [GitHub Pages 官方文档](https://docs.github.com/pages/configuring-a-custom-domain-for-your-github-pages-site) 为准，GitHub 偶尔会调整。
+
+第二步，确认解析已生效：
+
+```bash
+dig +short oceanastra.net
+```
+
+返回上面那四个 IP 才算好了。第三步，创建 `CNAME` 并推送：
+
+```bash
+echo "oceanastra.net" > CNAME && git add CNAME && git commit -m "Point Pages at oceanastra.net" && git push
+```
+
+最后在 Settings → Pages 勾选 **Enforce HTTPS**（证书签发通常要几分钟到一小时）。
 
 > 如果暂时不用自定义域名、而是走 `zysncb.github.io/OceanAstra-Website/` 这种项目页路径，需要把 `content/company.json` 里的 `basePath` 改成 `"/OceanAstra-Website"` 再重新生成，否则所有根绝对路径都会 404。**但申请 Apple 开发者账号请务必用公司自有域名**，见下。
 
@@ -116,17 +132,25 @@ Apple 在审核 Organization 账号时会人工查看官网。以下**加粗**�
 
 > 执照上英文名印为全大写 `OCEANASTRA TECHNOLOGIES L.L.C`，站点渲染为 Title Case（逐词完全一致，仅大小写不同）以便正文阅读。若 D-U-N-S 记录要求严格一致，改 `content/company.json` 的 `legalName.en` 即可。
 
-### 仍待确认的三项
+### 域名与邮箱
+
+- 域名：**oceanastra.net**（站点与邮箱同域）
+- `hello@oceanastra.net` —— 咨询、新项目、商务、媒体，以及隐私政策与使用条款的联系方式
+- `support@oceanastra.net` —— 技术支持，同时作为 App Store 的 App 支持联系方式
+
+只有这两个信箱，全站不出现第三个地址。
+
+### 仍待完成的三项
 
 `content/company.json` 顶部 `"_placeholders": true`，构建时会打印清单：
 
-| 字段 | 状态 | 说明 |
+| 项 | 状态 | 说明 |
 |---|---|---|
-| `domain` / `siteUrl` | **待定** | 当前占位 `oceanastra.com`。域名必须归公司所有 |
-| `email.*` | **待建** | `info@ / sales@ / support@ / privacy@` 四个邮箱必须真实可收信。Apple 申请不接受 Gmail —— 执照上登记的 `个人 Gmail` 不能用于账号申请 |
+| 两个信箱开通 | **待办** | 提交 Apple 申请前必须能正常收信。Apple 不接受 Gmail —— 执照上登记的 `个人 Gmail` 不能用于账号申请 |
 | `dunsNumber` | **空缺** | 执照的 D&B D-U-N-S 栏为空，需先向邓白氏申请，这是 Apple 企业账号的前置条件 |
+| DNS 解析 | **待办** | 必须先解析生效，**再**添加 `CNAME` 文件，顺序反了会导致站点暂时无法访问 |
 
-全部确认后把 `"_placeholders"` 改成 `false`，构建时就不再提示。
+全部完成后把 `"_placeholders"` 改成 `false`，构建时就不再提示。
 
 ---
 

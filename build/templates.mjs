@@ -499,7 +499,6 @@ function renderContact(ctx) {
 
   const cards = [
     [c.cards.general, company.email.general],
-    [c.cards.sales, company.email.sales],
     [c.cards.support, company.email.support]
   ].map(([card, mail]) => `          <article class="contact-card">
             <h3>${card.title}</h3>
@@ -511,7 +510,7 @@ function renderContact(ctx) {
 
     <section class="section">
       <div class="wrap">
-        <div class="grid grid--3">
+        <div class="grid grid--2">
 ${cards}
         </div>
         <p class="note" style="margin-block-start:32px;">${c.note}</p>
@@ -588,7 +587,7 @@ ${sections}
             </div>
             <div class="office-item">
               <h4>${t.common.email}</h4>
-              <p><a href="mailto:${page === 'privacy' ? company.email.privacy : company.email.general}">${page === 'privacy' ? company.email.privacy : company.email.general}</a></p>
+              <p><a href="mailto:${company.email.general}">${company.email.general}</a></p>
             </div>
             <div class="office-item">
               <h4>${t.common.phone}</h4>

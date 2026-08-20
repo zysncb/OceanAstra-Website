@@ -315,9 +315,8 @@
       "lede": "Tell us what you are trying to fix. A short description of the process and the size of the team is usually enough for us to give a useful first answer."
     },
     "cards": {
-      "general": { "title": "General enquiries", "body": "Company, partnership and press enquiries." },
-      "sales": { "title": "New projects", "body": "Solution enquiries, demonstrations and commercial discussion." },
-      "support": { "title": "Existing clients", "body": "Technical support for our software and applications." }
+      "general": { "title": "Enquiries and new projects", "body": "Solution enquiries, demonstrations and commercial discussion, plus company, partnership and press questions." },
+      "support": { "title": "Technical support", "body": "For existing clients and users of our software and mobile applications." }
     },
     "office": {
       "heading": "Registered office",
