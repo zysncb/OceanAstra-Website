@@ -201,13 +201,25 @@ DROP_SECTIONS = {
     "contact/index.html": ["reach"],
 }
 
-PHONE_WORDING = [
+# Copy the company corrected after the export was made. Each edit is applied to
+# all three languages together — fixing one language alone leaves the versions
+# saying different things.
+COPY_EDITS = [
+    # No telephone channel is offered, so the office note cannot invite a call.
     ('note: "到访请提前预约。烦请先来信或来电，以便我们安排相关同事在场。"',
      'note: "到访请提前预约。烦请先来信，以便我们安排相关同事在场。"'),
     ('note: "Visits are by appointment. Please write or call ahead so we can make sure the right people are available."',
      'note: "Visits are by appointment. Please email ahead so we can make sure the right people are available."'),
     ('note: "الزيارات بموعد مسبق. يُرجى المراسلة أو الاتصال قبل الحضور حتى نضمن وجود الأشخاص المعنيين."',
      'note: "الزيارات بموعد مسبق. يُرجى المراسلة قبل الحضور حتى نضمن وجود الأشخاص المعنيين."'),
+
+    # Lark partner card: three-language support dropped from the offer.
+    ("我们提供其在中东地区的落地、集成与三语支持。",
+     "我们提供其在中东地区的落地、集成支持。"),
+    ("We deliver its deployment, integration and three-language support across the region.",
+     "We deliver its deployment and integration across the region."),
+    ("ونتولّى نشرها وتكاملها ودعمها بثلاث لغات في المنطقة.",
+     "ونتولّى نشرها وتكاملها في المنطقة."),
 ]
 
 
@@ -251,7 +263,7 @@ def drop_sections(template, page):
         template, _ = _cut_data_block(template, key)
         dropped.append(key)
 
-    for old, new in PHONE_WORDING:
+    for old, new in COPY_EDITS:
         template = template.replace(old, new)
     return template, dropped
 
