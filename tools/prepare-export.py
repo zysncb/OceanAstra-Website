@@ -220,6 +220,52 @@ COPY_EDITS = [
      "We deliver its deployment and integration across the region."),
     ("ونتولّى نشرها وتكاملها ودعمها بثلاث لغات في المنطقة.",
      "ونتولّى نشرها وتكاملها في المنطقة."),
+
+    # The same withdrawal, everywhere else the export promised it as a service.
+    # Product capability is a separate claim and stays: Solutions still says the
+    # systems ship Arabic/English/Chinese interfaces, which is about the software,
+    # not about staffing a three-language support desk.
+    ("从需求评估到租户搭建、数据迁移、培训与三语支持",
+     "从需求评估到租户搭建、数据迁移、培训与支持"),
+    ("From requirement assessment through tenant setup, migration, training and support in three languages",
+     "From requirement assessment through tenant setup, migration, training and support"),
+    ("من تقييم المتطلبات إلى تهيئة المستأجر وترحيل البيانات والتدريب والدعم بثلاث لغات",
+     "من تقييم المتطلبات إلى تهيئة المستأجر وترحيل البيانات والتدريب والدعم"),
+
+    ("我们为阿联酋与海湾地区的企业客户提供 AI 组织方案、行业管理方案与集成合作方案，并以英文、阿拉伯文、中文三种语言交付与支持。",
+     "我们为阿联酋与海湾地区的企业客户提供 AI 组织方案、行业管理方案与集成合作方案。"),
+    ("integration partnerships to enterprise clients across the UAE and the wider GCC, delivered and supported in English, Arabic and Chinese.",
+     "integration partnerships to enterprise clients across the UAE and the wider GCC."),
+    ("لعملائنا من المؤسسات في الإمارات ودول الخليج، وننفّذ وندعم بالعربية والإنجليزية والصينية.",
+     "لعملائنا من المؤسسات في الإمارات ودول الخليج."),
+
+    ("指定的支持对接人、约定的响应时限和书面的升级路径——用英文、阿拉伯文还是中文，取决于您的团队在用哪种。",
+     "指定的支持对接人、约定的响应时限和书面的升级路径。"),
+    ("Named support contacts, agreed response targets and a documented escalation path — in English, Arabic or Chinese, whichever your team works in.",
+     "Named support contacts, agreed response targets and a documented escalation path."),
+    ("جهات اتصال معيّنة بالاسم، وأزمنة استجابة متفق عليها، ومسار تصعيد موثّق — بالعربية أو الإنجليزية أو الصينية، أيًّا كانت لغة عمل فريقكم.",
+     "جهات اتصال معيّنة بالاسم، وأزمنة استجابة متفق عليها، ومسار تصعيد موثّق."),
+
+    ("英文、阿拉伯文、中文一线技术支持", "一线技术支持"),
+    ("First-line support in English, Arabic and Chinese", "First-line support"),
+    ("الدعم من المستوى الأول بالعربية والإنجليزية والصينية", "الدعم من المستوى الأول"),
+
+    # These two are entirely about language, so they are reworded rather than
+    # deleted — dropping them would leave a hole in a four-up grid. The About
+    # principle also loses "on the support line", which no longer exists.
+    ("英文、阿拉伯文、中文——界面里、文档里、培训中和支持电话上都是。不是最后才翻译一遍，而是从一开始就这样构建。",
+     "界面、文档与培训材料按您团队实际使用的语言来构建，不是最后才翻译一遍。"),
+    ("English, Arabic and Chinese — in the interface, in the documentation, in training and on the support line. Not translated at the end, but built in from the start.",
+     "The interface, the documentation and the training are built in the language your team actually works in, not translated at the end."),
+    ("العربية والإنجليزية والصينية — في الواجهة، وفي التوثيق، وفي التدريب، وعلى خط الدعم. لا كترجمة تُضاف في النهاية، بل كأساس منذ البداية.",
+     "الواجهة والتوثيق والتدريب مبنية باللغة التي يعمل بها فريقكم فعلًا، لا كترجمة تُضاف في النهاية."),
+
+    ("英文、阿拉伯文、中文。我们不会要求您用第二语言去解释一个技术问题。",
+     "我们会用您团队日常沟通的语言对接，不会要求您用第二语言去解释一个技术问题。"),
+    ("English, Arabic and Chinese. You will not be asked to explain a technical problem in a second language.",
+     "We work in the language your team uses day to day. You will not be asked to explain a technical problem in a second language."),
+    ("العربية والإنجليزية والصينية. ولن يُطلب منك شرح مشكلة تقنية بلغة ثانية.",
+     "نعمل باللغة التي يستخدمها فريقكم يوميًا. ولن يُطلب منك شرح مشكلة تقنية بلغة ثانية."),
 ]
 
 
