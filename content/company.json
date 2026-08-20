@@ -2,9 +2,11 @@
   "_comment": "SINGLE SOURCE OF TRUTH for all company facts. Values below are transcribed from the Dubai Commercial License No. 1646635 (issued 20/08/2026). Anything published here must match the trade licence and the D-U-N-S record exactly. Run `node build/build.mjs` after editing.",
   "_placeholders": true,
   "_needsReview": [
-    "Both mailboxes must be live and receiving before the Apple enrolment is submitted — Apple emails the address on file and will not accept a Gmail address",
     "dunsNumber — the D&B D-U-N-S field is blank on the trade licence; required for Apple Developer Program enrolment",
     "DNS for oceanastra.net must resolve to GitHub Pages BEFORE the CNAME file is added (see README)"
+  ],
+  "_done": [
+    "2026-08-20 hello@ and support@ mailboxes live on Lark Mail (MX -> larksuite.com)"
   ],
 
   "brand": "OceanAstra",

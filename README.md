@@ -67,29 +67,45 @@ python3 -m http.server 4173
 
 **顺序很重要：先配 DNS，等解析生效，再加 `CNAME` 文件。** 反过来做会让 GitHub Pages 把 `zysncb.github.io` 重定向到一个还没解析的域名，站点在这段时间内无法访问。
 
-第一步，在域名商处配置 DNS：
+`oceanastra.net` 的 DNS 托管在**阿里云云解析**（NS 为 `vip1.alidns.com` / `vip2.alidns.com`），邮箱走 **Lark Mail**（MX 指向 `larksuite.com`）。
 
-| 类型 | 主机 | 值 |
+第一步，在阿里云控制台 → 云解析 DNS → `oceanastra.net` → 解析设置，新增 **9 条**记录：
+
+| 记录类型 | 主机记录 | 记录值 |
 |---|---|---|
-| A | `@` | `185.199.108.153` `185.199.109.153` `185.199.110.153` `185.199.111.153` |
-| AAAA | `@` | `2606:50c0:8000::153` `2606:50c0:8001::153` `2606:50c0:8002::153` `2606:50c0:8003::153` |
+| A | `@` | `185.199.108.153` |
+| A | `@` | `185.199.109.153` |
+| A | `@` | `185.199.110.153` |
+| A | `@` | `185.199.111.153` |
+| AAAA | `@` | `2606:50c0:8000::153` |
+| AAAA | `@` | `2606:50c0:8001::153` |
+| AAAA | `@` | `2606:50c0:8002::153` |
+| AAAA | `@` | `2606:50c0:8003::153` |
 | CNAME | `www` | `zysncb.github.io` |
 
-上述 IP 请以 [GitHub Pages 官方文档](https://docs.github.com/pages/configuring-a-custom-domain-for-your-github-pages-site) 为准，GitHub 偶尔会调整。
+解析线路选「默认」，TTL 保持默认即可。IP 取自 GitHub 官方接口 `https://api.github.com/meta` 的 `pages` 字段，如需复核可直接查询该接口。
 
-第二步，确认解析已生效：
+> ⚠️ **不要动现有的 MX 和 TXT 记录** —— 那是 Lark 邮箱的路由和 SPF 验证，删掉会导致 `hello@` / `support@` 立刻收不到信。A 记录和 MX 记录在同一个 `@` 上共存是正常的。
+>
+> ⚠️ **不要在 `@` 上添加 CNAME 记录。** DNS 规范不允许根域同时存在 CNAME 和 MX，加了会破坏邮箱。GitHub Pages 的根域必须用 A/AAAA 记录，这也是上面要加 8 条而不是 1 条的原因。
+
+第二步，确认解析已生效，并确认邮箱路由没被碰坏：
 
 ```bash
-dig +short oceanastra.net
+dig +short oceanastra.net && echo "--- MX 应仍为 larksuite ---" && dig +short MX oceanastra.net
 ```
 
-返回上面那四个 IP 才算好了。第三步，创建 `CNAME` 并推送：
+A 记录返回那四个 IP、MX 仍指向 `larksuite.com`，才算好了。
+
+第三步，创建 `CNAME` 文件并推送：
 
 ```bash
 echo "oceanastra.net" > CNAME && git add CNAME && git commit -m "Point Pages at oceanastra.net" && git push
 ```
 
-最后在 Settings → Pages 勾选 **Enforce HTTPS**（证书签发通常要几分钟到一小时）。
+> 也可以在 Settings → Pages 的 Custom domain 输入框里填，效果一样 —— 但 GitHub 会自己往仓库提交一个 `CNAME` 文件，本地再 push 就会冲突。用了输入框的话，记得先 `git pull` 再继续。
+
+最后在 Settings → Pages 勾选 **Enforce HTTPS**（Let's Encrypt 证书签发通常要几分钟到一小时，期间该选项可能是灰的，属正常）。
 
 > 如果暂时不用自定义域名、而是走 `zysncb.github.io/OceanAstra-Website/` 这种项目页路径，需要把 `content/company.json` 里的 `basePath` 改成 `"/OceanAstra-Website"` 再重新生成，否则所有根绝对路径都会 404。**但申请 Apple 开发者账号请务必用公司自有域名**，见下。
 
