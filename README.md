@@ -1,51 +1,37 @@
 # OceanAstra 官网
 
-三语（英 / 中 / 阿）静态官网，零依赖、零运行时构建。GitHub Pages 直接托管仓库里已生成的 HTML。
+三语（英 / 中 / 阿）静态官网，由 Claude Design Canvas 设计并导出。GitHub Pages 直接托管仓库里的 HTML，不跑任何构建。
 
-- 默认语言：英文，位于站点根目录 `/`
-- 中文：`/zh/`，阿拉伯文：`/ar/`（阿文为 RTL 从右至左排版）
-- 页面：首页、解决方案、关于我们、技术支持、联系我们、隐私政策、使用条款（7 页 × 3 语 = 21 页，另加 404）
+- 六个页面：首页、解决方案、关于我们、联系我们、隐私政策、使用条款
+- **三种语言在页面内切换**（右上角 EN / 中文 / عربي），不是三套 URL。阿文为 RTL 从右至左排版
+- 每个页面是一个自包含的单文件：字体、图片、脚本全部内联，只有 React 从 unpkg CDN 加载
 
 ---
 
 ## 目录结构
 
 ```
+index.html  solutions/  about/  contact/  privacy/  terms/   ← 页面（各 7–9 MB，资源内联）
+assets/img/favicon.svg                                       ← favicon
+404.html  sitemap.xml  robots.txt  .nojekyll                 ← 站点配置
 content/
-  company.json          ← 公司信息唯一事实来源（法人名、执照号、地址、电话、邮箱）
-  i18n/en.json          ← 英文全部文案
-  i18n/zh.json          ← 中文全部文案
-  i18n/ar.json          ← 阿拉伯文全部文案
-assets/
-  css/site.css          ← 唯一样式表（占位版，待接入正式 Design System 后重做）
-  js/site.js            ← 仅渐进增强：移动端菜单、语言偏好记忆
-  img/favicon.svg
-build/
-  build.mjs             ← 生成器（node build/build.mjs）
-  templates.mjs         ← HTML 模板
-  check.mjs             ← 内链与锚点检查（node build/check.mjs）
-
-index.html  solutions/  about/  support/  contact/  privacy/  terms/   ← 生成物（英文）
-zh/…  ar/…                                                            ← 生成物（中 / 阿）
-404.html  sitemap.xml  robots.txt  .nojekyll                          ← 生成物
+  company.json          ← 公司信息事实来源（法人名、执照号、地址、电话、邮箱）
+  i18n/{en,zh,ar}.json  ← 三语文案定稿，页面 SEO 元数据取自这里
 ```
 
-**生成物是提交进仓库的**，GitHub Pages 不跑任何构建。好处是即使 CI 挂了、Node 环境变了，线上站点也不受影响 —— 这一点在 Apple 审核期间尤其重要。
+`content/` 现在**不参与构建**，它是文案与公司信息的事实来源，供改稿、翻译和核对 Apple 材料时查阅。原先的静态生成器（`build/`）已随设计改版删除。
 
 ---
 
 ## 改内容
 
-改文案 → 编辑 `content/i18n/*.json`（三个语言文件结构完全相同，改哪个改哪个）。
-改公司信息（电话、地址、执照号等）→ 只改 `content/company.json`，21 个页面会同步更新。
+页面是 Design Canvas 的导出产物，**不要直接编辑这六个 HTML** —— 里面是打包后的模板和 base64 资源，手改极易破坏结构（尤其注意任何注入的 `</script>` 会提前截断 `__bundler/template`）。
 
-然后重新生成：
+正确做法是回到 Design Canvas 改，重新导出，再替换对应文件。导出后需要补三件事，因为导出产物不带这些：
 
-```bash
-node build/build.mjs && node build/check.mjs
-```
-
-`check.mjs` 会验证每一个站内链接和锚点都指向真实存在的文件。**提交前务必跑一次** —— 官网上的死链是人工审核最容易注意到的瑕疵。
+1. **SEO 元数据** —— 导出的 `<title>` 是 `Bundled Page`，且没有 description / canonical / Open Graph。需在**外层 `<head>` 和 `__bundler/template` 两处**注入，文案取自 `content/i18n/en.json` 的各页 `title` 与 `description`。
+2. **`<html lang>` 与语言同步脚本** —— 导出产物的 `<html>` 没有 `lang`/`dir`，切换语言时也不更新，屏幕阅读器会一直当成英文。同步脚本必须放在外层 `<head>`：放进 template 里不会执行，还会截断模板。
+3. **核对数字宣称** —— 导出稿曾出现「10+ 年中东本地经验」「10+ languages」这类与执照信息和三语事实冲突的表述，已在当前页面中修正为「中东本地交付」与真实语言列表。Design Canvas 源文件里可能仍有，每次导出都要复查。
 
 ## 本地预览
 
@@ -53,7 +39,7 @@ node build/build.mjs && node build/check.mjs
 python3 -m http.server 4173
 ```
 
-然后访问 http://localhost:4173 。注意必须用 HTTP 服务器打开，直接双击 HTML 文件会因为站内链接是根绝对路径（`/zh/`）而失效。
+然后访问 http://localhost:4173 。必须用 HTTP 服务器打开：页面之间是相对路径，但 favicon 与 sitemap 用的是根绝对路径。
 
 ---
 
@@ -107,7 +93,7 @@ echo "oceanastra.net" > CNAME && git add CNAME && git commit -m "Point Pages at 
 
 最后在 Settings → Pages 勾选 **Enforce HTTPS**（Let's Encrypt 证书签发通常要几分钟到一小时，期间该选项可能是灰的，属正常）。
 
-> 如果暂时不用自定义域名、而是走 `zysncb.github.io/OceanAstra-Website/` 这种项目页路径，需要把 `content/company.json` 里的 `basePath` 改成 `"/OceanAstra-Website"` 再重新生成，否则所有根绝对路径都会 404。**但申请 Apple 开发者账号请务必用公司自有域名**，见下。
+> 站点依赖自定义域名下的根路径（favicon、sitemap、canonical 均为绝对地址），不适合部署在 `zysncb.github.io/OceanAstra-Website/` 这类项目页子路径下。**申请 Apple 开发者账号也务必用公司自有域名**，见下。
 
 ---
 
@@ -117,7 +103,7 @@ Apple 在审核 Organization 账号时会人工查看官网。以下**加粗**�
 
 ### 必须做到
 
-- [ ] **网站可公开访问** —— 不能有密码保护、不能是"建设中"占位页、不能整站 `noindex`。审核期间不要下线或大改。
+- [x] **网站可公开访问** —— 已于 2026-08-20 验证 https://oceanastra.net 返回 HTTPS 200。不能有密码保护、不能是"建设中"占位页、不能整站 `noindex`。审核期间不要下线或大改。
 - [ ] **域名归公司所有** —— Apple 要求域名与申请主体相关联。建议域名 WHOIS 注册人写公司法人全名。
 - [ ] **网站显示的法人名称与 D-U-N-S 记录逐字一致** —— 这是最常见的驳回原因。本站在页脚（每一页）和「关于我们 → 公司信息」两处展示法人名称，请确保两处与 D-U-N-S、贸易执照完全相同，包括 `L.L.C.` 的标点写法。
 - [x] **申请时填写的邮箱使用公司域名** —— 用 `hello@oceanastra.net`，不能用 Gmail / QQ 邮箱。该邮箱必须真实可收信，Apple 会往这里发验证邮件。
@@ -127,8 +113,8 @@ Apple 在审核 Organization 账号时会人工查看官网。以下**加粗**�
 - [ ] 电话号码真实可接通，且与 D-U-N-S 记录一致 —— Apple 可能会打电话核实公司身份，接电话的人要知道这回事。
 - [ ] 网站有实质内容：公司做什么、提供什么产品/服务、如何联系。本站的首页、解决方案、关于我们三页已覆盖。
 - [ ] 具备隐私政策与使用条款页面（已包含）。App 上架时也需要隐私政策 URL。
-- [ ] 具备技术支持页面（已包含）—— App 上架需要提供 Support URL，可直接用 `/support/`。
-- [ ] 全站无死链（用 `node build/check.mjs` 验证）。
+- [ ] App 上架需要提供 Support URL —— 独立的 `/support/` 页已随改版删除，改用 **`https://oceanastra.net/contact/`**，该页有「服务支持」卡片与 `support@oceanastra.net`，满足要求。
+- [ ] 全站无死链 —— 改版后没有自动检查了，替换页面后手动点一遍导航与页脚。
 
 ### 已按贸易执照填入的真实数据
 
@@ -156,23 +142,25 @@ Apple 在审核 Organization 账号时会人工查看官网。以下**加粗**�
 
 只有这两个信箱，全站不出现第三个地址。
 
-### 仍待完成的三项
+### 待办状态（更新于 2026-08-20）
 
-`content/company.json` 顶部 `"_placeholders": true`，构建时会打印清单：
+`content/company.json` 顶部 `"_placeholders": true`，未完成项记录在 `_needsReview`：
 
 | 项 | 状态 | 说明 |
 |---|---|---|
 | 两个信箱开通 | ✅ 已完成 | `hello@` / `support@` 已在 Lark Mail 生效。注意 Apple 申请不接受 Gmail，执照上登记的那个个人 Gmail 不能用于账号申请 |
-| `dunsNumber` | **空缺** | 执照的 D&B D-U-N-S 栏为空，需先向邓白氏申请，这是 Apple 企业账号的前置条件 |
-| DNS 解析 | **待办** | 必须先解析生效，**再**添加 `CNAME` 文件，顺序反了会导致站点暂时无法访问 |
+| DNS 解析 | ✅ 已完成 | 根域 A/AAAA 指向 GitHub Pages、`www` CNAME 指向 `zysncb.github.io`、MX 未受影响，站点已在 https://oceanastra.net 通过 HTTPS 正常访问 |
+| `dunsNumber` | ⏳ 等待发放 | 已于 2026-08-20 向邓白氏提交申请，预计数天内发放。拿到号码后填入 `content/company.json` 的 `dunsNumber` 并重新生成 —— 这是 Apple 企业账号的前置条件 |
 
-全部完成后把 `"_placeholders"` 改成 `false`，构建时就不再提示。
+D-U-N-S 号码到手后填入 `company.json`，并把 `"_placeholders"` 改成 `false`。注意页面上的公司信息是导出时写死的，改 `company.json` **不会**自动更新页面 —— 涉及对外展示的字段（法人名、执照号、地址、电话、邮箱）需回 Design Canvas 改后重新导出。
 
 ---
 
 ## 一些设计决定
 
-**为什么用生成器而不是手写 21 个 HTML。** 改一次电话号码要动 21 个文件，早晚会漏。内容集中在 JSON、生成物提交进仓库，兼顾了可维护性和"服务端零构建"。
+**为什么页面是六个大文件。** 站点由 Claude Design Canvas 设计并导出，每页把字体、图片与脚本全部内联成自包含单文件，因此体积在 7–9 MB（118 个字体分片在六个页面里各存一份）。代价是首屏偏重，收益是除 React 外无外部依赖、GitHub Pages 零构建。若日后要瘦身，方向是把字体抽成共享文件。
+
+**为什么三语不再是三套 URL。** 改版前是 `/`、`/zh/`、`/ar/` 各一套静态页，带 hreflang，三语都能被搜索引擎索引。现在语言在页面内切换，只有一套 URL —— 代价是中文与阿拉伯文内容对 SEO 不可见，搜索引擎只读得到英文那一版。如果中东本地搜索流量重要，这一点需要重新评估。
 
 **为什么没有联系表单。** 静态站的表单必须依赖第三方服务（Formspree 等），多一个可能挂掉的外部依赖，而 Apple 审核只需要看到可用的联系方式。目前直接展示邮箱和电话，更可靠也更容易核实。
 

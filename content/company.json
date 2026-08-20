@@ -2,11 +2,11 @@
   "_comment": "SINGLE SOURCE OF TRUTH for all company facts. Values below are transcribed from the Dubai Commercial License No. 1646635 (issued 20/08/2026). Anything published here must match the trade licence and the D-U-N-S record exactly. Run `node build/build.mjs` after editing.",
   "_placeholders": true,
   "_needsReview": [
-    "dunsNumber — the D&B D-U-N-S field is blank on the trade licence; required for Apple Developer Program enrolment",
-    "DNS for oceanastra.net must resolve to GitHub Pages BEFORE the CNAME file is added (see README)"
+    "dunsNumber — D-U-N-S application submitted to D&B 2026-08-20, expected within a few days; fill in the number here once issued (required for Apple Developer Program enrolment)"
   ],
   "_done": [
-    "2026-08-20 hello@ and support@ mailboxes live on Lark Mail (MX -> larksuite.com)"
+    "2026-08-20 hello@, support@ and partners@ mailboxes live on Lark Mail (MX -> larksuite.com)",
+    "2026-08-20 DNS live: apex A/AAAA -> GitHub Pages, www CNAME -> zysncb.github.io, MX untouched; site serving at https://oceanastra.net with HTTPS"
   ],
 
   "brand": "OceanAstra",
@@ -24,10 +24,11 @@
     "ar": "أوشن أسترا للتكنولوجيا ذ.م.م"
   },
 
-  "_emailNote": "Two mailboxes only. `general` carries enquiries, sales and all legal/privacy correspondence; `support` carries technical support for clients and application users.",
+  "_emailNote": "Three published addresses, all live on Lark Mail. `general` carries enquiries, sales and all legal/privacy correspondence; `support` carries service support for clients and application users, and is the App Store support contact; `partners` carries partnership and vendor-integration enquiries.",
   "email": {
     "general": "hello@oceanastra.net",
-    "support": "support@oceanastra.net"
+    "support": "support@oceanastra.net",
+    "partners": "partners@oceanastra.net"
   },
 
   "phone": {
@@ -36,6 +37,7 @@
   },
 
   "mapUrl": "https://www.google.com/maps?q=24.8260152,55.1065874",
+  "coordinates": "24.8260152, 55.1065874",
 
   "address": {
     "en": {

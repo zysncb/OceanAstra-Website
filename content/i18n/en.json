@@ -24,16 +24,17 @@
     "address": "Registered address",
     "hours": "Business hours",
     "lastUpdated": "Last updated",
-    "viewOnMap": "View on map"
+    "viewOnMap": "Open in Google Maps",
+    "coordinates": "Coordinates"
   },
 
   "home": {
-    "title": "OceanAstra — Enterprise software for the industries that move the region",
-    "description": "OceanAstra is a Dubai-based enterprise technology company building vertical ERP systems, distributing curated enterprise software, and developing AI-native management platforms.",
+    "title": "OceanAstra — Bringing AI into every enterprise in the Middle East",
+    "description": "OceanAstra is a Dubai-based technology company delivering AI-native organisation solutions (CorpOS), industry management systems (CarSaas, Flying) and integration partnerships that bring the world's best technology to enterprises in the Middle East.",
     "hero": {
       "eyebrow": "Dubai, United Arab Emirates",
-      "heading": "Enterprise software for the industries that move the region.",
-      "lede": "OceanAstra builds vertical ERP systems for industries that generic software has never fit, distributes a short list of enterprise platforms we are willing to stand behind, and develops CorpOS — an AI-native way to run a company.",
+      "heading": "Bringing AI into every enterprise in the Middle East.",
+      "lede": "OceanAstra is a technology company headquartered in Dubai. We believe technology knows no borders — we bring the world's most advanced productivity to the Middle East, so that every company here has a wider set of choices.",
       "primary": "Explore our solutions",
       "secondary": "Talk to our team"
     },
@@ -42,44 +43,58 @@
       "Serving the UAE, the wider GCC and Greater China",
       "Delivery in English, Arabic and Chinese"
     ],
-    "pillars": {
-      "eyebrow": "What we do",
-      "heading": "Three business lines, one operating principle.",
-      "lede": "We only take on work where we can own the outcome end to end — from the first process interview to the support call three years later.",
+    "mission": {
+      "eyebrow": "What we believe",
+      "heading": "Vision and philosophy.",
       "items": [
         {
-          "id": "erp",
+          "title": "Vision · AI in every enterprise in the Middle East",
+          "body": "Whether a company was founded in the age of AI or is a long-established business looking for a way to adapt, it should be able to turn AI into real capability at its own pace — not a demonstration, but something that creates value every day."
+        },
+        {
+          "title": "Philosophy · Technology without borders",
+          "body": "A wider choice of advanced productivity for more companies. Good technology should not be constrained by geography, language or the size of the company — wherever you are, whichever language you work in, however large your team, it should be within reach."
+        }
+      ]
+    },
+    "pillars": {
+      "eyebrow": "What we do",
+      "heading": "Three lines of business, one direction.",
+      "lede": "From how a company is organised, to the systems an industry runs on, to bringing proven technology into the region — all three point at the same thing: advanced productivity that is genuinely used inside enterprises here.",
+      "items": [
+        {
+          "id": "ai-org",
           "number": "01",
-          "title": "Vertical Industry ERP",
-          "summary": "Generic ERP asks an industry to describe itself in someone else's vocabulary. We start from how a business actually runs, and build the system around that.",
+          "title": "AI Organisation Solutions",
+          "summary": "Management tools built on how work changes in the age of AI — enabling companies founded today, and giving established businesses a route into AI without tearing anything down.",
           "points": [
-            "Automotive trading — VIN-level inventory, in-transit stock, multi-currency settlement, chassis-to-invoice traceability",
-            "Construction &amp; interior fit-out — project cost control, BOQ and variation orders, subcontractor progress billing, retention tracking",
-            "Deployed on your infrastructure or ours, with data residency you choose"
-          ]
-        },
-        {
-          "id": "distribution",
-          "number": "02",
-          "title": "Curated Software Distribution",
-          "summary": "We represent a deliberately short list of enterprise platforms — and we handle the parts vendors usually leave to the customer: evaluation, localisation, migration, integration and day-to-day support.",
-          "points": [
-            "Lark — messaging, documents, approvals and directory as one digital workplace",
-            "Amap — mapping, routing and location services for logistics and field operations",
-            "Licensing, tenant setup, administrator training and first-line support in three languages"
-          ]
-        },
-        {
-          "id": "corpos",
-          "number": "03",
-          "title": "CorpOS — AI-Native Enterprise Management",
-          "summary": "Our flagship research and development programme. Most \"AI features\" are a chat box bolted onto an existing form. CorpOS starts from the other end: the operating model of the company is the product, and AI agents are how work moves through it.",
-          "points": [
-            "Agent-driven workflows that read, decide and act across connected systems",
-            "One company knowledge layer instead of documents scattered across a dozen tools",
-            "Human approval where judgement matters, automation where it does not"
+            "CorpOS (built in-house) — an AI-native management platform entered through instant messaging, where the organisation is made up of human colleagues and AI teammates",
+            "Or keep the messaging platform you already use and add a CorpOS team of AI teammates to it — Lark + CorpOS, for example",
+            "Management capability for newly founded companies, and a step-by-step transition path for established ones"
           ],
-          "badge": "In active development"
+          "badge": "CorpOS in active development"
+        },
+        {
+          "id": "industry",
+          "number": "02",
+          "title": "Industry Management Solutions",
+          "summary": "Either AI teammates who hold defined roles, or AI assistance layered onto existing work — a new way to manage the operations of a specific industry, and a way to bring AI to the systems that industry already runs.",
+          "points": [
+            "CarSaas — an ERP for automotive trading in the Middle East, currently in development and launching soon",
+            "Flying — a cross-border trading system for construction and interior fit-out, delivered as a tailored solution that matches how each business actually trades",
+            "AI capability added to the systems an industry already runs, without replacing them"
+          ]
+        },
+        {
+          "id": "integration",
+          "number": "03",
+          "title": "Integration Partnerships",
+          "summary": "Bringing proven technology from around the world into the Middle East: selection, integration, localised delivery and long-term support.",
+          "points": [
+            "Lark — deployment and integration of the all-in-one digital workplace across the region",
+            "Amap — mapping and location services for logistics and field operations",
+            "From requirement assessment through tenant setup, migration, training and support in three languages"
+          ]
         }
       ]
     },
@@ -88,85 +103,134 @@
       "heading": "Four steps, no surprises.",
       "items": [
         { "step": "01", "title": "Understand", "body": "We sit with the people who do the work — not only the people who sign the contract — and map the process as it genuinely runs today, including the spreadsheets nobody admits to." },
-        { "step": "02", "title": "Design", "body": "We propose the smallest system that solves the real constraint, and we say plainly which parts are standard software, which are configuration, and which are custom development." },
+        { "step": "02", "title": "Design", "body": "We propose the smallest solution that addresses the real constraint, and we say plainly which parts are standard product, which are configuration, which are custom development, and where AI should enter." },
         { "step": "03", "title": "Deliver", "body": "Phased rollout with a defined scope, a named delivery lead and a fixed acceptance checklist for every phase. Data migration is treated as part of the project, not an afterthought." },
         { "step": "04", "title": "Support", "body": "Named support contacts, agreed response targets and a documented escalation path — in English, Arabic or Chinese, whichever your team works in." }
       ]
     },
+    "partners": {
+      "eyebrow": "Partners",
+      "heading": "Working alongside the best technology companies.",
+      "lede": "We partner with proven technology platforms, bring them to enterprise clients across the region, and take responsibility for every step that follows.",
+      "items": [
+        { "name": "Lark", "body": "A new generation of all-in-one digital workplace: messaging, documents, approvals, calendar and company directory in a single platform. We deliver its deployment, integration and three-language support across the region." },
+        { "name": "Amap", "body": "A leading mapping and location services platform: geocoding, routing and fleet visibility. We deliver integration for logistics and field operations." }
+      ],
+      "note": "Lark and Amap are trademarks of their respective owners. The scope of each partnership, and what it covers commercially, is confirmed in writing during commercial discussion.",
+      "cta": "Discuss a partnership"
+    },
+    "about": {
+      "eyebrow": "About us",
+      "heading": "About OceanAstra.",
+      "body": [
+        "OceanAstra Technologies L.L.C is a technology company registered in Dubai, United Arab Emirates, holding a commercial licence issued by the Department of Economy and Tourism, Government of Dubai.",
+        "We provide AI organisation solutions, industry management solutions and integration partnerships to enterprise clients across the UAE, the wider GCC and Greater China, delivered and supported in English, Arabic and Chinese."
+      ],
+      "button": "More about us"
+    },
     "cta": {
-      "heading": "Tell us what is not working.",
-      "body": "Most of our projects start with a single frustrated process. Describe yours and we will tell you honestly whether we are the right people for it.",
+      "heading": "Tell us where you would like to start.",
+      "body": "Whether you want AI inside your organisation or a system that fits your industry, describe the situation and we will tell you honestly which route applies — and if none of them does, we will say that too.",
       "button": "Contact us"
     }
   },
 
   "solutions": {
     "title": "Solutions — OceanAstra",
-    "description": "Vertical ERP for automotive trading and construction fit-out, curated enterprise software distribution, and CorpOS — OceanAstra's AI-native enterprise management platform.",
+    "description": "OceanAstra's three lines of business: AI organisation solutions (CorpOS), industry management solutions (CarSaas, Flying), and integration partnerships bringing global technology to the Middle East.",
     "hero": {
       "eyebrow": "Solutions",
-      "heading": "Built for a specific industry, or not built at all.",
+      "heading": "From the organisation to the industry, AI that actually lands.",
       "lede": "Three lines of business, each with its own delivery model. What they share is that we own the result — the software, the data migration, the training and the support that follows."
     },
     "sections": [
       {
-        "id": "erp",
+        "id": "ai-org",
         "number": "01",
-        "title": "Vertical Industry ERP",
-        "lede": "Purpose-built enterprise resource planning for industries whose operating reality does not fit standard modules.",
+        "title": "AI Organisation Solutions",
+        "badge": "CorpOS in active development",
+        "lede": "Management tools built on how work changes in the age of AI — enabling companies founded today, and helping established businesses make the transition.",
         "body": [
-          "An automotive trading company and a fit-out contractor have almost nothing in common operationally, yet both are routinely sold the same ERP with different labels on the screens. The result is a system that records what happened after the fact, while the actual business keeps running on spreadsheets and messaging groups.",
-          "We build the opposite: a system that matches the shape of the business, so the people doing the work have a reason to use it."
+          "AI is not only making old processes faster; it is changing the shape of the organisation itself. Once an AI teammate can hold a real role with real responsibilities, the question of how a company should be structured has a new answer.",
+          "We work with two kinds of company: those founded in the age of AI, which can be AI-native from day one, and established businesses that need a route into AI which does not require tearing out what already works."
         ],
         "groups": [
           {
-            "title": "Automotive trading",
+            "title": "Solutions",
+            "items": [
+              "CorpOS (built in-house) — an AI-native management platform entered through instant messaging. The organisation is made up of human colleagues and AI teammates: each AI teammate holds a defined role, defined responsibilities and a defined reporting line, working alongside people in the same space",
+              "Your existing messaging platform + a CorpOS team of AI teammates — keep the platform your company already runs on, such as Lark, and add AI teammates into it to take on the work that can be automated, one role at a time"
+            ]
+          },
+          {
+            "title": "Where it applies",
+            "items": [
+              "Companies founded in the age of AI — build the team as human colleagues and AI teammates from day one",
+              "Growing small and mid-sized businesses — add capacity through AI teammates instead of headcount alone",
+              "Established businesses adopting AI — bring AI into daily operations without replacing existing systems"
+            ]
+          }
+        ],
+        "note": "CorpOS is under active development, and we are refining it with a small number of design partners. If you would like to be an early user, we would like to hear from you."
+      },
+      {
+        "id": "industry",
+        "number": "02",
+        "title": "Industry Management Solutions",
+        "lede": "Either AI teammates who hold defined roles, or AI assistance layered onto existing work — a new operating model for a specific industry, and AI capability for the systems it already runs.",
+        "body": [
+          "Generic software struggles to match the operating reality of a specific industry, and industry software often stops at recording what already happened. We work deep inside particular industries and build AI capability directly into the business system.",
+          "There are two ways in: AI teammates who take on roles within the process, or AI assistance that strengthens the systems and the people already in place."
+        ],
+        "groups": [
+          {
+            "title": "CarSaas — automotive trading ERP for the region (in development, launching soon)",
             "items": [
               "VIN-level inventory with in-transit, in-bond and in-showroom states",
               "Purchase, shipping, customs and landed-cost tracking per unit",
-              "Multi-currency purchasing and settlement with realised and unrealised FX",
+              "Multi-currency purchasing and settlement, with VAT treatment appropriate to UAE requirements",
               "Chassis-to-invoice traceability for audit and warranty claims",
               "Sales pipeline, reservations, deposits and delivery handover"
             ]
           },
           {
-            "title": "Construction &amp; interior fit-out",
+            "title": "Flying — cross-border trading system for construction fit-out (tailored delivery)",
             "items": [
-              "Project budgets against bills of quantities, with committed and actual cost",
-              "Variation orders tracked from request through client approval to billing",
-              "Subcontractor packages, progress claims and retention release",
-              "Procurement and material issue tied to the project, not just the warehouse",
-              "Cash-flow forecast built from the billing schedule rather than guesswork"
+              "End-to-end cross-border procurement and trading for the fit-out industry",
+              "Supplier, quotation and order collaboration across currencies and languages",
+              "Logistics and customs milestone tracking, with delivery dates visible throughout",
+              "Cost captured and settled at project level",
+              "Delivered as a tailored solution, matching how a particular business trades and runs its projects"
             ]
           },
           {
             "title": "Across both",
             "items": [
-              "Role-based access aligned to your real approval hierarchy",
+              "AI teammates or AI assistance, whichever suits the team as it is today",
               "Arabic, English and Chinese interfaces with correct right-to-left layout",
-              "VAT treatment appropriate to UAE requirements",
               "Deployment on your infrastructure or a hosting arrangement we manage",
               "Documented APIs so the system is never a dead end"
             ]
           }
-        ]
+        ],
+        "note": "CarSaas is in development and expected to launch shortly. Flying is delivered as a tailored solution and can be adapted to how a particular business trades and runs its projects — tell us about your operation and we will say what would carry over."
       },
       {
-        "id": "distribution",
-        "number": "02",
-        "title": "Curated Software Distribution",
-        "lede": "A short, opinionated list of enterprise platforms — selected, localised, deployed and supported by us.",
+        "id": "integration",
+        "number": "03",
+        "title": "Integration Partnerships",
+        "lede": "Bringing proven technology from around the world into the Middle East, and making it land.",
         "body": [
-          "Buying enterprise software is easy. Making it actually take hold inside an organisation is not. The gap is usually not the product: it is tenant design, data migration, integration with what you already run, administrator capability, and someone to call when it breaks.",
-          "We only represent platforms we are prepared to be judged on, and we take responsibility for that gap rather than handing over a licence key."
+          "Technology built elsewhere — for collaboration, productivity and location services — is often mature and proven, but entering this market means crossing distances of language, compliance and local delivery. We are here in Dubai to close that distance.",
+          "For enterprises in the region, this means one more proven option. For the technology companies themselves, it means a local partner for the long term."
         ],
         "groups": [
           {
-            "title": "Platforms we represent",
+            "title": "Platforms we work with",
             "items": [
               "Lark — messaging, documents, approvals, calendar and company directory brought together as a single digital workplace",
               "Amap — geocoding, routing, fleet visibility and delivery operations for logistics and field teams",
-              "Adjacent line-of-business tools selected case by case for a specific client requirement"
+              "Further platforms assessed case by case; we only bring in what we are prepared to stand behind"
             ]
           },
           {
@@ -182,30 +246,6 @@
           }
         ],
         "note": "Lark and Amap are trademarks of their respective owners. The scope of each partnership, and what it covers commercially, is confirmed in writing during commercial discussion."
-      },
-      {
-        "id": "corpos",
-        "number": "03",
-        "title": "CorpOS — AI-Native Enterprise Management",
-        "badge": "In active development",
-        "lede": "Our flagship programme: an operating layer where AI agents carry the work between systems, and people make the decisions that deserve a person.",
-        "body": [
-          "Enterprise software has spent three decades getting better at recording work after it happens. CorpOS is our attempt at the harder problem — moving the work itself.",
-          "The premise is that a company already has an operating model: how a request becomes an approval, how an approval becomes a purchase, how a purchase becomes a payment. Today that model lives in people's heads and in the gaps between systems. CorpOS makes it explicit, gives agents the context to execute it, and puts a person at the points where judgement, liability or relationships are involved."
-        ],
-        "groups": [
-          {
-            "title": "Design principles",
-            "items": [
-              "The operating model is the product — not a chat window added to an existing screen",
-              "One company knowledge layer, so an agent answers from the same facts a person would",
-              "Every automated action is attributable, reviewable and reversible",
-              "Human approval where judgement matters; automation where it genuinely does not",
-              "Open interfaces to the systems a company already runs"
-            ]
-          }
-        ],
-        "note": "CorpOS is under active development. We are working with a small number of design partners ahead of general availability — if the problem sounds like yours, we would like to hear from you."
       }
     ],
     "cta": {
@@ -217,18 +257,18 @@
 
   "about": {
     "title": "About — OceanAstra",
-    "description": "OceanAstra is an enterprise technology company registered in Dubai, United Arab Emirates, working across vertical ERP, enterprise software distribution and AI-native management systems.",
+    "description": "OceanAstra is a technology company registered in Dubai, United Arab Emirates, working to bring AI into every enterprise in the Middle East through AI organisation solutions, industry management systems and integration partnerships.",
     "hero": {
       "eyebrow": "About us",
-      "heading": "An enterprise technology company based in Dubai.",
-      "lede": "OceanAstra was founded to close a specific gap: the distance between enterprise software as it is sold and enterprise software as it is actually used."
+      "heading": "A technology company headquartered in Dubai.",
+      "lede": "OceanAstra was founded around one clear ambition: to bring AI into every enterprise in the Middle East."
     },
     "story": {
       "heading": "Why we exist",
       "paragraphs": [
-        "The companies that keep this region moving — vehicle traders, fit-out contractors, distributors, logistics operators — run on operating models that are genuinely sophisticated. Their software rarely reflects that. It is either a global platform that assumes a business they are not, or a local system that stopped being developed years ago.",
-        "OceanAstra was set up by people who have implemented enterprise systems on both sides of that gap: inside large organisations where the system is inherited, and inside vendors where the system is sold. We started the company to do the part that neither side does well — build or select software that fits the business, and stay accountable for it afterwards.",
-        "We work across three lines: vertical ERP we build ourselves, enterprise platforms we select and support on our clients' behalf, and CorpOS, our own research programme into how AI changes the shape of enterprise management. The three inform each other. What we learn implementing other people's software shapes what we build; what we build shapes what we are willing to recommend."
+        "The companies that keep this region moving — vehicle traders, fit-out contractors, distributors, logistics operators — run on operating models that are genuinely sophisticated. Their software rarely reflects that. AI creates a rare opening: rather than carrying the weight of an old system forward, a company can move straight to a new way of working.",
+        "We believe technology knows no borders. The most advanced productivity in the world — wherever it was built — should be within reach of enterprises here. OceanAstra was set up by people who have implemented enterprise systems from both sides, inside the organisations that run them and inside the vendors that sell them. We based the company in Dubai to do the last part properly: bring the technology here, and make it land.",
+        "We work across three lines: AI organisation solutions, including CorpOS, which we build ourselves and where the organisation is made up of human colleagues and AI teammates; industry management solutions, including CarSaas for automotive trading and Flying for cross-border fit-out trading; and integration partnerships that bring proven global platforms into the region. The three inform each other. What we learn delivering other people's products shapes what we build; what we build shapes what we are willing to recommend."
       ]
     },
     "principles": {
@@ -281,7 +321,7 @@
     "channels": {
       "heading": "How to reach us",
       "items": [
-        { "title": "Support email", "body": "The fastest route for most issues. Please include the system or application name, what you expected, what happened instead, and a screenshot if you have one.", "linkLabel": "Email support" },
+        { "title": "Service support email", "body": "The fastest route for most issues. Please include the system or application name, what you expected, what happened instead, and a screenshot if you have one.", "linkLabel": "Email support" },
         { "title": "Telephone", "body": "Available during business hours for issues that are blocking operations. If you reach voicemail outside those hours, leave the company name and a callback number.", "linkLabel": "Call us" },
         { "title": "Named contacts", "body": "Clients under a support agreement receive named contacts and a direct escalation path, documented at the start of the engagement." }
       ]
@@ -308,18 +348,19 @@
 
   "contact": {
     "title": "Contact — OceanAstra",
-    "description": "Contact OceanAstra — registered office in Dubai, United Arab Emirates. Email, telephone and business hours for enquiries, sales and support.",
+    "description": "Contact OceanAstra — office in Dubai, United Arab Emirates. Email addresses for enquiries, service support and partnerships, plus telephone, location and business hours.",
     "hero": {
       "eyebrow": "Contact",
       "heading": "Get in touch.",
       "lede": "Tell us what you are trying to fix. A short description of the process and the size of the team is usually enough for us to give a useful first answer."
     },
     "cards": {
-      "general": { "title": "Enquiries and new projects", "body": "Solution enquiries, demonstrations and commercial discussion, plus company, partnership and press questions." },
-      "support": { "title": "Technical support", "body": "For existing clients and users of our software and mobile applications." }
+      "general": { "title": "Enquiries", "body": "Solution enquiries, demonstrations and commercial discussion, plus company and press questions." },
+      "support": { "title": "Service support", "body": "For existing clients and users of our software and mobile applications." },
+      "partners": { "title": "Partnerships", "body": "For technology vendors looking to enter the Middle East, and for channel, integration and ecosystem discussions." }
     },
     "office": {
-      "heading": "Registered office",
+      "heading": "Our office",
       "note": "Visits are by appointment. Please write or call ahead so we can make sure the right people are available."
     },
     "note": "We reply to every genuine enquiry, normally within one business day. If you have not heard back within two business days, please resend — occasionally messages are filtered."
@@ -335,7 +376,7 @@
       {
         "heading": "1. Who we are",
         "paragraphs": [
-          "The controller responsible for the personal information described in this policy is the company identified at the end of this document, registered in Dubai, United Arab Emirates. Where we process personal information on behalf of a client — for example, inside an ERP system we operate for them — that client is the controller and we act as a processor under our agreement with them."
+          "The controller responsible for the personal information described in this policy is the company identified at the end of this document, registered in Dubai, United Arab Emirates. Where we process personal information on behalf of a client — for example, inside a business system we operate for them — that client is the controller and we act as a processor under our agreement with them."
         ]
       },
       {
@@ -371,7 +412,7 @@
         "paragraphs": ["We share personal information only in these circumstances:"],
         "list": [
           "With service providers who host, secure or operate our infrastructure, under written confidentiality and data protection terms",
-          "With software vendors whose platforms we resell or support, strictly as required to provision, license or support your use of those platforms",
+          "With software vendors whose platforms we integrate or support, strictly as required to provision, license or support your use of those platforms",
           "Where required by applicable law, regulation, court order or a lawful request from a competent authority",
           "In connection with a corporate transaction such as a merger or acquisition, subject to equivalent protection continuing to apply"
         ]
@@ -474,7 +515,7 @@
       {
         "heading": "5. Information on this site",
         "paragraphs": [
-          "We take care to keep the information on this website accurate and current, but it is provided for general information only. It does not constitute a quotation, an offer capable of acceptance, or professional advice, and product descriptions and capabilities may change as our software develops. Anything relied upon commercially should be confirmed with us in writing."
+          "We take care to keep the information on this website accurate and current, but it is provided for general information only. It does not constitute a quotation, an offer capable of acceptance, or professional advice; product descriptions and capabilities may change as our software develops, and some products remain in development. Anything relied upon commercially should be confirmed with us in writing."
         ]
       },
       {
@@ -498,7 +539,7 @@
       {
         "heading": "9. Client agreements",
         "paragraphs": [
-          "Software, implementation, distribution and support services are provided under a separate written agreement. Where anything on this website conflicts with that agreement, the signed agreement prevails."
+          "Software, implementation, integration and support services are provided under a separate written agreement. Where anything on this website conflicts with that agreement, the signed agreement prevails."
         ]
       },
       {
@@ -529,7 +570,7 @@
   },
 
   "footer": {
-    "tagline": "Enterprise software for the industries that move the region.",
+    "tagline": "Bringing AI into every enterprise in the Middle East.",
     "solutionsHeading": "Solutions",
     "companyHeading": "Company",
     "contactHeading": "Contact",
