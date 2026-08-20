@@ -21,7 +21,8 @@ export cannot produce any of it on its own:
   6. Loops the export left unwired are connected to their copy, and the empty
      partner logo slots are filled.
   7. Sections the company asked to drop are removed, copy included.
-  8. sitemap.xml is regenerated.
+  8. The header logo trades its opacity fade for the nav wavy underline.
+  9. sitemap.xml is regenerated.
 
 Two things are deliberately NOT automated: image cropping/compression (a
 judgement call about composition — see README) and anything inside content/.
@@ -314,6 +315,56 @@ def drop_sections(template, page):
     return template, dropped
 
 
+
+# Header logo hover ------------------------------------------------------------
+#
+# The export fades the whole lockup to opacity 0.62 on the homepage and gives
+# the inner pages no hover at all. Fading reads as "disabled" on a dark ground,
+# and it is the only hover in the design that weakens rather than brightens —
+# everything else lifts to #F2F2F0 or picks up the brand violet.
+#
+# The nav links already own a good idiom: a wavy underline in #5B6CFF, which is
+# the same wave that sits inside the mark. The logo now borrows it. Drawn on a
+# pseudo-element so it cannot disturb the flex row, and keyed off the <a> so
+# hovering the mark reveals it too.
+
+BRAND_WAVE = (
+    "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='7' "
+    "viewBox='0 0 18 7'%3E%3Cpath d='M0 5.2 Q4.5 1.2 9 5.2 T18 5.2' fill='none' "
+    "stroke='%235B6CFF' stroke-width='1.5'/%3E%3C/svg%3E\")"
+)
+
+BRAND_CSS = (
+    "<style>"
+    "[data-oa-brand] span{position:relative}"
+    "[data-oa-brand] span::after{content:'';position:absolute;left:0;right:0;bottom:-7px;height:7px;"
+    f"background-image:{BRAND_WAVE};background-repeat:repeat-x;background-position:left bottom;"
+    "background-size:18px 7px;opacity:0;transition:opacity 200ms ease;pointer-events:none}"
+    "[data-oa-brand]:hover span::after,[data-oa-brand]:focus-visible span::after{opacity:1}"
+    "@media (prefers-reduced-motion:reduce){[data-oa-brand] span::after{transition:none}}"
+    "</style>"
+)
+
+
+def brand_hover(template):
+    """Swap the logo's fade for the nav's wavy underline, on every page."""
+    template = template.replace(' style-hover="opacity:0.62;"', '')
+
+    # the header lockup is the <a> wrapping the nav-scoped mark (clipPath w-nav)
+    at = template.find("w-nav")
+    if at < 0:
+        return template, False
+    start = template.rfind("<a ", 0, at)
+    tag_end = template.find(">", start)
+    if start < 0 or tag_end < 0:
+        sys.exit("header logo markup changed — re-check the export before shipping")
+    if "data-oa-brand" not in template[start:tag_end]:
+        template = template[:tag_end] + ' data-oa-brand=""' + template[tag_end:]
+    if "[data-oa-brand]" not in template:
+        template = template.replace("</head>", BRAND_CSS + "</head>", 1)
+    return template, True
+
+
 def block(doc, kind):
     """Locate a <script type="__bundler/KIND"> payload."""
     return re.search(rf'(<script type="__bundler/{kind}">)(.*?)(</script>)', doc, re.S)
@@ -363,6 +414,7 @@ def main(export_dir):
         template, dropped = drop_sections(template, page)
         template, wired = wire_up_loops(template, page)
         template, logos_in = fill_partner_logos(template)
+        template, brand_fx = brand_hover(template)
 
         # --- move fonts and images out of the manifest -----------------------
         moved = {}
@@ -415,6 +467,7 @@ def main(export_dir):
         note = f"   接回空循环 {len(wired)}" if wired else ""
         if logos_in: note += "   合作伙伴 logo 已填入"
         if dropped: note += f"   移除板块 {','.join(dropped)}"
+        if brand_fx: note += "   logo hover 已换"
         print(f"  {page:<22} {len(doc)/1024:>6.0f} KB   资源外置 {len(moved):>3}{note}")
 
     urls = "".join(
