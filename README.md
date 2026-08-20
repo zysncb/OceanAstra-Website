@@ -4,20 +4,26 @@
 
 - 六个页面：首页、解决方案、关于我们、联系我们、隐私政策、使用条款
 - **三种语言在页面内切换**（右上角 EN / 中文 / عربي），不是三套 URL。阿文为 RTL 从右至左排版
-- 每个页面是一个自包含的单文件：字体、图片、脚本全部内联，只有 React 从 unpkg CDN 加载
+- 字体与图片是外部共享文件，六页复用；页面本身 140–225 KB，只有 React 从 unpkg CDN 加载
 
 ---
 
 ## 目录结构
 
 ```
-index.html  solutions/  about/  contact/  privacy/  terms/   ← 页面（各 7–9 MB，资源内联）
-assets/img/favicon.svg                                       ← favicon
+index.html  solutions/  about/  contact/  privacy/  terms/   ← 页面（各 140–225 KB）
+assets/
+  fonts/fonts.css       ← 336 条 @font-face，六页共享
+  fonts/*.woff2         ← 118 个字体分片，按 unicode-range 需要时才下载
+  img/favicon.svg       ← favicon（取自 VI 的海浪 + 星辰标志）
+  img/*.jpg             ← 页面配图
 404.html  sitemap.xml  robots.txt  .nojekyll                 ← 站点配置
 content/
   company.json          ← 公司信息事实来源（法人名、执照号、地址、电话、邮箱）
   i18n/{en,zh,ar}.json  ← 三语文案定稿，页面 SEO 元数据取自这里
 ```
+
+`assets/` 下的文件名是内容哈希，内容一变文件名就变，可以放心让 CDN 长期缓存。
 
 `content/` 现在**不参与构建**，它是文案与公司信息的事实来源，供改稿、翻译和核对 Apple 材料时查阅。原先的静态生成器（`build/`）已随设计改版删除。
 
@@ -158,7 +164,11 @@ D-U-N-S 号码到手后填入 `company.json`，并把 `"_placeholders"` 改成 `
 
 ## 一些设计决定
 
-**为什么页面是六个大文件。** 站点由 Claude Design Canvas 设计并导出，每页把字体、图片与脚本全部内联成自包含单文件，因此体积在 7–9 MB（118 个字体分片在六个页面里各存一份）。代价是首屏偏重，收益是除 React 外无外部依赖、GitHub Pages 零构建。若日后要瘦身，方向是把字体抽成共享文件。
+**为什么要把资源从导出产物里拆出来。** Design Canvas 的导出把字体、图片、脚本全部内联成自包含单文件，首页因此有 8.9 MB，且六个页面各存一份，整站 44 MB。更要命的是 woff2 分片本来带 `unicode-range`、浏览器只该下载用得到的那几片，内联成 base64 后这个机制失效 —— 英文访客也被迫下载全部 303 个中文字体分片。
+
+现在字体和图片是外部文件，按内容哈希命名、六页共享。**英文首屏只下载 4 个字体分片**，切到中文或阿拉伯文时才增量加载对应分片。首屏从 8.9 MB 降到约 900 KB。
+
+每次从 Design Canvas 重新导出后，这个拆分需要重做一遍。
 
 **为什么三语不再是三套 URL。** 改版前是 `/`、`/zh/`、`/ar/` 各一套静态页，带 hreflang，三语都能被搜索引擎索引。现在语言在页面内切换，只有一套 URL —— 代价是中文与阿拉伯文内容对 SEO 不可见，搜索引擎只读得到英文那一版。如果中东本地搜索流量重要，这一点需要重新评估。
 

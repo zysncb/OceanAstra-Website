@@ -1,15 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" role="img" aria-label="OceanAstra">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="OceanAstra">
   <defs>
-    <linearGradient id="oa-fav" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#12557F"/>
-      <stop offset="1" stop-color="#04121F"/>
-    </linearGradient>
+    <clipPath id="oa-clip"><circle cx="60" cy="60" r="42"/></clipPath>
   </defs>
-  <rect width="40" height="40" rx="9" fill="url(#oa-fav)"/>
-  <path d="M6.5 26.4c3.4-3.4 6.8-3.4 10.2 0s6.8 3.4 10.2 0 6.8-3.4 10.2 0"
-        fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" opacity=".95"/>
-  <path d="M6.5 32.2c3.4-3.4 6.8-3.4 10.2 0s6.8 3.4 10.2 0 6.8-3.4 10.2 0"
-        fill="none" stroke="#4FC3D9" stroke-width="2.2" stroke-linecap="round" opacity=".75"/>
-  <path d="M25.5 6.4c.55 4.3 1.35 5.1 5.6 5.65-4.25.55-5.05 1.35-5.6 5.65-.55-4.3-1.35-5.1-5.6-5.65 4.25-.55 5.05-1.35 5.6-5.65Z"
-        fill="#4FC3D9"/>
+  <circle cx="60" cy="60" r="50" fill="#07090F"/>
+  <g clip-path="url(#oa-clip)">
+    <path d="M 8 70.4 Q 28 56.4 48 70.4 T 88 70.4 T 128 70.4" stroke="#5B6CFF" stroke-width="9" fill="none"/>
+    <circle cx="70.4" cy="46" r="6" fill="#F2F2F0"/>
+  </g>
+  <circle cx="60" cy="60" r="46" stroke="#F2F2F0" stroke-width="8" fill="none"/>
 </svg>

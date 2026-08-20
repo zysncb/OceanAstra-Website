@@ -1,0 +1,8 @@
+{
+  "_comment": "Design Canvas exports images at full source resolution, which is far larger than any of them is displayed at. Each entry maps the hash of an exported image to the optimised file that should ship in its place; prepare-export.py applies these so a re-export does not silently reinstate the heavy original. Cropping and quality are judgement calls — do them by hand, drop the result in assets/img/, and record it here.",
+
+  "174fecd03608cc13": {
+    "use": "734d2017ee925be1.jpg",
+    "why": "Hero band: exported 2400x3600 at 1.4 MB, but it renders as a wide strip (max 440px tall) where object-fit crops away most of the frame. Centre-cropped to 2400x1300 — keeping the Burj Al Arab whole — then scaled to 2000x1083 at q82. 1.4 MB -> 345 KB with no visible change."
+  }
+}
