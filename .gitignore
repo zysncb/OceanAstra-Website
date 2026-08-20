@@ -4,3 +4,7 @@ node_modules/
 
 # Machine-local Claude Code settings. launch.json is shared; this one is not.
 .claude/settings.local.json
+
+# Python bytecode from tools/
+__pycache__/
+*.pyc

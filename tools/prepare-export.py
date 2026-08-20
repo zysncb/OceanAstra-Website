@@ -18,7 +18,9 @@ export cannot produce any of it on its own:
      subsetting starts working again.
   5. The 336 @font-face rules — identical on every page — become one shared
      stylesheet instead of 331 KB repeated six times.
-  6. sitemap.xml is regenerated.
+  6. Loops the export left unwired are connected to their copy, and the empty
+     partner logo slots are filled.
+  7. sitemap.xml is regenerated.
 
 Two things are deliberately NOT automated: image cropping/compression (a
 judgement call about composition — see README) and anything inside content/.
@@ -92,6 +94,96 @@ def seo_block(title, desc, url):
     )
 
 
+
+# Loops the export left unwired -----------------------------------------------
+#
+# Design Canvas ships copy as positional arrays (["title", "body"]) and the page
+# builds display objects from them — nav, langs and cards all get a .map(). Some
+# sections never got one: their loop binds straight to the raw array while the
+# markup reads r.title / r.body, so every row renders blank. The copy is present
+# and correct; only the wiring is missing. Seen on About ("我们坚持的") and
+# Contact ("How to reach us", "What to expect").
+#
+# Rather than name the known cases, find any loop that binds to a raw t.X.items
+# whose body reads properties off the alias, and give it a mapped list.
+
+FIELDS = ["title", "body"]   # the positional order Design Canvas writes
+
+
+def wire_up_loops(template, page):
+    fixed = []
+    for section, alias in re.findall(
+            r'<sc-for list="\{\{\s*t\.(\w+)\.items\s*\}\}" as="(\w+)"', template):
+        props = set(re.findall(r'\{\{\s*' + alias + r'\.(\w+)', template))
+        if not props:
+            continue                      # binds to the array and uses it as one
+        unknown = props - set(FIELDS)
+        if unknown:
+            sys.exit(f"{page}: t.{section}.items is read for {sorted(unknown)}, "
+                     f"which this mapping does not cover — extend FIELDS deliberately, "
+                     f"since the fix depends on positional order.")
+        var = section + "Items"
+        template = template.replace(f'list="{{{{ t.{section}.items }}}}"',
+                                    f'list="{{{{ {var} }}}}"')
+        mapping = ", ".join(f"{f}: o[{i}]" for i, f in enumerate(FIELDS))
+        template = template.replace(
+            "      nav: t.nav.map(",
+            f"      {var}: (t.{section} && t.{section}.items || []).map(o => ({{ {mapping} }})),\n"
+            f"      nav: t.nav.map(", 1)
+        fixed.append(f"t.{section}.items")
+    return template, fixed
+
+
+
+# Partner logos ----------------------------------------------------------------
+#
+# The export leaves the partner logo slots empty — <image-slot> with a
+# placeholder and no src. Both marks are black wordmarks on transparent or
+# white ground, so dropping them straight onto the #0D111C card would make one
+# a white block and the other near-invisible; they sit on a light plate
+# instead, which also avoids recolouring anyone's trademark.
+#
+# The page already derives a logoId per partner (lowercased, non-alphanumerics
+# stripped), and that lands on the same value in all three languages —
+# "لارك (Lark)" reduces to "lark" — so it is a safe lookup key.
+
+PARTNER_LOGOS = {
+    "oa-logo-lark": "/assets/img/lark.png",
+    "oa-logo-amap": "/assets/img/Amap.png",
+}
+
+OLD_PARTNER_MAP = ('partnerItems: t.partners.items.map(i => ({ title: i[0], body: i[1], '
+                   'logoId: "oa-logo-" + i[0].toLowerCase().replace(/[^a-z0-9]/g, "") })),')
+NEW_PARTNER_MAP = ('partnerItems: t.partners.items.map(i => { '
+                   'var logoId = "oa-logo-" + i[0].toLowerCase().replace(/[^a-z0-9]/g, ""); '
+                   'return { title: i[0], body: i[1], logoId: logoId, '
+                   'logo: PARTNER_LOGOS[logoId] || "" }; }),')
+
+LOGO_MARKUP = ('<div style="height:40px; display:flex; align-items:center;">'
+               '<sc-if value="{{ p.logo }}">'
+               '<span style="background:#F2F2F0; border-radius:5px; padding:7px 11px; '
+               'display:inline-flex; align-items:center;">'
+               '<img src="{{ p.logo }}" alt="{{ p.title }}" loading="lazy" '
+               'style="height:24px; width:auto; display:block;"></span>'
+               '</sc-if></div>')
+
+
+def fill_partner_logos(template):
+    if OLD_PARTNER_MAP not in template:
+        return template, False
+    decl = "const PARTNER_LOGOS = " + json.dumps(PARTNER_LOGOS) + ";\n"
+    at = template.find("class ")
+    if at < 0:
+        at = template.find("function ")
+    template = template[:at] + decl + template[at:]
+    template = template.replace(OLD_PARTNER_MAP, NEW_PARTNER_MAP, 1)
+    slot = re.search(r'<div style="width:120px; height:40px;">\s*<image-slot[^>]*>\s*</image-slot>\s*</div>',
+                     template)
+    if not slot:
+        sys.exit("partner logo slot markup changed — re-check the export before shipping")
+    return template[:slot.start()] + LOGO_MARKUP + template[slot.end():], True
+
+
 def block(doc, kind):
     """Locate a <script type="__bundler/KIND"> payload."""
     return re.search(rf'(<script type="__bundler/{kind}">)(.*?)(</script>)', doc, re.S)
@@ -138,6 +230,8 @@ def main(export_dir):
         manifest = json.loads(man_m.group(2))
         template = json.loads(tpl_m.group(2))
         template = template.replace("<html><head>", '<html lang="en" dir="ltr"><head>\n' + meta, 1)
+        template, wired = wire_up_loops(template, page)
+        template, logos_in = fill_partner_logos(template)
 
         # --- move fonts and images out of the manifest -----------------------
         moved = {}
@@ -187,7 +281,9 @@ def main(export_dir):
         os.makedirs(os.path.dirname(page) or ".", exist_ok=True)
         open(page, "w", encoding="utf8").write(doc)
         total += len(doc)
-        print(f"  {page:<22} {len(doc)/1024:>6.0f} KB   资源外置 {len(moved):>3}")
+        note = f"   接回空循环 {len(wired)}" if wired else ""
+        if logos_in: note += "   合作伙伴 logo 已填入"
+        print(f"  {page:<22} {len(doc)/1024:>6.0f} KB   资源外置 {len(moved):>3}{note}")
 
     urls = "".join(
         f"  <url>\n    <loc>{site}{r}</loc>\n    <changefreq>monthly</changefreq>\n"
