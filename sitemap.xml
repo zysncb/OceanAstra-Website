@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://oceanastra.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oceanastra.com/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://oceanastra.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://oceanastra.com/ar/"/>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://oceanastra.com/solutions/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oceanastra.com/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://oceanastra.com/zh/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://oceanastra.com/ar/solutions/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://oceanastra.com/about/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oceanastra.com/about/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://oceanastra.com/zh/about/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://oceanastra.com/ar/about/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://oceanastra.com/support/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oceanastra.com/support/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://oceanastra.com/zh/support/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://oceanastra.com/ar/support/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://oceanastra.com/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oceanastra.com/contact/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://oceanastra.com/zh/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://oceanastra.com/ar/contact/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://oceanastra.com/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oceanastra.com/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://oceanastra.com/zh/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://oceanastra.com/ar/privacy/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://oceanastra.com/terms/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oceanastra.com/terms/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://oceanastra.com/zh/terms/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://oceanastra.com/ar/terms/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://oceanastra.com/zh/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oceanastra.com/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://oceanastra.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://oceanastra.com/ar/"/>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://oceanastra.com/zh/solutions/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oceanastra.com/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://oceanastra.com/zh/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://oceanastra.com/ar/solutions/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://oceanastra.com/zh/about/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oceanastra.com/about/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://oceanastra.com/zh/about/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://oceanastra.com/ar/about/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://oceanastra.com/zh/support/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oceanastra.com/support/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://oceanastra.com/zh/support/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://oceanastra.com/ar/support/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://oceanastra.com/zh/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oceanastra.com/contact/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://oceanastra.com/zh/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://oceanastra.com/ar/contact/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://oceanastra.com/zh/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oceanastra.com/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://oceanastra.com/zh/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://oceanastra.com/ar/privacy/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://oceanastra.com/zh/terms/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oceanastra.com/terms/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://oceanastra.com/zh/terms/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://oceanastra.com/ar/terms/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://oceanastra.com/ar/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oceanastra.com/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://oceanastra.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://oceanastra.com/ar/"/>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://oceanastra.com/ar/solutions/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oceanastra.com/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://oceanastra.com/zh/solutions/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://oceanastra.com/ar/solutions/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://oceanastra.com/ar/about/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oceanastra.com/about/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://oceanastra.com/zh/about/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://oceanastra.com/ar/about/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://oceanastra.com/ar/support/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oceanastra.com/support/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://oceanastra.com/zh/support/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://oceanastra.com/ar/support/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://oceanastra.com/ar/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oceanastra.com/contact/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://oceanastra.com/zh/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://oceanastra.com/ar/contact/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://oceanastra.com/ar/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oceanastra.com/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://oceanastra.com/zh/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://oceanastra.com/ar/privacy/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://oceanastra.com/ar/terms/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oceanastra.com/terms/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://oceanastra.com/zh/terms/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://oceanastra.com/ar/terms/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>

@@ -1,0 +1,552 @@
+{
+  "meta": { "code": "en", "dir": "ltr", "label": "English", "htmlLang": "en" },
+
+  "nav": {
+    "home": "Home",
+    "solutions": "Solutions",
+    "about": "About",
+    "support": "Support",
+    "contact": "Contact",
+    "menu": "Menu",
+    "language": "Language",
+    "skip": "Skip to main content"
+  },
+
+  "common": {
+    "learnMore": "Learn more",
+    "contactUs": "Contact us",
+    "exploreSolutions": "Explore our solutions",
+    "talkToUs": "Talk to our team",
+    "backToTop": "Back to top",
+    "inDevelopment": "In active development",
+    "email": "Email",
+    "phone": "Phone",
+    "address": "Registered address",
+    "hours": "Business hours",
+    "lastUpdated": "Last updated",
+    "viewOnMap": "View on map"
+  },
+
+  "home": {
+    "title": "OceanAstra — Enterprise software for the industries that move the region",
+    "description": "OceanAstra is a Dubai-based enterprise technology company building vertical ERP systems, distributing curated enterprise software, and developing AI-native management platforms.",
+    "hero": {
+      "eyebrow": "Dubai, United Arab Emirates",
+      "heading": "Enterprise software for the industries that move the region.",
+      "lede": "OceanAstra builds vertical ERP systems for industries that generic software has never fit, distributes a short list of enterprise platforms we are willing to stand behind, and develops CorpOS — an AI-native way to run a company.",
+      "primary": "Explore our solutions",
+      "secondary": "Talk to our team"
+    },
+    "credentials": [
+      "Registered in Dubai, United Arab Emirates",
+      "Serving the UAE, the wider GCC and Greater China",
+      "Delivery in English, Arabic and Chinese"
+    ],
+    "pillars": {
+      "eyebrow": "What we do",
+      "heading": "Three business lines, one operating principle.",
+      "lede": "We only take on work where we can own the outcome end to end — from the first process interview to the support call three years later.",
+      "items": [
+        {
+          "id": "erp",
+          "number": "01",
+          "title": "Vertical Industry ERP",
+          "summary": "Generic ERP asks an industry to describe itself in someone else's vocabulary. We start from how a business actually runs, and build the system around that.",
+          "points": [
+            "Automotive trading — VIN-level inventory, in-transit stock, multi-currency settlement, chassis-to-invoice traceability",
+            "Construction &amp; interior fit-out — project cost control, BOQ and variation orders, subcontractor progress billing, retention tracking",
+            "Deployed on your infrastructure or ours, with data residency you choose"
+          ]
+        },
+        {
+          "id": "distribution",
+          "number": "02",
+          "title": "Curated Software Distribution",
+          "summary": "We represent a deliberately short list of enterprise platforms — and we handle the parts vendors usually leave to the customer: evaluation, localisation, migration, integration and day-to-day support.",
+          "points": [
+            "Lark — messaging, documents, approvals and directory as one digital workplace",
+            "Amap — mapping, routing and location services for logistics and field operations",
+            "Licensing, tenant setup, administrator training and first-line support in three languages"
+          ]
+        },
+        {
+          "id": "corpos",
+          "number": "03",
+          "title": "CorpOS — AI-Native Enterprise Management",
+          "summary": "Our flagship research and development programme. Most \"AI features\" are a chat box bolted onto an existing form. CorpOS starts from the other end: the operating model of the company is the product, and AI agents are how work moves through it.",
+          "points": [
+            "Agent-driven workflows that read, decide and act across connected systems",
+            "One company knowledge layer instead of documents scattered across a dozen tools",
+            "Human approval where judgement matters, automation where it does not"
+          ],
+          "badge": "In active development"
+        }
+      ]
+    },
+    "approach": {
+      "eyebrow": "How we work",
+      "heading": "Four steps, no surprises.",
+      "items": [
+        { "step": "01", "title": "Understand", "body": "We sit with the people who do the work — not only the people who sign the contract — and map the process as it genuinely runs today, including the spreadsheets nobody admits to." },
+        { "step": "02", "title": "Design", "body": "We propose the smallest system that solves the real constraint, and we say plainly which parts are standard software, which are configuration, and which are custom development." },
+        { "step": "03", "title": "Deliver", "body": "Phased rollout with a defined scope, a named delivery lead and a fixed acceptance checklist for every phase. Data migration is treated as part of the project, not an afterthought." },
+        { "step": "04", "title": "Support", "body": "Named support contacts, agreed response targets and a documented escalation path — in English, Arabic or Chinese, whichever your team works in." }
+      ]
+    },
+    "cta": {
+      "heading": "Tell us what is not working.",
+      "body": "Most of our projects start with a single frustrated process. Describe yours and we will tell you honestly whether we are the right people for it.",
+      "button": "Contact us"
+    }
+  },
+
+  "solutions": {
+    "title": "Solutions — OceanAstra",
+    "description": "Vertical ERP for automotive trading and construction fit-out, curated enterprise software distribution, and CorpOS — OceanAstra's AI-native enterprise management platform.",
+    "hero": {
+      "eyebrow": "Solutions",
+      "heading": "Built for a specific industry, or not built at all.",
+      "lede": "Three lines of business, each with its own delivery model. What they share is that we own the result — the software, the data migration, the training and the support that follows."
+    },
+    "sections": [
+      {
+        "id": "erp",
+        "number": "01",
+        "title": "Vertical Industry ERP",
+        "lede": "Purpose-built enterprise resource planning for industries whose operating reality does not fit standard modules.",
+        "body": [
+          "An automotive trading company and a fit-out contractor have almost nothing in common operationally, yet both are routinely sold the same ERP with different labels on the screens. The result is a system that records what happened after the fact, while the actual business keeps running on spreadsheets and messaging groups.",
+          "We build the opposite: a system that matches the shape of the business, so the people doing the work have a reason to use it."
+        ],
+        "groups": [
+          {
+            "title": "Automotive trading",
+            "items": [
+              "VIN-level inventory with in-transit, in-bond and in-showroom states",
+              "Purchase, shipping, customs and landed-cost tracking per unit",
+              "Multi-currency purchasing and settlement with realised and unrealised FX",
+              "Chassis-to-invoice traceability for audit and warranty claims",
+              "Sales pipeline, reservations, deposits and delivery handover"
+            ]
+          },
+          {
+            "title": "Construction &amp; interior fit-out",
+            "items": [
+              "Project budgets against bills of quantities, with committed and actual cost",
+              "Variation orders tracked from request through client approval to billing",
+              "Subcontractor packages, progress claims and retention release",
+              "Procurement and material issue tied to the project, not just the warehouse",
+              "Cash-flow forecast built from the billing schedule rather than guesswork"
+            ]
+          },
+          {
+            "title": "Across both",
+            "items": [
+              "Role-based access aligned to your real approval hierarchy",
+              "Arabic, English and Chinese interfaces with correct right-to-left layout",
+              "VAT treatment appropriate to UAE requirements",
+              "Deployment on your infrastructure or a hosting arrangement we manage",
+              "Documented APIs so the system is never a dead end"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "distribution",
+        "number": "02",
+        "title": "Curated Software Distribution",
+        "lede": "A short, opinionated list of enterprise platforms — selected, localised, deployed and supported by us.",
+        "body": [
+          "Buying enterprise software is easy. Making it actually take hold inside an organisation is not. The gap is usually not the product: it is tenant design, data migration, integration with what you already run, administrator capability, and someone to call when it breaks.",
+          "We only represent platforms we are prepared to be judged on, and we take responsibility for that gap rather than handing over a licence key."
+        ],
+        "groups": [
+          {
+            "title": "Platforms we represent",
+            "items": [
+              "Lark — messaging, documents, approvals, calendar and company directory brought together as a single digital workplace",
+              "Amap — geocoding, routing, fleet visibility and delivery operations for logistics and field teams",
+              "Adjacent line-of-business tools selected case by case for a specific client requirement"
+            ]
+          },
+          {
+            "title": "What we take responsibility for",
+            "items": [
+              "Requirement fit assessment before anyone signs anything",
+              "Licensing, tenant provisioning and organisation structure setup",
+              "Migration from existing tools, including historical data where feasible",
+              "Integration with your ERP, finance system or internal applications",
+              "Administrator enablement and end-user training",
+              "First-line support in English, Arabic and Chinese"
+            ]
+          }
+        ],
+        "note": "Lark and Amap are trademarks of their respective owners. The scope of each partnership, and what it covers commercially, is confirmed in writing during commercial discussion."
+      },
+      {
+        "id": "corpos",
+        "number": "03",
+        "title": "CorpOS — AI-Native Enterprise Management",
+        "badge": "In active development",
+        "lede": "Our flagship programme: an operating layer where AI agents carry the work between systems, and people make the decisions that deserve a person.",
+        "body": [
+          "Enterprise software has spent three decades getting better at recording work after it happens. CorpOS is our attempt at the harder problem — moving the work itself.",
+          "The premise is that a company already has an operating model: how a request becomes an approval, how an approval becomes a purchase, how a purchase becomes a payment. Today that model lives in people's heads and in the gaps between systems. CorpOS makes it explicit, gives agents the context to execute it, and puts a person at the points where judgement, liability or relationships are involved."
+        ],
+        "groups": [
+          {
+            "title": "Design principles",
+            "items": [
+              "The operating model is the product — not a chat window added to an existing screen",
+              "One company knowledge layer, so an agent answers from the same facts a person would",
+              "Every automated action is attributable, reviewable and reversible",
+              "Human approval where judgement matters; automation where it genuinely does not",
+              "Open interfaces to the systems a company already runs"
+            ]
+          }
+        ],
+        "note": "CorpOS is under active development. We are working with a small number of design partners ahead of general availability — if the problem sounds like yours, we would like to hear from you."
+      }
+    ],
+    "cta": {
+      "heading": "Not sure which of these you need?",
+      "body": "That is a normal place to start. Describe the process that is causing pain and we will tell you which of the three — if any — actually applies.",
+      "button": "Talk to our team"
+    }
+  },
+
+  "about": {
+    "title": "About — OceanAstra",
+    "description": "OceanAstra is an enterprise technology company registered in Dubai, United Arab Emirates, working across vertical ERP, enterprise software distribution and AI-native management systems.",
+    "hero": {
+      "eyebrow": "About us",
+      "heading": "An enterprise technology company based in Dubai.",
+      "lede": "OceanAstra was founded to close a specific gap: the distance between enterprise software as it is sold and enterprise software as it is actually used."
+    },
+    "story": {
+      "heading": "Why we exist",
+      "paragraphs": [
+        "The companies that keep this region moving — vehicle traders, fit-out contractors, distributors, logistics operators — run on operating models that are genuinely sophisticated. Their software rarely reflects that. It is either a global platform that assumes a business they are not, or a local system that stopped being developed years ago.",
+        "OceanAstra was set up by people who have implemented enterprise systems on both sides of that gap: inside large organisations where the system is inherited, and inside vendors where the system is sold. We started the company to do the part that neither side does well — build or select software that fits the business, and stay accountable for it afterwards.",
+        "We work across three lines: vertical ERP we build ourselves, enterprise platforms we select and support on our clients' behalf, and CorpOS, our own research programme into how AI changes the shape of enterprise management. The three inform each other. What we learn implementing other people's software shapes what we build; what we build shapes what we are willing to recommend."
+      ]
+    },
+    "principles": {
+      "heading": "What we hold to",
+      "items": [
+        { "title": "Say what is true", "body": "Including when the honest answer is that a client does not need us, that a requirement is not worth the money, or that a deadline will not be met. We would rather lose a project than manage someone's expectations dishonestly." },
+        { "title": "Fit before features", "body": "A shorter system that matches how the business runs beats a comprehensive one that nobody opens. We measure a project by whether the work moved into the system, not by the size of the module list." },
+        { "title": "Stay after go-live", "body": "The value of an enterprise system is created in the two years after launch, not in the launch. Support, iteration and training are part of the engagement, not an upsell." },
+        { "title": "Work in your language", "body": "English, Arabic and Chinese — in the interface, in the documentation, in training and on the support line. Not translated at the end, but built in from the start." }
+      ]
+    },
+    "facts": {
+      "heading": "Company information",
+      "lede": "Registered details as recorded with the relevant authorities.",
+      "labels": {
+        "legalName": "Registered legal name",
+        "tradeName": "Trade name",
+        "type": "Entity type",
+        "jurisdiction": "Jurisdiction",
+        "licence": "Trade licence number",
+        "authority": "Licensing authority",
+        "registerNumber": "Commercial register number",
+        "chamberNumber": "Dubai Chamber membership",
+        "founded": "Established",
+        "address": "Registered address",
+        "email": "General enquiries",
+        "phone": "Telephone",
+        "website": "Website"
+      },
+      "values": {
+        "type": "Limited Liability Company (L.L.C.)",
+        "jurisdiction": "Dubai, United Arab Emirates"
+      }
+    },
+    "cta": {
+      "heading": "Want to know more about us?",
+      "body": "We are happy to walk through our background, our current projects and how we would approach yours.",
+      "button": "Contact us"
+    }
+  },
+
+  "support": {
+    "title": "Support — OceanAstra",
+    "description": "Support for OceanAstra clients and users of our software and mobile applications, including contact channels, response targets and escalation.",
+    "hero": {
+      "eyebrow": "Support",
+      "heading": "A person, in your language, within a defined time.",
+      "lede": "Support is part of what we sell, not a cost we try to minimise. This page explains how to reach us, what to expect, and what happens when something is urgent."
+    },
+    "channels": {
+      "heading": "How to reach us",
+      "items": [
+        { "title": "Support email", "body": "The fastest route for most issues. Please include the system or application name, what you expected, what happened instead, and a screenshot if you have one.", "linkLabel": "Email support" },
+        { "title": "Telephone", "body": "Available during business hours for issues that are blocking operations. If you reach voicemail outside those hours, leave the company name and a callback number.", "linkLabel": "Call us" },
+        { "title": "Named contacts", "body": "Clients under a support agreement receive named contacts and a direct escalation path, documented at the start of the engagement." }
+      ]
+    },
+    "expectations": {
+      "heading": "What to expect",
+      "items": [
+        { "title": "Acknowledgement", "body": "We acknowledge every support request within one business day, and sooner during business hours." },
+        { "title": "Priority handling", "body": "Issues that stop a business process are treated as priority and worked continuously until a workaround or a fix is in place." },
+        { "title": "Honest status", "body": "If a fix will take time, we say how long and why, and we update you as it progresses rather than going quiet." },
+        { "title": "Languages", "body": "English, Arabic and Chinese. You will not be asked to explain a technical problem in a second language." }
+      ]
+    },
+    "apps": {
+      "heading": "Mobile application support",
+      "body": "If you are using an OceanAstra mobile application and need help — including account questions, data requests or bug reports — use the support email address below. Please include your device model and operating system version so we can reproduce the issue accurately."
+    },
+    "cta": {
+      "heading": "Need help right now?",
+      "body": "Send us the details and we will pick it up.",
+      "button": "Email support"
+    }
+  },
+
+  "contact": {
+    "title": "Contact — OceanAstra",
+    "description": "Contact OceanAstra — registered office in Dubai, United Arab Emirates. Email, telephone and business hours for enquiries, sales and support.",
+    "hero": {
+      "eyebrow": "Contact",
+      "heading": "Get in touch.",
+      "lede": "Tell us what you are trying to fix. A short description of the process and the size of the team is usually enough for us to give a useful first answer."
+    },
+    "cards": {
+      "general": { "title": "General enquiries", "body": "Company, partnership and press enquiries." },
+      "sales": { "title": "New projects", "body": "Solution enquiries, demonstrations and commercial discussion." },
+      "support": { "title": "Existing clients", "body": "Technical support for our software and applications." }
+    },
+    "office": {
+      "heading": "Registered office",
+      "note": "Visits are by appointment. Please write or call ahead so we can make sure the right people are available."
+    },
+    "note": "We reply to every genuine enquiry, normally within one business day. If you have not heard back within two business days, please resend — occasionally messages are filtered."
+  },
+
+  "privacy": {
+    "title": "Privacy Policy — OceanAstra",
+    "description": "How OceanAstra collects, uses, shares and protects personal information through its website, software and mobile applications.",
+    "heading": "Privacy Policy",
+    "updated": "20 August 2026",
+    "intro": "This Privacy Policy explains how we collect, use, share and protect personal information when you visit our website, contact us, or use software and mobile applications that we provide. We have written it to be read, not to be survived.",
+    "sections": [
+      {
+        "heading": "1. Who we are",
+        "paragraphs": [
+          "The controller responsible for the personal information described in this policy is the company identified at the end of this document, registered in Dubai, United Arab Emirates. Where we process personal information on behalf of a client — for example, inside an ERP system we operate for them — that client is the controller and we act as a processor under our agreement with them."
+        ]
+      },
+      {
+        "heading": "2. Information we collect",
+        "paragraphs": ["We collect only what we need for a clearly identified purpose:"],
+        "list": [
+          "Information you give us — your name, company, email address, telephone number and the content of your message when you contact us or request a demonstration.",
+          "Information from using our software — account identifiers, activity and audit records generated as you use a system we provide, and technical logs needed to operate and secure it.",
+          "Technical information from our website — IP address, browser type, referring page and pages viewed, collected in standard server logs.",
+          "Support information — the content of support requests, including any screenshots, files or device details you choose to send us."
+        ]
+      },
+      {
+        "heading": "3. How we use information",
+        "paragraphs": ["We use personal information to:"],
+        "list": [
+          "Respond to your enquiry and provide the information or demonstration you asked for",
+          "Provide, operate, secure and improve the software and services you or your employer have engaged us for",
+          "Provide technical support and communicate about service issues, changes and maintenance",
+          "Meet legal, regulatory, tax and accounting obligations that apply to us",
+          "Detect, investigate and prevent fraud, abuse and security incidents"
+        ],
+        "after": ["We do not sell personal information. We do not use the content of client data to train general-purpose AI models."]
+      },
+      {
+        "heading": "4. Legal basis for processing",
+        "paragraphs": [
+          "Where a legal basis is required, we rely on: performance of a contract with you or your employer; our legitimate interests in operating, securing and improving our business, balanced against your rights; compliance with a legal obligation; and, where applicable, your consent — which you may withdraw at any time."
+        ]
+      },
+      {
+        "heading": "5. Sharing and disclosure",
+        "paragraphs": ["We share personal information only in these circumstances:"],
+        "list": [
+          "With service providers who host, secure or operate our infrastructure, under written confidentiality and data protection terms",
+          "With software vendors whose platforms we resell or support, strictly as required to provision, license or support your use of those platforms",
+          "Where required by applicable law, regulation, court order or a lawful request from a competent authority",
+          "In connection with a corporate transaction such as a merger or acquisition, subject to equivalent protection continuing to apply"
+        ]
+      },
+      {
+        "heading": "6. International transfers",
+        "paragraphs": [
+          "We are based in the United Arab Emirates and work with clients and providers in other countries. Where personal information is transferred across borders, we take reasonable steps to ensure it remains protected to a standard consistent with this policy and with applicable law, including through contractual safeguards with the recipient. Where a client requires data to remain within a specific jurisdiction, we agree that in writing before implementation."
+        ]
+      },
+      {
+        "heading": "7. Retention",
+        "paragraphs": [
+          "We keep personal information only as long as needed for the purpose it was collected for, and for any period required by law, contract or a legitimate record-keeping need. Enquiry correspondence is normally retained for up to twenty-four months. Client system data is retained according to the agreement with that client and deleted or returned at the end of the engagement on request."
+        ]
+      },
+      {
+        "heading": "8. Security",
+        "paragraphs": [
+          "We apply administrative, technical and physical safeguards appropriate to the sensitivity of the information, including access control on a need-to-know basis, encryption in transit, logging of administrative actions, and confidentiality obligations on our personnel and subcontractors. No system is completely secure, and we do not claim otherwise; if a breach affects your personal information we will notify affected parties and any relevant authority as required by applicable law."
+        ]
+      },
+      {
+        "heading": "9. Your rights",
+        "paragraphs": ["Subject to applicable law, you may ask us to:"],
+        "list": [
+          "Confirm whether we hold personal information about you and provide a copy",
+          "Correct information that is inaccurate or incomplete",
+          "Delete information where there is no continuing lawful basis for us to keep it",
+          "Restrict or object to certain processing, including direct marketing",
+          "Withdraw consent where processing is based on consent"
+        ],
+        "after": [
+          "To exercise any of these, contact us using the details below. We may need to verify your identity before acting. If we hold the information as a processor for a client, we will refer your request to that client and support them in responding."
+        ]
+      },
+      {
+        "heading": "10. Cookies and similar technologies",
+        "paragraphs": [
+          "This website does not use advertising cookies, cross-site trackers or third-party analytics. Your language preference is stored locally in your browser so that the site remembers it on your next visit; that preference stays on your device and is not transmitted to us. Standard server logs are retained for security and diagnostic purposes."
+        ]
+      },
+      {
+        "heading": "11. Children",
+        "paragraphs": [
+          "Our website, software and applications are intended for business use and are not directed at children. We do not knowingly collect personal information from children. If you believe a child has provided us with personal information, please contact us and we will delete it."
+        ]
+      },
+      {
+        "heading": "12. Changes to this policy",
+        "paragraphs": [
+          "We may update this policy to reflect changes in our services or in applicable law. The date at the top of this page shows when it was last revised. Where a change materially affects how we handle your personal information, we will take reasonable steps to notify you."
+        ]
+      },
+      {
+        "heading": "13. How to contact us",
+        "paragraphs": [
+          "Questions, requests or complaints about this policy or about how we handle personal information can be sent to the address below. We aim to respond within one business day and to resolve substantive requests within thirty days."
+        ]
+      }
+    ]
+  },
+
+  "terms": {
+    "title": "Terms of Use — OceanAstra",
+    "description": "Terms governing use of the OceanAstra website and the relationship between visitors and OceanAstra.",
+    "heading": "Terms of Use",
+    "updated": "20 August 2026",
+    "intro": "These terms govern your use of this website. They do not replace any signed agreement between us — if you are a client, the agreement you signed takes precedence over anything on this page.",
+    "sections": [
+      {
+        "heading": "1. Acceptance",
+        "paragraphs": [
+          "By accessing or using this website you agree to these terms. If you do not agree with them, please do not use the site."
+        ]
+      },
+      {
+        "heading": "2. Who operates this site",
+        "paragraphs": [
+          "This website is operated by the company identified at the foot of every page and in the company information section of our About page, registered in Dubai, United Arab Emirates."
+        ]
+      },
+      {
+        "heading": "3. Use of the website",
+        "paragraphs": ["You may view, download and print material from this website for your own business or personal reference. You may not:"],
+        "list": [
+          "Use the site in any way that breaches applicable law or regulation",
+          "Attempt to gain unauthorised access to the site, its server or any connected system",
+          "Interfere with the availability, integrity or security of the site",
+          "Systematically extract content for the purpose of building a competing or derivative service",
+          "Misrepresent your identity or your affiliation with any person or organisation"
+        ]
+      },
+      {
+        "heading": "4. Intellectual property",
+        "paragraphs": [
+          "The content of this website — including text, layout, graphics, logos and the OceanAstra name and marks — is owned by us or licensed to us and is protected by applicable intellectual property law. Names, marks and product names belonging to other companies referenced on this site remain the property of their respective owners, and their appearance here does not imply any endorsement or relationship beyond what is described in writing."
+        ]
+      },
+      {
+        "heading": "5. Information on this site",
+        "paragraphs": [
+          "We take care to keep the information on this website accurate and current, but it is provided for general information only. It does not constitute a quotation, an offer capable of acceptance, or professional advice, and product descriptions and capabilities may change as our software develops. Anything relied upon commercially should be confirmed with us in writing."
+        ]
+      },
+      {
+        "heading": "6. Third-party products and links",
+        "paragraphs": [
+          "This site may describe third-party software and may link to external websites. We do not control those websites or products and are not responsible for their content, availability, terms or privacy practices. Any third-party software you obtain is governed by that vendor's own terms, which apply in addition to any services we provide around it."
+        ]
+      },
+      {
+        "heading": "7. Availability and disclaimer",
+        "paragraphs": [
+          "We aim to keep this website available but do not guarantee uninterrupted access, and we may change, suspend or withdraw any part of it without notice. To the fullest extent permitted by applicable law, the website is provided \"as is\" without warranties of any kind, whether express or implied."
+        ]
+      },
+      {
+        "heading": "8. Limitation of liability",
+        "paragraphs": [
+          "To the fullest extent permitted by applicable law, we are not liable for any indirect or consequential loss, or for loss of profit, revenue, business, goodwill or data, arising from your use of, or inability to use, this website. Nothing in these terms limits liability that cannot lawfully be limited, including liability for fraud or for death or personal injury caused by negligence."
+        ]
+      },
+      {
+        "heading": "9. Client agreements",
+        "paragraphs": [
+          "Software, implementation, distribution and support services are provided under a separate written agreement. Where anything on this website conflicts with that agreement, the signed agreement prevails."
+        ]
+      },
+      {
+        "heading": "10. Privacy",
+        "paragraphs": [
+          "Our handling of personal information is described in our Privacy Policy, which forms part of these terms."
+        ]
+      },
+      {
+        "heading": "11. Governing law",
+        "paragraphs": [
+          "These terms are governed by the laws of the Emirate of Dubai and the federal laws of the United Arab Emirates. The courts of Dubai have exclusive jurisdiction over any dispute arising from them."
+        ]
+      },
+      {
+        "heading": "12. Changes to these terms",
+        "paragraphs": [
+          "We may revise these terms from time to time. The date shown at the top of this page indicates when they were last updated, and the version published here is the version that applies."
+        ]
+      },
+      {
+        "heading": "13. Contact",
+        "paragraphs": [
+          "Questions about these terms can be sent to the contact address below."
+        ]
+      }
+    ]
+  },
+
+  "footer": {
+    "tagline": "Enterprise software for the industries that move the region.",
+    "solutionsHeading": "Solutions",
+    "companyHeading": "Company",
+    "contactHeading": "Contact",
+    "legalHeading": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use",
+    "rights": "All rights reserved.",
+    "licenceLabel": "Trade Licence",
+    "registered": "Registered in Dubai, United Arab Emirates"
+  },
+
+  "notFound": {
+    "title": "Page not found — OceanAstra",
+    "description": "The page you were looking for could not be found.",
+    "heading": "This page does not exist.",
+    "lede": "The address may have changed, or the link that brought you here may be out of date.",
+    "button": "Go to the homepage"
+  }
+}

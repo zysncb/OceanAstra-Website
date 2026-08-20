@@ -1,0 +1,95 @@
+{
+  "_comment": "SINGLE SOURCE OF TRUTH for all company facts. Values below are transcribed from the Dubai Commercial License No. 1646635 (issued 20/08/2026). Anything published here must match the trade licence and the D-U-N-S record exactly. Run `node build/build.mjs` after editing.",
+  "_placeholders": true,
+  "_needsReview": [
+    "domain / siteUrl — confirm the registered domain; it must be owned by the company",
+    "email.* — these four mailboxes must actually exist on the company domain (Apple will not accept a Gmail address on the enrolment)",
+    "dunsNumber — the D&B D-U-N-S field is blank on the trade licence; required for Apple Developer Program enrolment"
+  ],
+
+  "brand": "OceanAstra",
+  "domain": "oceanastra.com",
+  "siteUrl": "https://oceanastra.com",
+  "founded": "2026",
+
+  "_basePathNote": "Leave empty for a custom domain (the intended setup). Set to \"/OceanAstra-Website\" only if the site is served from a GitHub project-pages subpath.",
+  "basePath": "",
+
+  "_legalNameNote": "The licence prints the name in capitals (OCEANASTRA TECHNOLOGIES L.L.C). Rendered here in title case, which is word-for-word identical and reads correctly in running text.",
+  "legalName": {
+    "en": "OceanAstra Technologies L.L.C",
+    "zh": "OceanAstra Technologies L.L.C",
+    "ar": "أوشن أسترا للتكنولوجيا ذ.م.م"
+  },
+
+  "email": {
+    "general": "info@oceanastra.com",
+    "sales": "sales@oceanastra.com",
+    "support": "support@oceanastra.com",
+    "privacy": "privacy@oceanastra.com"
+  },
+
+  "phone": {
+    "display": "+971 50 813 8014",
+    "href": "+971508138014"
+  },
+
+  "mapUrl": "https://www.google.com/maps?q=24.8260152,55.1065874",
+
+  "address": {
+    "en": {
+      "lines": [
+        "Office 08, Building R.SH.038",
+        "Saih Shuaib 2, Dubai Industrial City",
+        "Dubai",
+        "United Arab Emirates"
+      ],
+      "full": "Office 08, Building R.SH.038, Saih Shuaib 2, Dubai Industrial City, Dubai, United Arab Emirates"
+    },
+    "zh": {
+      "lines": [
+        "Office 08, Building R.SH.038",
+        "Saih Shuaib 2，迪拜工业城",
+        "迪拜",
+        "阿拉伯联合酋长国"
+      ],
+      "full": "阿拉伯联合酋长国 迪拜 迪拜工业城 Saih Shuaib 2 R.SH.038 楼 08 室"
+    },
+    "ar": {
+      "lines": [
+        "مكتب رقم 08، مبنى R.SH.038",
+        "سيح شعيب 2، مدينة دبي الصناعية",
+        "دبي",
+        "الإمارات العربية المتحدة"
+      ],
+      "full": "مكتب رقم 08، مبنى R.SH.038، سيح شعيب 2، مدينة دبي الصناعية، دبي، الإمارات العربية المتحدة"
+    }
+  },
+
+  "licence": {
+    "number": "1646635",
+    "registerNumber": "2913183",
+    "chamberNumber": "698189",
+    "issued": "20/08/2026",
+    "expires": "19/08/2027",
+    "authority": {
+      "en": "Department of Economy and Tourism, Government of Dubai",
+      "zh": "迪拜政府经济与旅游局（DET）",
+      "ar": "دائرة الاقتصاد والسياحة، حكومة دبي"
+    }
+  },
+
+  "dunsNumber": "",
+
+  "hours": {
+    "en": "Sunday – Thursday, 09:00 – 18:00 (GST, UTC+4)",
+    "zh": "周日至周四 09:00 – 18:00（海湾标准时间 UTC+4）",
+    "ar": "الأحد – الخميس، ٠٩:٠٠ – ١٨:٠٠ (بتوقيت الخليج UTC+4)"
+  },
+
+  "responseTarget": {
+    "en": "one business day",
+    "zh": "一个工作日",
+    "ar": "يوم عمل واحد"
+  }
+}
