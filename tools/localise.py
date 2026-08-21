@@ -1,227 +1,150 @@
 #!/usr/bin/env python3
 """
-Derive the Chinese and Arabic sites from the rendered English pages.
+Publish the Chinese and Arabic sites at their own URLs.
 
     python3 tools/localise.py
 
-NOT CURRENTLY IN THE PIPELINE, and it will not work as written.
+Run AFTER prepare-export.py and BEFORE prerender.py.
 
-It was built against a prerender step that replaced the bundle, so rewriting
-the served HTML was enough. The bundle now stays — it parses its template and
-swaps the root element on load — which means every substitution here is
-discarded the instant JavaScript runs. Crawlers would see Chinese; visitors
-would see English.
+The export is already trilingual. Its runtime carries a complete DICT for zh
+and ar, handles right-to-left for Arabic on its own, and the header switcher
+works — it sets component state and the page re-renders in the chosen language.
+None of that needed building.
 
-Making the switcher work for real visitors means translating the template JSON
-in <script type="__bundler/template">, which is what the bundle actually
-renders from. The translations in content/i18n/zh.json and ar.json are complete
-and keyed identically to en.json, so the copy is ready; it is the injection
-point that has to change.
+What was missing is a URL. Language lived in client state only, so:
 
-Design Canvas exports one language. Rather than maintain three exports that
-drift apart, this takes the rendered English DOM and substitutes strings using
-content/i18n/*.json, which already hold complete Chinese and Arabic copy under
-identical keys.
+  - crawlers never saw anything but English, because they do not click;
+  - an AI answer engine had no Arabic text to retrieve for an Arabic question,
+    despite the Arabic existing in the bundle it downloaded;
+  - a reader could not link anyone to the Chinese page, because there wasn't one.
 
-Arabic gets a real right-to-left layout. That works because the export lays out
-with flex and logical `text-align: start`, both of which mirror on their own —
-the only thing pinning the page was a hardcoded dir="ltr" on the content
-wrapper. Flipping it mirrors the whole page: logo to the right, nav to the
-left, buttons reversed. There are 41 absolute `left:` offsets that do not
-mirror, but they position decorative starfield elements, not content.
+So this copies the six English pages to /zh/ and /ar/ and changes which language
+they boot in. The component resolves it as
 
-The language switcher is also rebuilt here. The export ships three <button>
-elements that only rewrote <html lang>; they become real <a href> links, so
-crawlers can follow them and the three language versions can reference each
-other with hreflang.
+    this.state.lang || this.props.defaultLang || "en"
+
+and props come from the schema in data-props on the <x-dc> script. Setting that
+schema's default is the whole edit. The home page ships the attribute already;
+the inner pages have no props of their own, so it is added.
+
+Internal links need no rewriting: the export emits them relative ("solutions/",
+"../about/"), so they resolve within whichever locale directory they are served
+from. The switcher keeps working client-side; it just no longer has to.
 """
 
 import html as H
 import json
 import re
 import shutil
+import subprocess
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 PAGES = ["", "solutions", "about", "contact", "privacy", "terms"]
-LOCALES = ["en", "zh", "ar"]
+TARGETS = ["zh", "ar"]
 
-# Label -> locale, as the switcher renders them.
-LABELS = {"EN": "en", "中文": "zh", "عربي": "ar"}
+CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
-ACTIVE = "background: rgb(242, 242, 240); color: rgb(7, 9, 15);"
-IDLE = "background: transparent; color: rgb(138, 147, 168);"
+DIRECTION = {"zh": "ltr", "ar": "rtl"}
+HTML_LANG = {"zh": "zh-Hans", "ar": "ar"}
 
+# The editor schema the runtime reads its props from.
+SCHEMA = {
+    "defaultLang": {"editor": "enum", "options": ["en", "zh", "ar"],
+                    "default": "en", "tsType": "'en'|'zh'|'ar'", "section": "Site"},
+    "showHeroMark": {"editor": "boolean", "default": False,
+                     "tsType": "boolean", "section": "Site"},
+}
 
-def flatten(obj, prefix=""):
-    out = {}
-    if isinstance(obj, dict):
-        for k, v in obj.items():
-            if k.startswith("_"):
-                continue
-            out.update(flatten(v, f"{prefix}.{k}" if prefix else k))
-    elif isinstance(obj, list):
-        for i, v in enumerate(obj):
-            out.update(flatten(v, f"{prefix}[{i}]"))
-    elif isinstance(obj, str):
-        out[prefix] = obj
-    return out
+# Non-greedy up to </script> is safe only because the payload escapes its own
+# nested </script> as <\/script>; see the note in localise().
+TEMPLATE = re.compile(r'(<script type="__bundler/template">)(.*?)(</script>)', re.S)
+XDC_OPEN = re.compile(r'<script type="text/x-dc"[^>]*>')
 
 
-I18N = {c: flatten(json.loads((ROOT / f"content/i18n/{c}.json").read_text(encoding="utf-8")))
-        for c in LOCALES}
+def props_attr(locale):
+    schema = json.loads(json.dumps(SCHEMA))
+    schema["defaultLang"]["default"] = locale
+    return 'data-props="' + H.escape(json.dumps(schema, separators=(",", ":")), quote=True) + '"'
 
 
-def url(locale, page):
-    root = "/" if locale == "en" else f"/{locale}/"
-    return root if not page else f"{root}{page}/"
+def set_default_lang(template, locale):
+    """Point the component at `locale`, adding the props schema if absent."""
+    match = XDC_OPEN.search(template)
+    if not match:
+        raise RuntimeError("no <script type=\"text/x-dc\"> in template")
+
+    tag = match.group(0)
+    if "data-props=" in tag:
+        rebuilt = re.sub(r'data-props="[^"]*"', props_attr(locale), tag)
+    else:
+        rebuilt = tag[:-1].rstrip() + " " + props_attr(locale) + ">"
+    return template[:match.start()] + rebuilt + template[match.end():]
 
 
-def translate(html, locale):
-    """Substitute English strings for their counterparts in `locale`.
+def localise(html, locale):
+    lang, direction = HTML_LANG[locale], DIRECTION[locale]
 
-    Longest first, and that ordering is load-bearing: "Support" is a substring
-    of several longer strings, so replacing it early would corrupt them. By the
-    time the short labels run, every longer string containing them has already
-    become Chinese or Arabic, leaving only standalone occurrences to match.
+    def patch(m):
+        template = json.loads(m.group(2))
+        template = set_default_lang(template, locale)
+        # The template carries its own document element and replaces the served
+        # one on load, so the served <html> alone is not enough.
+        template = re.sub(r'<html lang="[^"]*" dir="[^"]*">',
+                          f'<html lang="{lang}" dir="{direction}">', template, count=1)
+        # The template string contains a nested </script>. JSON does not
+        # require escaping "/", but leaving it literal ends the enclosing
+        # <script> element early and truncates the template — which is why the
+        # export writes it as <\/script>. Re-encoding has to do the same.
+        encoded = json.dumps(template, ensure_ascii=False).replace("</", "<\\/")
+        return m.group(1) + encoded + m.group(3)
 
-    Three characters is the floor. Below that a string is as likely to collide
-    with markup as to be real copy.
-    """
-    en, target = I18N["en"], I18N[locale]
-    pairs = sorted(
-        ((e, target[k]) for k, e in en.items() if k in target and len(e) >= 3),
-        key=lambda p: -len(p[0]),
-    )
-    done = 0
-    for source, dest in pairs:
-        if source == dest:
-            continue
-        for a, b in ((H.escape(source, quote=False), H.escape(dest, quote=False)),
-                     (source, dest)):
-            if a in html:
-                html = html.replace(a, b)
-                done += 1
-                break
-    return html, done
+    html = TEMPLATE.sub(patch, html, count=1)
+    return re.sub(r'<html lang="[^"]*" dir="[^"]*">',
+                  f'<html lang="{lang}" dir="{direction}">', html, count=1)
 
 
-def relink(html, locale):
-    """Point internal page links at the same page in this locale.
-
-    The language switcher is left alone — it deliberately points across
-    locales, which is the one case this must not rewrite.
-    """
-    if locale == "en":
-        return html
-
-    switcher_hrefs = {f'href="{url(c, p)}"' for c in LOCALES for p in PAGES}
-    switcher_hrefs = {m.group(0) for m in re.finditer(r'href="[^"]*"', html)
-                      if re.search(re.escape(m.group(0)) + r'[^>]*data-lang=', html)}
-
-    def swap(m):
-        href = m.group(1)
-        if href.startswith(("/assets/", "/llms", "/robots", "/sitemap")):
-            return m.group(0)
-        if m.group(0) in switcher_hrefs:
-            return m.group(0)
-        page = href.strip("/")
-        if page in PAGES or href == "/":
-            return f'href="{url(locale, page)}"'
-        return m.group(0)
-
-    return re.sub(r'href="(/[^"]*)"', swap, html)
+def rendered_heading(url):
+    out = subprocess.run(
+        [CHROME, "--headless", "--disable-gpu", "--no-sandbox", "--window-size=1440,900",
+         "--virtual-time-budget=12000", "--dump-dom", url],
+        capture_output=True, text=True, timeout=120)
+    m = re.search(r"<h1[^>]*>(.*?)</h1>", out.stdout, re.S)
+    return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", m.group(1))).strip() if m else ""
 
 
-def switcher(html, locale, page):
-    """Rewrite the three switcher controls as links, active state on `locale`.
-
-    Matched by their label text, not by class or template id: the export gives
-    the home page `data-dc-tpl="25" class="scp1"` and the inner pages
-    `data-dc-tpl="24"` with no class at all, and a selector keyed to either one
-    silently skips the other half of the site.
-
-    Handles both <button> (as exported) and <a> (as produced here), so running
-    the step twice is the same as running it once.
-    """
-    control = re.compile(
-        r'<(?P<tag>button|a)\b(?P<attrs>[^>]*)>(?P<inner>(?:(?!</?(?:button|a)\b).)*?)</(?P=tag)>',
-        re.S)
-
-    def convert(m):
-        label = re.sub(r"<[^>]+>", "", m.group("inner")).strip()
-        if label not in LABELS:
-            return m.group(0)
-
-        target = LABELS[label]
-        attrs = m.group("attrs")
-        style = (re.search(r'style="([^"]*)"', attrs) or [None, ""])[1]
-
-        # Normalise first — the control may already be active from a previous
-        # run, so toggling relative to its current state is unreliable.
-        style = style.replace(ACTIVE, IDLE)
-        if target == locale:
-            style = style.replace(IDLE, ACTIVE)
-        if "text-decoration" not in style:
-            style = style.replace("cursor: pointer;",
-                                  "cursor: pointer; text-decoration: none; display: inline-block;")
-
-        keep = " ".join(a for a in (
-            (re.search(r'(data-dc-tpl="[^"]*")', attrs) or [None, ""])[1],
-            (re.search(r'(class="[^"]*")', attrs) or [None, ""])[1],
-        ) if a)
-        aria = ' aria-current="true"' if target == locale else ""
-        return (f'<a href="{url(target, page)}" hreflang="{target}" data-lang="{target}"'
-                f'{aria} {keep} style="{style}">{m.group("inner")}</a>')
-
-    return control.sub(convert, html)
-
-
-def rtl(html):
-    """Mirror the layout. The export pins its content wrapper to dir="ltr"."""
-    html = html.replace('dir="ltr"', 'dir="rtl"')
-    return html.replace('<html lang="en" dir="rtl">', '<html lang="ar" dir="rtl">', 1)
-
-
-def build(locale):
-    made = []
-    for page in PAGES:
-        src = ROOT / (f"{page}/index.html" if page else "index.html")
-        html = src.read_text(encoding="utf-8")
-
-        html, count = translate(html, locale)
-        html = switcher(html, locale, page)   # sets its own hrefs …
-        html = relink(html, locale)           # … which relink must not touch
-
-        if locale == "ar":
-            html = rtl(html)
-        else:
-            meta = json.loads((ROOT / f"content/i18n/{locale}.json").read_text(encoding="utf-8"))["meta"]
-            html = html.replace('<html lang="en" dir="ltr">',
-                                f'<html lang="{meta["htmlLang"]}" dir="{meta["dir"]}">', 1)
-
-        out = ROOT / locale / (f"{page}/index.html" if page else "index.html")
-        out.parent.mkdir(parents=True, exist_ok=True)
-        out.write_text(html, encoding="utf-8")
-        made.append((page or "/", count))
-    return made
+SCRIPT = {"zh": re.compile(r"[一-鿿]"), "ar": re.compile(r"[؀-ۿ]")}
 
 
 def main():
-    for locale in ("zh", "ar"):
+    for locale in TARGETS:
         shutil.rmtree(ROOT / locale, ignore_errors=True)
 
-    print(f"\n  {'locale':<8} {'page':<12} {'strings replaced':>18}")
-    print("  " + "-" * 42)
-    for locale in ("zh", "ar"):
-        for page, count in build(locale):
-            print(f"  {locale:<8} {page:<12} {count:>18}")
+    print(f"\n  {'locale':<8} {'page':<12}   status")
+    print("  " + "-" * 34)
+    for locale in TARGETS:
+        for page in PAGES:
+            rel = f"{page}/index.html" if page else "index.html"
+            source = (ROOT / rel).read_text(encoding="utf-8")
+            out = ROOT / locale / rel
+            out.parent.mkdir(parents=True, exist_ok=True)
+            out.write_text(localise(source, locale), encoding="utf-8")
+        print(f"  {locale:<8} {'(' + str(len(PAGES)) + ' pages)':<12}   written")
 
-    # English pages keep their own switcher, now as links rather than buttons.
-    for page in PAGES:
-        path = ROOT / (f"{page}/index.html" if page else "index.html")
-        path.write_text(switcher(path.read_text(encoding="utf-8"), "en", page), encoding="utf-8")
-    print(f"\n  English switcher rewritten as links on {len(PAGES)} pages\n")
+    print("\n  Verifying each locale actually boots in its own language:")
+    failures = []
+    for locale in TARGETS:
+        heading = rendered_heading(f"http://localhost:4173/{locale}/")
+        ok = bool(heading and SCRIPT[locale].search(heading))
+        print(f"    /{locale}/  {'ok ' if ok else 'FAILED'}  h1: {heading[:46]}")
+        if not ok:
+            failures.append(locale)
+
+    if failures:
+        print(f"\n  {', '.join(failures)} did not switch — nothing downstream will be right.\n")
+        sys.exit(1)
+    print()
 
 
 if __name__ == "__main__":

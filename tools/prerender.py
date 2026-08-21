@@ -42,6 +42,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 PAGES = ["", "solutions", "about", "contact", "privacy", "terms"]
+# Locale directories are produced by tools/localise.py, which runs before this.
+LOCALES = [""] + [c for c in ("zh", "ar") if (ROOT / c / "index.html").exists()]
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
 # Wide enough to be unambiguously the desktop branch of the layout.
@@ -127,27 +129,30 @@ def main():
         print("  " + "-" * 50)
         failed = []
 
-        for page in PAGES:
-            path = ROOT / (f"{page}/index.html" if page else "index.html")
+        targets = [(loc, page) for loc in LOCALES for page in PAGES]
+        for locale, page in targets:
+            rel = f"{page}/index.html" if page else "index.html"
+            path = ROOT / (rel if not locale else f"{locale}/{rel}")
+            label = f"{'/' + locale if locale else ''}/{page}" if page else f"/{locale or ''}"
             original = path.read_text(encoding="utf-8")
             before = len(visible_text(PAYLOAD.sub("", original)))
 
-            rendered = render(port, page)
+            rendered = render(port, f"{locale}/{page}".strip("/"))
             if any(m in rendered for m in ("__bundler_thumbnail", "__bundler_placeholder")):
-                failed.append((page or "/", "render did not complete"))
-                print(f"  {page or '/':<12} {before:>12} {'-':>11}   FAILED")
+                failed.append((label, "render did not complete"))
+                print(f"  {label:<12} {before:>12} {'-':>11}   FAILED")
                 continue
 
             baked = bake(original, rendered)
             after = len(visible_text(baked))
             if after < 500:
-                failed.append((page or "/", f"only {after} characters"))
-                print(f"  {page or '/':<12} {before:>12} {after:>11}   FAILED")
+                failed.append((label, f"only {after} characters"))
+                print(f"  {label:<12} {before:>12} {after:>11}   FAILED")
                 continue
 
             if not check_only:
                 path.write_text(baked, encoding="utf-8")
-            print(f"  {page or '/':<12} {before:>12} {after:>11}   ok")
+            print(f"  {label:<12} {before:>12} {after:>11}   ok")
 
         if failed:
             print("\n  Not written:")
@@ -155,7 +160,7 @@ def main():
                 print(f"    {page}: {why}")
             sys.exit(1)
 
-        print(f"\n  {'Checked' if check_only else 'Wrote'} {len(PAGES)} pages.")
+        print(f"\n  {'Checked' if check_only else 'Wrote'} {len(targets)} pages.")
         print("  Verify with tools/compare-viewports.sh before pushing.\n")
     finally:
         httpd.shutdown()

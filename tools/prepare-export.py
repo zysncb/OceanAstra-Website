@@ -24,9 +24,10 @@ export cannot produce any of it on its own:
   8. The header logo trades its opacity fade for the nav wavy underline.
   9. sitemap.xml is regenerated.
 
-This script is step one of three. Run in order:
+This script is step one of four. Run in order:
 
     python3 tools/prepare-export.py <export-dir>   # this file
+    python3 tools/localise.py                      # publish /zh/ and /ar/
     python3 tools/prerender.py                     # static copy for crawlers
     python3 tools/seo-inject.py                    # structured data, cards, llms.txt
 
@@ -37,11 +38,9 @@ the two steps do not fight; seo-inject.py only writes <head>. Skip prerender.py
 and the site ships six pages carrying fifteen characters of text apiece, which
 is what the export produces on its own.
 
-tools/localise.py, which derives Chinese and Arabic pages, is NOT in this
-pipeline. It was written against a prerender that replaced the bundle; now that
-the bundle stays, anything it rewrites is discarded the moment JavaScript runs.
-Making the language switcher work for real visitors means patching the template
-JSON the bundle renders from. See its docstring.
+localise.py runs before prerender.py because prerender has to render each
+locale in its own language; running it after would bake English into all
+eighteen pages.
 
 Two things are deliberately NOT automated: image cropping/compression (a
 judgement call about composition — see README) and anything inside content/.
