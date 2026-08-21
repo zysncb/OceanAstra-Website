@@ -61,6 +61,11 @@ lat, lon = [c.strip() for c in CO["coordinates"].split(",")]
 addr = CO["address"]["en"]
 
 
+# Built by tools/build-faq.py with a head of its own. Listed for discovery,
+# but never head-injected — doing so would overwrite its FAQPage markup.
+EXTRA = ["faq"]
+
+
 def page_url(locale, slug):
     root = f"{SITE}/" if locale == "en" else f"{SITE}/{locale}/"
     return root if not slug else f"{root}{slug}/"
@@ -232,6 +237,8 @@ def llms_txt():
     for slug in PAGES:
         key = PAGES[slug][1]
         lines.append(f"- [{EN[key]['title']}]({page_url('en', slug)}): {EN[key]['description']}")
+    faq = json.loads((ROOT / "content/faq.json").read_text(encoding="utf-8"))["en"]
+    lines.append(f"- [{faq['title']}]({page_url('en', 'faq')}): {faq['description']}")
 
     others = [c for c in ("zh", "ar") if c in L]
     if others:
@@ -279,7 +286,8 @@ def finalise_sitemap():
     stamp = build_date()
     rows = []
     for locale in LOCALES:
-        for slug in PAGES:
+        for slug in list(PAGES) + [e for e in EXTRA if (ROOT / (
+                f"{e}/index.html" if locale == "en" else f"{locale}/{e}/index.html")).exists()]:
             alts = "\n".join(
                 f'    <xhtml:link rel="alternate" hreflang="{L[c]["meta"]["htmlLang"]}"'
                 f' href="{page_url(c, slug)}"/>' for c in LOCALES)

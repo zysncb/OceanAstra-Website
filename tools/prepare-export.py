@@ -28,7 +28,9 @@ This script is step one of four. Run in order:
 
     python3 tools/prepare-export.py <export-dir>   # this file
     python3 tools/localise.py                      # publish /zh/ and /ar/
+    python3 tools/link-faq.py                      # footer link to /faq/
     python3 tools/prerender.py                     # static copy for crawlers
+    python3 tools/build-faq.py                     # /faq/, from the rendered shell
     python3 tools/seo-inject.py                    # structured data, cards, llms.txt
 
     tools/compare-viewports.sh HEAD                # verify before pushing
@@ -38,9 +40,10 @@ the two steps do not fight; seo-inject.py only writes <head>. Skip prerender.py
 and the site ships six pages carrying fifteen characters of text apiece, which
 is what the export produces on its own.
 
-localise.py runs before prerender.py because prerender has to render each
-locale in its own language; running it after would bake English into all
-eighteen pages.
+localise.py and link-faq.py both edit the template, so they run before
+prerender.py — prerender has to render each locale in its own language, and
+whatever it renders is what crawlers read. build-faq.py runs after prerender
+because it lifts its header and footer out of the rendered privacy page.
 
 Two things are deliberately NOT automated: image cropping/compression (a
 judgement call about composition — see README) and anything inside content/.

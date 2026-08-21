@@ -56,6 +56,15 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://oceanastra.net/faq/</loc>
+    <lastmod>2026-08-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oceanastra.net/faq/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://oceanastra.net/zh/faq/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://oceanastra.net/ar/faq/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://oceanastra.net/zh/</loc>
     <lastmod>2026-08-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://oceanastra.net/"/>
@@ -110,6 +119,15 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://oceanastra.net/zh/faq/</loc>
+    <lastmod>2026-08-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oceanastra.net/faq/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://oceanastra.net/zh/faq/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://oceanastra.net/ar/faq/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://oceanastra.net/ar/</loc>
     <lastmod>2026-08-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://oceanastra.net/"/>
@@ -160,6 +178,15 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://oceanastra.net/terms/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://oceanastra.net/zh/terms/"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://oceanastra.net/ar/terms/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://oceanastra.net/ar/faq/</loc>
+    <lastmod>2026-08-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oceanastra.net/faq/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://oceanastra.net/zh/faq/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://oceanastra.net/ar/faq/"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

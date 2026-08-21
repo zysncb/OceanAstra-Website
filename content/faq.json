@@ -1,0 +1,153 @@
+{
+  "_comment": "FAQ content, built into /faq/ by tools/build-faq.py. Written for extraction: each answer opens by answering the question, names the entity rather than saying 'we', and states verifiable specifics — an AI answer engine quotes a fragment, not a page. Every factual claim here also appears elsewhere on the site, which Google's structured data policy requires and which keeps the FAQPage markup honest.",
+
+  "en": {
+    "title": "Frequently asked questions — OceanAstra",
+    "description": "Answers about OceanAstra Technologies L.L.C: what the company does, where it is registered, what CorpOS, CarSaas and Flying are, which platforms it works with, and how projects and support run.",
+    "heading": "Frequently asked questions",
+    "lede": "If something here is not answered, write to hello@oceanastra.net — every genuine enquiry gets a reply, normally within one business day.",
+    "groups": [
+      {
+        "title": "The company",
+        "items": [
+          ["What is OceanAstra?",
+           "OceanAstra Technologies L.L.C is a technology company registered in Dubai, United Arab Emirates, under commercial licence 1646635 issued by the Department of Economy and Tourism. It works in three areas: AI-native organisation software built in-house, management systems for specific industries, and bringing proven technology platforms from elsewhere in the world into the Middle East."],
+          ["Where is OceanAstra based?",
+           "OceanAstra is based in Dubai Industrial City, Dubai, United Arab Emirates, with its registered office at Office 08, Building R.SH.038, Saih Shuaib 2. It serves clients across the UAE, the wider GCC and Greater China."],
+          ["Is OceanAstra a registered company?",
+           "Yes. OceanAstra Technologies L.L.C holds commercial licence 1646635 from the Department of Economy and Tourism, Government of Dubai, with commercial register number 2913183 and Dubai Chamber membership 698189. Its licensed activities are IT infrastructure, and computer systems and communication equipment software design."],
+          ["What languages does OceanAstra work in?",
+           "English, Arabic and Chinese — in the product interface, the documentation, the training and the support line. Arabic interfaces use right-to-left layout rather than translated left-to-right screens."]
+        ]
+      },
+      {
+        "title": "Products",
+        "items": [
+          ["What is CorpOS?",
+           "CorpOS is OceanAstra's AI-native management platform, entered through instant messaging, in which an organisation is made up of human colleagues and AI teammates that hold defined roles and reporting lines. CorpOS is in active development. A company can also keep the messaging platform it already uses and add a CorpOS team of AI teammates to it."],
+          ["What is CarSaas?",
+           "CarSaas is OceanAstra's ERP for automotive trading in the Middle East, currently in development. It manages inventory at VIN level across in-transit, in-bond and showroom states, tracks purchase, shipping, customs and landed cost per vehicle, handles multi-currency settlement under UAE VAT requirements, and traces each unit from chassis number to invoice."],
+          ["What is Flying?",
+           "Flying is OceanAstra's cross-border trading system for the construction and interior fit-out industry, delivered as a tailored solution. It covers cross-border procurement, supplier and quotation collaboration across currencies and languages, logistics and customs milestone tracking, and cost collection at project level."],
+          ["How is an AI-native system different from adding AI to an existing ERP?",
+           "An AI-native system treats the operating model of the company as the product: AI teammates hold roles and carry work between systems, rather than a chat box being added to an existing screen. OceanAstra offers both routes — AI teammates who take on defined roles, or AI assistance layered onto the systems a business already runs."]
+        ]
+      },
+      {
+        "title": "Working together",
+        "items": [
+          ["Which platforms does OceanAstra work with?",
+           "OceanAstra delivers deployment, integration and support for Lark, an all-in-one digital workplace platform, and Amap, a mapping and location services platform used for logistics and field operations. The scope of each partnership is confirmed in writing during commercial discussion."],
+          ["Which industries does OceanAstra serve?",
+           "Automotive trading, and construction and interior fit-out, are the two industries OceanAstra builds dedicated systems for. Its AI organisation and integration work is not industry-specific."],
+          ["How does a project with OceanAstra start?",
+           "Every engagement runs in four steps: understanding the process as it genuinely runs today, designing the smallest solution that addresses the real constraint, delivering in phases with a defined scope and a fixed acceptance checklist, and supporting with named contacts and agreed response targets."],
+          ["Can systems be deployed on our own infrastructure?",
+           "Yes. OceanAstra deploys on a client's own infrastructure or on hosting it manages, and data residency is agreed in writing before implementation. All systems ship with documented APIs."],
+          ["How quickly does OceanAstra respond to support requests?",
+           "OceanAstra acknowledges every support request within one business day, and sooner during business hours of Sunday to Thursday, 09:00–18:00 Gulf Standard Time. Issues that stop a business process are treated as priority and worked continuously until a workaround or a fix is in place. Support is available in English, Arabic and Chinese."]
+        ]
+      }
+    ]
+  },
+
+  "zh": {
+    "title": "常见问题 — OceanAstra",
+    "description": "关于 OceanAstra Technologies L.L.C 的解答：公司做什么、注册在哪、CorpOS 与 CarSaas 及 Flying 分别是什么、与哪些平台合作，以及项目和支持如何开展。",
+    "heading": "常见问题",
+    "lede": "如果这里没有回答到您的问题，请来信 hello@oceanastra.net —— 每一封真实的咨询都会得到回复，通常在一个工作日内。",
+    "groups": [
+      {
+        "title": "关于公司",
+        "items": [
+          ["OceanAstra 是一家什么公司？",
+           "OceanAstra Technologies L.L.C 是一家注册于阿拉伯联合酋长国迪拜的科技公司，持有迪拜经济与旅游局签发的商业执照 1646635。业务涵盖三个方向：自研的 AI 原生组织管理软件、面向特定行业的管理系统，以及把全球经过验证的科技平台引入中东。"],
+          ["OceanAstra 的办公地点在哪里？",
+           "OceanAstra 位于阿拉伯联合酋长国迪拜的迪拜工业城，注册办公地址为 Saih Shuaib 2，R.SH.038 楼 08 室。服务范围覆盖阿联酋、海湾地区与大中华区的企业客户。"],
+          ["OceanAstra 是正式注册的公司吗？",
+           "是。OceanAstra Technologies L.L.C 持有迪拜政府经济与旅游局签发的商业执照 1646635，商业登记号 2913183，迪拜商会会员号 698189。执照登记的经营范围为信息技术基础设施，以及计算机系统与通信设备软件设计。"],
+          ["OceanAstra 用哪些语言工作？",
+           "英文、阿拉伯文与中文 —— 覆盖产品界面、文档、培训与技术支持。阿拉伯文界面采用从右至左的版式，而不是把从左至右的界面翻译一遍。"]
+        ]
+      },
+      {
+        "title": "产品",
+        "items": [
+          ["CorpOS 是什么？",
+           "CorpOS 是 OceanAstra 自研的 AI 原生管理平台，以即时沟通为入口，组织由人类同事与 AI 职员共同构成，AI 职员拥有明确的岗位、职责与汇报关系。CorpOS 目前处于研发阶段。企业也可以保留正在使用的即时沟通平台，在其中接入一支 CorpOS 的 AI 职员团队。"],
+          ["CarSaas 是什么？",
+           "CarSaas 是 OceanAstra 面向中东市场的汽车贸易 ERP，目前处于研发阶段。它以 VIN 为单位管理库存，区分在途、保税与展厅在库状态，按单车核算采购、运输、清关与到岸成本，支持符合阿联酋增值税要求的多币种结算，并实现从车架号到发票的全链路追溯。"],
+          ["Flying 是什么？",
+           "Flying 是 OceanAstra 面向建筑装饰行业的跨境贸易系统，以定制化方式交付。覆盖跨境采购、跨币种与跨语言的供应商与报价协同、物流与清关节点跟踪，以及项目维度的成本归集。"],
+          ["AI 原生的系统，和在现有 ERP 上加装 AI 有什么区别？",
+           "AI 原生系统把公司的运营模型本身当作产品：AI 职员承担岗位职责、在系统之间承载工作流转，而不是在既有界面上加一个对话框。OceanAstra 两种路径都提供 —— 由 AI 职员承担明确岗位，或以 AI 辅助的方式增强企业现有系统。"]
+        ]
+      },
+      {
+        "title": "合作方式",
+        "items": [
+          ["OceanAstra 与哪些平台合作？",
+           "OceanAstra 为一体化数字办公平台 Lark，以及面向物流与外勤场景的地图与位置服务平台 Amap，提供在中东地区的落地部署、集成与支持。每项合作的具体范围将在商务洽谈阶段以书面形式确认。"],
+          ["OceanAstra 服务哪些行业？",
+           "汽车贸易，以及建筑装饰与精装工程，是 OceanAstra 专门构建系统的两个行业。AI 组织方案与集成合作方案则不限定行业。"],
+          ["与 OceanAstra 的项目通常怎么开始？",
+           "每个项目分四个阶段：先理解流程今天实际的运转方式，再设计能解决真实约束的最小方案，然后分阶段交付、每阶段有明确范围和固定验收清单，最后由指定对接人按约定响应时限提供支持。"],
+          ["系统可以部署在我们自己的基础设施上吗？",
+           "可以。OceanAstra 支持部署在客户自有基础设施上，或采用由我们负责运维的托管方案，数据存放地在实施前以书面形式约定。所有系统均提供完整的 API 文档。"],
+          ["OceanAstra 的技术支持响应有多快？",
+           "OceanAstra 会在一个工作日内确认收到每一条支持请求，办公时间内通常更快 —— 办公时间为周日至周四 09:00–18:00（海湾标准时间）。已导致业务流程中断的问题按最高优先级处理，持续跟进直到有可用的临时方案或正式修复。支持语言为英文、阿拉伯文与中文。"]
+        ]
+      }
+    ]
+  },
+
+  "ar": {
+    "title": "الأسئلة الشائعة — أوشن أسترا",
+    "description": "إجابات عن أوشن أسترا للتكنولوجيا ذ.م.م: ماذا تعمل الشركة، وأين هي مسجّلة، وما هي كورب أو إس وكار ساس وفلاينغ، ومع أي المنصات تعمل، وكيف تجري المشاريع والدعم.",
+    "heading": "الأسئلة الشائعة",
+    "lede": "إن لم تجد إجابة سؤالك هنا، فراسلنا على hello@oceanastra.net — نردّ على كل استفسار جادّ، عادةً خلال يوم عمل واحد.",
+    "groups": [
+      {
+        "title": "عن الشركة",
+        "items": [
+          ["ما هي أوشن أسترا؟",
+           "أوشن أسترا للتكنولوجيا ذ.م.م شركة تقنية مسجّلة في دبي بدولة الإمارات العربية المتحدة، بموجب الرخصة التجارية رقم ١٦٤٦٦٣٥ الصادرة عن دائرة الاقتصاد والسياحة. وتعمل في ثلاثة مجالات: برمجيات تنظيم أصيلة الذكاء الاصطناعي من تطويرها، وأنظمة إدارة لقطاعات بعينها، وجلب منصات تقنية مثبتة من مختلف أنحاء العالم إلى الشرق الأوسط."],
+          ["أين يقع مقر أوشن أسترا؟",
+           "يقع مقر أوشن أسترا في مدينة دبي الصناعية بدبي، الإمارات العربية المتحدة، وعنوانها المسجّل هو مكتب رقم ٠٨، مبنى R.SH.038، سيح شعيب ٢. وتخدم عملاءها في الإمارات ودول الخليج ومنطقة الصين الكبرى."],
+          ["هل أوشن أسترا شركة مسجّلة رسميًا؟",
+           "نعم. تحمل أوشن أسترا للتكنولوجيا ذ.م.م الرخصة التجارية رقم ١٦٤٦٦٣٥ الصادرة عن دائرة الاقتصاد والسياحة بحكومة دبي، ورقم السجل التجاري ٢٩١٣١٨٣، وعضوية غرفة تجارة دبي رقم ٦٩٨١٨٩. وأنشطتها المرخّصة هي إنشاء البنية التحتية لتقنية المعلومات، وتصميم نظم الحاسب الآلي وأجهزة الاتصال."],
+          ["بأي لغات تعمل أوشن أسترا؟",
+           "بالعربية والإنجليزية والصينية — في واجهة المنتج والتوثيق والتدريب وخط الدعم. وتستخدم الواجهات العربية تخطيطًا من اليمين إلى اليسار، لا شاشات مترجمة عن اتجاه معاكس."]
+        ]
+      },
+      {
+        "title": "المنتجات",
+        "items": [
+          ["ما هو كورب أو إس؟",
+           "كورب أو إس منصة إدارة أصيلة الذكاء الاصطناعي طوّرتها أوشن أسترا، مدخلها المراسلة الفورية، وتتكوّن فيها المؤسسة من زملاء من البشر وزملاء رقميين يشغلون أدوارًا محدّدة ولهم تسلسل مسؤولية واضح. وكورب أو إس قيد التطوير حاليًا. ويمكن للشركة أيضًا الإبقاء على منصة المراسلة التي تستخدمها وإضافة فريق من الزملاء الرقميين إليها عبر كورب أو إس."],
+          ["ما هو كار ساس؟",
+           "كار ساس نظام تخطيط موارد طوّرته أوشن أسترا لتجارة السيارات في الشرق الأوسط، وهو قيد التطوير حاليًا. يدير المخزون على مستوى رقم الهيكل عبر حالات البضاعة في الطريق وتحت التخليص والمعروضة في الصالة، ويتتبّع الشراء والشحن والجمارك والتكلفة الواصلة لكل مركبة، ويتيح التسوية متعددة العملات وفق متطلبات ضريبة القيمة المضافة في الإمارات، ويتتبّع كل وحدة من رقم الهيكل إلى الفاتورة."],
+          ["ما هو فلاينغ؟",
+           "فلاينغ نظام تجارة عابرة للحدود طوّرته أوشن أسترا لقطاع المقاولات والتشطيبات الداخلية، ويُسلَّم كحلّ مفصّل. ويغطي الشراء عبر الحدود، والتعاون مع المورّدين وعروض الأسعار عبر العملات واللغات، وتتبّع مراحل الشحن والتخليص الجمركي، وتجميع التكاليف على مستوى المشروع."],
+          ["ما الفرق بين نظام أصيل الذكاء الاصطناعي وإضافة الذكاء الاصطناعي إلى نظام قائم؟",
+           "النظام الأصيل يعامل نموذج تشغيل الشركة نفسه بوصفه المنتج: الزملاء الرقميون يشغلون أدوارًا وينقلون العمل بين الأنظمة، بدل إضافة نافذة محادثة إلى شاشة قائمة. وتقدّم أوشن أسترا المسارين معًا — زملاء رقميون يتولّون أدوارًا محدّدة، أو ذكاء اصطناعي مساند يُضاف إلى الأنظمة التي تشغّلها الشركة أصلًا."]
+        ]
+      },
+      {
+        "title": "العمل معًا",
+        "items": [
+          ["مع أي المنصات تعمل أوشن أسترا؟",
+           "تقدّم أوشن أسترا النشر والتكامل والدعم لمنصة لارك، وهي بيئة عمل رقمية متكاملة، ولمنصة أماب لخدمات الخرائط وتحديد المواقع المستخدمة في العمليات اللوجستية والميدانية. ويُؤكَّد نطاق كل شراكة كتابةً خلال المرحلة التجارية."],
+          ["أي القطاعات تخدمها أوشن أسترا؟",
+           "تجارة السيارات، والمقاولات والتشطيبات الداخلية، هما القطاعان اللذان تبني لهما أوشن أسترا أنظمة مخصّصة. أما أعمالها في التنظيم بالذكاء الاصطناعي والتكامل فليست محصورة بقطاع بعينه."],
+          ["كيف يبدأ المشروع مع أوشن أسترا؟",
+           "يمرّ كل تعاقد بأربع مراحل: فهم العملية كما تجري اليوم بالفعل، ثم تصميم أصغر حلّ يعالج القيد الحقيقي، ثم التنفيذ على مراحل بنطاق محدّد وقائمة قبول ثابتة، ثم الدعم عبر جهات اتصال معيّنة بالاسم وأزمنة استجابة متفق عليها."],
+          ["هل يمكن تشغيل الأنظمة على بنيتنا التحتية؟",
+           "نعم. تنشر أوشن أسترا الأنظمة على البنية التحتية الخاصة بالعميل أو ضمن استضافة تديرها، ويُتفق على موقع تخزين البيانات كتابةً قبل التنفيذ. وتأتي جميع الأنظمة بواجهات برمجية موثّقة."],
+          ["ما سرعة استجابة أوشن أسترا لطلبات الدعم؟",
+           "تؤكّد أوشن أسترا استلام كل طلب دعم خلال يوم عمل واحد، وأسرع من ذلك خلال ساعات العمل، وهي من الأحد إلى الخميس ٠٩:٠٠–١٨:٠٠ بتوقيت الخليج. وتُعامَل الحالات التي توقف عملية تشغيلية بوصفها ذات أولوية، ويستمر العمل عليها حتى يتوفّر حل بديل مؤقت أو إصلاح نهائي. والدعم متاح بالعربية والإنجليزية والصينية."]
+        ]
+      }
+    ]
+  }
+}

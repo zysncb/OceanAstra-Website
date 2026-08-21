@@ -38,6 +38,7 @@ Bringing proven technology from around the world into the Middle East: selection
 - [Contact — OceanAstra](https://oceanastra.net/contact/): Contact OceanAstra — office in Dubai, United Arab Emirates. Email addresses for enquiries, service support and partnerships, plus telephone, location and business hours.
 - [Privacy Policy — OceanAstra](https://oceanastra.net/privacy/): How OceanAstra collects, uses, shares and protects personal information through its website, software and mobile applications.
 - [Terms of Use — OceanAstra](https://oceanastra.net/terms/): Terms governing use of the OceanAstra website and the relationship between visitors and OceanAstra.
+- [Frequently asked questions — OceanAstra](https://oceanastra.net/faq/): Answers about OceanAstra Technologies L.L.C: what the company does, where it is registered, what CorpOS, CarSaas and Flying are, which platforms it works with, and how projects and support run.
 
 ## Other languages
 
