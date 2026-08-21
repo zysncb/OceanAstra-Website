@@ -1,38 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://oceanastra.net/</loc>
     <lastmod>2026-08-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oceanastra.net/"/>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://oceanastra.net/solutions/</loc>
     <lastmod>2026-08-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oceanastra.net/solutions/"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://oceanastra.net/about/</loc>
     <lastmod>2026-08-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oceanastra.net/about/"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://oceanastra.net/contact/</loc>
     <lastmod>2026-08-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oceanastra.net/contact/"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://oceanastra.net/privacy/</loc>
     <lastmod>2026-08-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oceanastra.net/privacy/"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://oceanastra.net/terms/</loc>
     <lastmod>2026-08-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://oceanastra.net/terms/"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

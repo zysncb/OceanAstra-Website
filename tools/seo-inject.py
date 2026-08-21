@@ -32,7 +32,11 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 CO = json.loads((ROOT / "content/company.json").read_text(encoding="utf-8"))
-LOCALES = ["en", "zh", "ar"]
+# Only the locales that actually have pages on disk. The Chinese and Arabic
+# trees are derived by tools/localise.py, which is not currently in the
+# pipeline — see its docstring. Declaring hreflang for a locale that 404s is
+# worse than declaring none.
+LOCALES = ["en"] + [c for c in ("zh", "ar") if (ROOT / c / "index.html").exists()]
 L = {c: json.loads((ROOT / f"content/i18n/{c}.json").read_text(encoding="utf-8"))
      for c in LOCALES}
 EN = L["en"]
@@ -229,11 +233,13 @@ def llms_txt():
         key = PAGES[slug][1]
         lines.append(f"- [{EN[key]['title']}]({page_url('en', slug)}): {EN[key]['description']}")
 
-    lines += ["", "## Other languages", "",
-              "The same pages are published in Chinese and Arabic. The Arabic "
-              "version is laid out right-to-left.", ""]
-    for c in ("zh", "ar"):
-        lines.append(f"- {L[c]['meta']['label']}: {page_url(c, '')}")
+    others = [c for c in ("zh", "ar") if c in L]
+    if others:
+        lines += ["", "## Other languages", "",
+                  "The same pages are published in these languages. The Arabic "
+                  "version is laid out right-to-left.", ""]
+        for c in others:
+            lines.append(f"- {L[c]['meta']['label']}: {page_url(c, '')}")
 
     lines += [
         "", "## Contact", "",

@@ -4,7 +4,19 @@ Derive the Chinese and Arabic sites from the rendered English pages.
 
     python3 tools/localise.py
 
-Run AFTER prerender.py and BEFORE seo-inject.py.
+NOT CURRENTLY IN THE PIPELINE, and it will not work as written.
+
+It was built against a prerender step that replaced the bundle, so rewriting
+the served HTML was enough. The bundle now stays — it parses its template and
+swaps the root element on load — which means every substitution here is
+discarded the instant JavaScript runs. Crawlers would see Chinese; visitors
+would see English.
+
+Making the switcher work for real visitors means translating the template JSON
+in <script type="__bundler/template">, which is what the bundle actually
+renders from. The translations in content/i18n/zh.json and ar.json are complete
+and keyed identically to en.json, so the copy is ready; it is the injection
+point that has to change.
 
 Design Canvas exports one language. Rather than maintain three exports that
 drift apart, this takes the rendered English DOM and substitutes strings using
