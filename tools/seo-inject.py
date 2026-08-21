@@ -32,7 +32,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 CO = json.loads((ROOT / "content/company.json").read_text(encoding="utf-8"))
-EN = json.loads((ROOT / "content/i18n/en.json").read_text(encoding="utf-8"))
+LOCALES = ["en", "zh", "ar"]
+L = {c: json.loads((ROOT / f"content/i18n/{c}.json").read_text(encoding="utf-8"))
+     for c in LOCALES}
+EN = L["en"]
 
 SITE = CO["siteUrl"]
 ORG = f"{SITE}/#organization"
@@ -52,6 +55,11 @@ PAGES = {
 
 lat, lon = [c.strip() for c in CO["coordinates"].split(",")]
 addr = CO["address"]["en"]
+
+
+def page_url(locale, slug):
+    root = f"{SITE}/" if locale == "en" else f"{SITE}/{locale}/"
+    return root if not slug else f"{root}{slug}/"
 
 
 def organisation():
@@ -120,43 +128,54 @@ def organisation():
 def website():
     return {
         "@type": "WebSite", "@id": WEB, "url": f"{SITE}/",
-        "name": CO["brand"], "inLanguage": "en",
+        "name": CO["brand"], "inLanguage": LOCALES,
         "publisher": {"@id": ORG},
     }
 
 
-def webpage(slug, kind):
-    url = f"{SITE}/{slug + '/' if slug else ''}"
-    meta = EN[PAGES[slug][1]]
-    crumbs = [{"@type": "ListItem", "position": 1, "name": "Home", "item": f"{SITE}/"}]
+def webpage(locale, slug, kind):
+    url = page_url(locale, slug)
+    t = L[locale]
+    meta = t[PAGES[slug][1]]
+    crumbs = [{"@type": "ListItem", "position": 1, "name": t["nav"]["home"],
+               "item": page_url(locale, "")}]
     if slug:
         crumbs.append({"@type": "ListItem", "position": 2,
-                       "name": EN["nav"].get(PAGES[slug][1], slug.title()), "item": url})
+                       "name": t["nav"].get(PAGES[slug][1], slug.title()), "item": url})
     return {
         "@type": kind, "@id": f"{url}#webpage", "url": url,
         "name": meta["title"], "description": meta["description"],
         "isPartOf": {"@id": WEB}, "about": {"@id": ORG},
-        "inLanguage": "en", "primaryImageOfPage": {"@type": "ImageObject", "url": f"{SITE}/assets/img/og-image.png"},
+        "inLanguage": t["meta"]["htmlLang"],
+        "primaryImageOfPage": {"@type": "ImageObject", "url": f"{SITE}/assets/img/og-image.png"},
         "breadcrumb": {"@type": "BreadcrumbList", "itemListElement": crumbs},
     }
 
 
-def head_block(slug):
+def head_block(locale, slug):
     kind, key = PAGES[slug]
-    meta = EN[key]
-    url = f"{SITE}/{slug + '/' if slug else ''}"
+    meta = L[locale][key]
+    url = page_url(locale, slug)
     graph = {"@context": "https://schema.org",
-             "@graph": [organisation(), website(), webpage(slug, kind)]}
+             "@graph": [organisation(), website(), webpage(locale, slug, kind)]}
     ld = json.dumps(graph, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c")
     esc = lambda s: s.replace("&", "&amp;").replace('"', "&quot;")
+    # Every language version points at every other, and each is its own
+    # canonical. Without this the three read as duplicates of one page.
+    alts = [f'<link rel="alternate" hreflang="{L[c]["meta"]["htmlLang"]}" '
+            f'href="{page_url(c, slug)}">' for c in LOCALES]
+    alts.append(f'<link rel="alternate" hreflang="x-default" href="{page_url("en", slug)}">')
+
     return "\n".join([
         MARK,
         '<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">',
+        f'<link rel="canonical" href="{url}">',
+        *alts,
         f'<meta property="og:image" content="{SITE}/assets/img/og-image.png">',
         '<meta property="og:image:width" content="1200">',
         '<meta property="og:image:height" content="630">',
         f'<meta property="og:image:alt" content="{esc(EN["home"]["hero"]["heading"])}">',
-        '<meta property="og:locale" content="en">',
+        f'<meta property="og:locale" content="{L[locale]["meta"]["htmlLang"]}">',
         '<meta name="twitter:card" content="summary_large_image">',
         f'<meta name="twitter:title" content="{esc(meta["title"])}">',
         f'<meta name="twitter:description" content="{esc(meta["description"])}">',
@@ -172,11 +191,15 @@ def head_block(slug):
 LANG_SCRIPT = re.compile(r'<script>\(function\(\)\{var m=\{"EN".*?</script>\s*', re.S)
 
 
-def inject(path, slug):
+def inject(path, locale, slug):
     html = path.read_text(encoding="utf-8")
     html = re.sub(re.escape(MARK) + r".*?" + re.escape(END) + r"\s*", "", html, flags=re.S)
+    # prepare-export.py writes its own canonical for the English page; the
+    # localised copies inherit it verbatim, which would point zh and ar at the
+    # English URL. Ours replaces it.
+    html = re.sub(r'\s*<link rel="canonical"[^>]*>', "", html)
     html, dropped = LANG_SCRIPT.subn("", html)
-    html = html.replace("</head>", head_block(slug) + "\n</head>", 1)
+    html = html.replace("</head>", head_block(locale, slug) + "\n</head>", 1)
     path.write_text(html, encoding="utf-8")
     return dropped
 
@@ -204,8 +227,13 @@ def llms_txt():
     lines += ["## Pages", ""]
     for slug in PAGES:
         key = PAGES[slug][1]
-        url = f"{SITE}/{slug + '/' if slug else ''}"
-        lines.append(f"- [{EN[key]['title']}]({url}): {EN[key]['description']}")
+        lines.append(f"- [{EN[key]['title']}]({page_url('en', slug)}): {EN[key]['description']}")
+
+    lines += ["", "## Other languages", "",
+              "The same pages are published in Chinese and Arabic. The Arabic "
+              "version is laid out right-to-left.", ""]
+    for c in ("zh", "ar"):
+        lines.append(f"- {L[c]['meta']['label']}: {page_url(c, '')}")
 
     lines += [
         "", "## Contact", "",
@@ -236,15 +264,33 @@ def build_date():
 
 
 def finalise_sitemap():
-    """Add <lastmod> to the sitemap prepare-export.py generated."""
-    path = ROOT / "sitemap.xml"
-    xml = path.read_text(encoding="utf-8")
-    xml = re.sub(r"\s*<lastmod>[^<]*</lastmod>", "", xml)
+    """Rewrite the sitemap across all three languages.
+
+    prepare-export.py only knows about the English pages. Each entry declares
+    its alternates, which is how a crawler learns the three are one page in
+    three languages rather than three thin pages.
+    """
     stamp = build_date()
-    if stamp:
-        xml = xml.replace("</loc>", f"</loc>\n    <lastmod>{stamp}</lastmod>", )
-    path.write_text(xml, encoding="utf-8")
-    return stamp
+    rows = []
+    for locale in LOCALES:
+        for slug in PAGES:
+            alts = "\n".join(
+                f'    <xhtml:link rel="alternate" hreflang="{L[c]["meta"]["htmlLang"]}"'
+                f' href="{page_url(c, slug)}"/>' for c in LOCALES)
+            rows.append(
+                "  <url>\n"
+                f"    <loc>{page_url(locale, slug)}</loc>\n"
+                + (f"    <lastmod>{stamp}</lastmod>\n" if stamp else "")
+                + f"{alts}\n"
+                f"    <changefreq>monthly</changefreq>\n"
+                f"    <priority>{'1.0' if not slug else '0.7'}</priority>\n"
+                "  </url>")
+    (ROOT / "sitemap.xml").write_text(
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n'
+        '        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
+        + "\n".join(rows) + "\n</urlset>\n", encoding="utf-8")
+    return stamp, len(rows)
 
 
 def robots_txt():
@@ -267,17 +313,22 @@ def robots_txt():
 
 
 def main():
-    print(f"\n  {'page':<12} {'lang-script':>12}   status")
-    print("  " + "-" * 40)
-    for slug in PAGES:
-        path = ROOT / (f"{slug}/index.html" if slug else "index.html")
-        dropped = inject(path, slug)
-        print(f"  {slug or '/':<12} {('removed' if dropped else '-'):>12}   ok")
+    print(f"\n  {'locale':<8} {'page':<12}   status")
+    print("  " + "-" * 34)
+    n = 0
+    for locale in LOCALES:
+        for slug in PAGES:
+            rel = f"{slug}/index.html" if slug else "index.html"
+            path = ROOT / (rel if locale == "en" else f"{locale}/{rel}")
+            inject(path, locale, slug)
+            n += 1
+        print(f"  {locale:<8} {'(' + str(len(PAGES)) + ' pages)':<12}   ok")
     size = llms_txt()
-    stamp = finalise_sitemap()
+    print(f"\n  {n} pages total")
+    stamp, urls = finalise_sitemap()
     agents = robots_txt()
-    print(f"\n  llms.txt    {size:,} bytes")
-    print(f"  sitemap     lastmod {stamp or '(no git date — omitted)'}")
+    print(f"  llms.txt    {size:,} bytes")
+    print(f"  sitemap     {urls} URLs, lastmod {stamp or '(none)'}")
     print(f"  robots.txt  {agents} AI crawlers named explicitly\n")
 
 

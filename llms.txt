@@ -39,6 +39,13 @@ Bringing proven technology from around the world into the Middle East: selection
 - [Privacy Policy — OceanAstra](https://oceanastra.net/privacy/): How OceanAstra collects, uses, shares and protects personal information through its website, software and mobile applications.
 - [Terms of Use — OceanAstra](https://oceanastra.net/terms/): Terms governing use of the OceanAstra website and the relationship between visitors and OceanAstra.
 
+## Other languages
+
+The same pages are published in Chinese and Arabic. The Arabic version is laid out right-to-left.
+
+- 中文: https://oceanastra.net/zh/
+- العربية: https://oceanastra.net/ar/
+
 ## Contact
 
 - Enquiries and new projects: hello@oceanastra.net

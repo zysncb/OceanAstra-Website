@@ -24,16 +24,22 @@ export cannot produce any of it on its own:
   8. The header logo trades its opacity fade for the nav wavy underline.
   9. sitemap.xml is regenerated.
 
-This script is step one of three. Run in order:
+This script is step one of four. Run in order:
 
     python3 tools/prepare-export.py <export-dir>   # this file
     python3 tools/prerender.py                     # bake the rendered DOM in
+    python3 tools/localise.py                      # derive the zh and ar sites
     python3 tools/seo-inject.py                    # structured data, cards, llms.txt
 
-The order matters. prerender.py rewrites each page wholesale, so anything
-seo-inject.py adds must go in after it, and both need the head this script
-produces. Skipping prerender.py ships six pages carrying fifteen characters of
-text apiece, which is what the export produces on its own.
+The order matters:
+
+  - prerender.py rewrites each page wholesale, so nothing added before it
+    survives except what lives in <head>. Skip it and the site ships six pages
+    carrying fifteen characters of text apiece, which is what the export
+    produces on its own.
+  - localise.py copies the English pages, so it needs them rendered.
+  - seo-inject.py writes per-locale heads and must therefore see all eighteen
+    pages, which only exist after localise.py has run.
 
 Two things are deliberately NOT automated: image cropping/compression (a
 judgement call about composition — see README) and anything inside content/.

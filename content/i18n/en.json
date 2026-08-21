@@ -1,6 +1,10 @@
 {
-  "meta": { "code": "en", "dir": "ltr", "label": "English", "htmlLang": "en" },
-
+  "meta": {
+    "code": "en",
+    "dir": "ltr",
+    "label": "English",
+    "htmlLang": "en"
+  },
   "nav": {
     "home": "Home",
     "solutions": "Solutions",
@@ -11,7 +15,6 @@
     "language": "Language",
     "skip": "Skip to main content"
   },
-
   "common": {
     "learnMore": "Learn more",
     "contactUs": "Contact us",
@@ -27,7 +30,6 @@
     "viewOnMap": "Open in Google Maps",
     "coordinates": "Coordinates"
   },
-
   "home": {
     "title": "OceanAstra — Bringing AI into every enterprise in the Middle East",
     "description": "OceanAstra is a Dubai-based technology company delivering AI-native organisation solutions (CorpOS), industry management systems (CarSaas, Flying) and integration partnerships that bring the world's best technology to enterprises in the Middle East.",
@@ -102,10 +104,26 @@
       "eyebrow": "How we work",
       "heading": "Four steps, no surprises.",
       "items": [
-        { "step": "01", "title": "Understand", "body": "We sit with the people who do the work — not only the people who sign the contract — and map the process as it genuinely runs today, including the spreadsheets nobody admits to." },
-        { "step": "02", "title": "Design", "body": "We propose the smallest solution that addresses the real constraint, and we say plainly which parts are standard product, which are configuration, which are custom development, and where AI should enter." },
-        { "step": "03", "title": "Deliver", "body": "Phased rollout with a defined scope, a named delivery lead and a fixed acceptance checklist for every phase. Data migration is treated as part of the project, not an afterthought." },
-        { "step": "04", "title": "Support", "body": "Named support contacts, agreed response targets and a documented escalation path — in English, Arabic or Chinese, whichever your team works in." }
+        {
+          "step": "01",
+          "title": "Understand",
+          "body": "We sit with the people who do the work — not only the people who sign the contract — and map the process as it genuinely runs today, including the spreadsheets nobody admits to."
+        },
+        {
+          "step": "02",
+          "title": "Design",
+          "body": "We propose the smallest solution that addresses the real constraint, and we say plainly which parts are standard product, which are configuration, which are custom development, and where AI should enter."
+        },
+        {
+          "step": "03",
+          "title": "Deliver",
+          "body": "Phased rollout with a defined scope, a named delivery lead and a fixed acceptance checklist for every phase. Data migration is treated as part of the project, not an afterthought."
+        },
+        {
+          "step": "04",
+          "title": "Support",
+          "body": "Named support contacts, agreed response targets and a documented escalation path — in English, Arabic or Chinese, whichever your team works in."
+        }
       ]
     },
     "partners": {
@@ -113,8 +131,14 @@
       "heading": "Working alongside the best technology companies.",
       "lede": "We partner with proven technology platforms, bring them to enterprise clients across the region, and take responsibility for every step that follows.",
       "items": [
-        { "name": "Lark", "body": "A new generation of all-in-one digital workplace: messaging, documents, approvals, calendar and company directory in a single platform. We deliver its deployment, integration and three-language support across the region." },
-        { "name": "Amap", "body": "A leading mapping and location services platform: geocoding, routing and fleet visibility. We deliver integration for logistics and field operations." }
+        {
+          "name": "Lark",
+          "body": "A new generation of all-in-one digital workplace: messaging, documents, approvals, calendar and company directory in a single platform. We deliver its deployment, integration and three-language support across the region."
+        },
+        {
+          "name": "Amap",
+          "body": "A leading mapping and location services platform: geocoding, routing and fleet visibility. We deliver integration for logistics and field operations."
+        }
       ],
       "note": "Lark and Amap are trademarks of their respective owners. The scope of each partnership, and what it covers commercially, is confirmed in writing during commercial discussion.",
       "cta": "Discuss a partnership"
@@ -134,7 +158,6 @@
       "button": "Contact us"
     }
   },
-
   "solutions": {
     "title": "Solutions — OceanAstra",
     "description": "OceanAstra's three lines of business: AI organisation solutions (CorpOS), industry management solutions (CarSaas, Flying), and integration partnerships bringing global technology to the Middle East.",
@@ -254,7 +277,6 @@
       "button": "Talk to our team"
     }
   },
-
   "about": {
     "title": "About — OceanAstra",
     "description": "OceanAstra is a technology company registered in Dubai, United Arab Emirates, working to bring AI into every enterprise in the Middle East through AI organisation solutions, industry management systems and integration partnerships.",
@@ -274,10 +296,22 @@
     "principles": {
       "heading": "What we hold to",
       "items": [
-        { "title": "Say what is true", "body": "Including when the honest answer is that a client does not need us, that a requirement is not worth the money, or that a deadline will not be met. We would rather lose a project than manage someone's expectations dishonestly." },
-        { "title": "Fit before features", "body": "A shorter system that matches how the business runs beats a comprehensive one that nobody opens. We measure a project by whether the work moved into the system, not by the size of the module list." },
-        { "title": "Stay after go-live", "body": "The value of an enterprise system is created in the two years after launch, not in the launch. Support, iteration and training are part of the engagement, not an upsell." },
-        { "title": "Work in your language", "body": "English, Arabic and Chinese — in the interface, in the documentation, in training and on the support line. Not translated at the end, but built in from the start." }
+        {
+          "title": "Say what is true",
+          "body": "Including when the honest answer is that a client does not need us, that a requirement is not worth the money, or that a deadline will not be met. We would rather lose a project than manage someone's expectations dishonestly."
+        },
+        {
+          "title": "Fit before features",
+          "body": "A shorter system that matches how the business runs beats a comprehensive one that nobody opens. We measure a project by whether the work moved into the system, not by the size of the module list."
+        },
+        {
+          "title": "Stay after go-live",
+          "body": "The value of an enterprise system is created in the two years after launch, not in the launch. Support, iteration and training are part of the engagement, not an upsell."
+        },
+        {
+          "title": "Work in your language",
+          "body": "English, Arabic and Chinese — in the interface, in the documentation, in training and on the support line. Not translated at the end, but built in from the start."
+        }
       ]
     },
     "facts": {
@@ -309,7 +343,6 @@
       "button": "Contact us"
     }
   },
-
   "support": {
     "title": "Support — OceanAstra",
     "description": "Support for OceanAstra clients and users of our software and mobile applications, including contact channels, response targets and escalation.",
@@ -321,18 +354,41 @@
     "channels": {
       "heading": "How to reach us",
       "items": [
-        { "title": "Service support email", "body": "The fastest route for most issues. Please include the system or application name, what you expected, what happened instead, and a screenshot if you have one.", "linkLabel": "Email support" },
-        { "title": "Telephone", "body": "Available during business hours for issues that are blocking operations. If you reach voicemail outside those hours, leave the company name and a callback number.", "linkLabel": "Call us" },
-        { "title": "Named contacts", "body": "Clients under a support agreement receive named contacts and a direct escalation path, documented at the start of the engagement." }
+        {
+          "title": "Service support email",
+          "body": "The fastest route for most issues. Please include the system or application name, what you expected, what happened instead, and a screenshot if you have one.",
+          "linkLabel": "Email support"
+        },
+        {
+          "title": "Telephone",
+          "body": "Available during business hours for issues that are blocking operations. If you reach voicemail outside those hours, leave the company name and a callback number.",
+          "linkLabel": "Call us"
+        },
+        {
+          "title": "Named contacts",
+          "body": "Clients under a support agreement receive named contacts and a direct escalation path, documented at the start of the engagement."
+        }
       ]
     },
     "expectations": {
       "heading": "What to expect",
       "items": [
-        { "title": "Acknowledgement", "body": "We acknowledge every support request within one business day, and sooner during business hours." },
-        { "title": "Priority handling", "body": "Issues that stop a business process are treated as priority and worked continuously until a workaround or a fix is in place." },
-        { "title": "Honest status", "body": "If a fix will take time, we say how long and why, and we update you as it progresses rather than going quiet." },
-        { "title": "Languages", "body": "English, Arabic and Chinese. You will not be asked to explain a technical problem in a second language." }
+        {
+          "title": "Acknowledgement",
+          "body": "We acknowledge every support request within one business day, and sooner during business hours."
+        },
+        {
+          "title": "Priority handling",
+          "body": "Issues that stop a business process are treated as priority and worked continuously until a workaround or a fix is in place."
+        },
+        {
+          "title": "Honest status",
+          "body": "If a fix will take time, we say how long and why, and we update you as it progresses rather than going quiet."
+        },
+        {
+          "title": "Languages",
+          "body": "English, Arabic and Chinese. You will not be asked to explain a technical problem in a second language."
+        }
       ]
     },
     "apps": {
@@ -345,7 +401,6 @@
       "button": "Email support"
     }
   },
-
   "contact": {
     "title": "Contact — OceanAstra",
     "description": "Contact OceanAstra — office in Dubai, United Arab Emirates. Email addresses for enquiries, service support and partnerships, plus telephone, location and business hours.",
@@ -355,9 +410,18 @@
       "lede": "Tell us what you are trying to fix. A short description of the process and the size of the team is usually enough for us to give a useful first answer."
     },
     "cards": {
-      "general": { "title": "Enquiries", "body": "Solution enquiries, demonstrations and commercial discussion, plus company and press questions." },
-      "support": { "title": "Service support", "body": "For existing clients and users of our software and mobile applications." },
-      "partners": { "title": "Partnerships", "body": "For technology vendors looking to enter the Middle East, and for channel, integration and ecosystem discussions." }
+      "general": {
+        "title": "Enquiries",
+        "body": "Solution enquiries, demonstrations and commercial discussion, plus company and press questions."
+      },
+      "support": {
+        "title": "Service support",
+        "body": "For existing clients and users of our software and mobile applications."
+      },
+      "partners": {
+        "title": "Partnerships",
+        "body": "For technology vendors looking to enter the Middle East, and for channel, integration and ecosystem discussions."
+      }
     },
     "office": {
       "heading": "Our office",
@@ -365,7 +429,6 @@
     },
     "note": "We reply to every genuine enquiry, normally within one business day. If you have not heard back within two business days, please resend — occasionally messages are filtered."
   },
-
   "privacy": {
     "title": "Privacy Policy — OceanAstra",
     "description": "How OceanAstra collects, uses, shares and protects personal information through its website, software and mobile applications.",
@@ -381,7 +444,9 @@
       },
       {
         "heading": "2. Information we collect",
-        "paragraphs": ["We collect only what we need for a clearly identified purpose:"],
+        "paragraphs": [
+          "We collect only what we need for a clearly identified purpose:"
+        ],
         "list": [
           "Information you give us — your name, company, email address, telephone number and the content of your message when you contact us or request a demonstration.",
           "Information from using our software — account identifiers, activity and audit records generated as you use a system we provide, and technical logs needed to operate and secure it.",
@@ -391,7 +456,9 @@
       },
       {
         "heading": "3. How we use information",
-        "paragraphs": ["We use personal information to:"],
+        "paragraphs": [
+          "We use personal information to:"
+        ],
         "list": [
           "Respond to your enquiry and provide the information or demonstration you asked for",
           "Provide, operate, secure and improve the software and services you or your employer have engaged us for",
@@ -399,7 +466,9 @@
           "Meet legal, regulatory, tax and accounting obligations that apply to us",
           "Detect, investigate and prevent fraud, abuse and security incidents"
         ],
-        "after": ["We do not sell personal information. We do not use the content of client data to train general-purpose AI models."]
+        "after": [
+          "We do not sell personal information. We do not use the content of client data to train general-purpose AI models."
+        ]
       },
       {
         "heading": "4. Legal basis for processing",
@@ -409,7 +478,9 @@
       },
       {
         "heading": "5. Sharing and disclosure",
-        "paragraphs": ["We share personal information only in these circumstances:"],
+        "paragraphs": [
+          "We share personal information only in these circumstances:"
+        ],
         "list": [
           "With service providers who host, secure or operate our infrastructure, under written confidentiality and data protection terms",
           "With software vendors whose platforms we integrate or support, strictly as required to provision, license or support your use of those platforms",
@@ -437,7 +508,9 @@
       },
       {
         "heading": "9. Your rights",
-        "paragraphs": ["Subject to applicable law, you may ask us to:"],
+        "paragraphs": [
+          "Subject to applicable law, you may ask us to:"
+        ],
         "list": [
           "Confirm whether we hold personal information about you and provide a copy",
           "Correct information that is inaccurate or incomplete",
@@ -475,7 +548,6 @@
       }
     ]
   },
-
   "terms": {
     "title": "Terms of Use — OceanAstra",
     "description": "Terms governing use of the OceanAstra website and the relationship between visitors and OceanAstra.",
@@ -497,7 +569,9 @@
       },
       {
         "heading": "3. Use of the website",
-        "paragraphs": ["You may view, download and print material from this website for your own business or personal reference. You may not:"],
+        "paragraphs": [
+          "You may view, download and print material from this website for your own business or personal reference. You may not:"
+        ],
         "list": [
           "Use the site in any way that breaches applicable law or regulation",
           "Attempt to gain unauthorised access to the site, its server or any connected system",
@@ -568,7 +642,6 @@
       }
     ]
   },
-
   "footer": {
     "tagline": "Bringing AI into every enterprise in the Middle East.",
     "solutionsHeading": "Solutions",
@@ -581,12 +654,30 @@
     "licenceLabel": "Trade Licence",
     "registered": "Registered in Dubai, United Arab Emirates"
   },
-
   "notFound": {
     "title": "Page not found — OceanAstra",
     "description": "The page you were looking for could not be found.",
     "heading": "This page does not exist.",
     "lede": "The address may have changed, or the link that brought you here may be out of date.",
     "button": "Go to the homepage"
+  },
+  "exported": {
+    "_comment": "Copy that the Design Canvas export introduced or reworded on the page without it coming back through this file. Kept here so the Chinese and Arabic builds have something to substitute; see tools/localise.py.",
+    "registered": "Registered",
+    "marketsServed": "Markets served",
+    "marketsValue": "UAE · Wider GCC",
+    "deliveryLangs": "Delivery languages",
+    "deliveryValue": "English · Arabic · Chinese",
+    "larkCard": "A new generation of all-in-one digital workplace: messaging, documents, approvals, calendar and company directory in a single platform. We deliver its deployment and integration across the region.",
+    "aboutSummary": "We provide AI organisation solutions, industry management solutions and integration partnerships to enterprise clients across the UAE and the wider GCC.",
+    "integrationScope": "From requirement assessment through tenant setup, migration, training and support",
+    "supportPromise": "Named support contacts, agreed response targets and a documented escalation path.",
+    "firstLineSupport": "First-line support",
+    "languageBuiltIn": "The interface, the documentation and the training are built in the language your team actually works in, not translated at the end.",
+    "entityType": "Limited Liability Company (L.L.C)",
+    "licenceAuthority": "Department of Economy and Tourism, Government of Dubai",
+    "supportLanguages": "We work in the language your team uses day to day. You will not be asked to explain a technical problem in a second language.",
+    "visitsNote": "Visits are by appointment. Please email ahead so we can make sure the right people are available.",
+    "appSupport": "If you are using an OceanAstra mobile application and need help — including account questions, data requests or bug reports — use the support email address. Please include your device model and operating system version so we can reproduce the issue accurately."
   }
 }
