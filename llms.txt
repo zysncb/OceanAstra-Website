@@ -1,0 +1,47 @@
+# OceanAstra
+
+> OceanAstra is a technology company headquartered in Dubai. We believe technology knows no borders — we bring the world's most advanced productivity to the Middle East, so that every company here has a wider set of choices.
+
+OceanAstra Technologies L.L.C is a technology company registered in Dubai, United Arab Emirates, holding commercial licence 1646635 issued by the Department of Economy and Tourism, Government of Dubai. It serves enterprise clients across the UAE, the wider GCC and Greater China, and delivers in English, Arabic and Chinese.
+
+## Lines of business
+
+### AI Organisation Solutions
+
+Management tools built on how work changes in the age of AI — enabling companies founded today, and giving established businesses a route into AI without tearing anything down.
+
+- CorpOS (built in-house) — an AI-native management platform entered through instant messaging, where the organisation is made up of human colleagues and AI teammates
+- Or keep the messaging platform you already use and add a CorpOS team of AI teammates to it — Lark + CorpOS, for example
+- Management capability for newly founded companies, and a step-by-step transition path for established ones
+
+### Industry Management Solutions
+
+Either AI teammates who hold defined roles, or AI assistance layered onto existing work — a new way to manage the operations of a specific industry, and a way to bring AI to the systems that industry already runs.
+
+- CarSaas — an ERP for automotive trading in the Middle East, currently in development and launching soon
+- Flying — a cross-border trading system for construction and interior fit-out, delivered as a tailored solution that matches how each business actually trades
+- AI capability added to the systems an industry already runs, without replacing them
+
+### Integration Partnerships
+
+Bringing proven technology from around the world into the Middle East: selection, integration, localised delivery and long-term support.
+
+- Lark — deployment and integration of the all-in-one digital workplace across the region
+- Amap — mapping and location services for logistics and field operations
+- From requirement assessment through tenant setup, migration, training and support in three languages
+
+## Pages
+
+- [OceanAstra — Bringing AI into every enterprise in the Middle East](https://oceanastra.net/): OceanAstra is a Dubai-based technology company delivering AI-native organisation solutions (CorpOS), industry management systems (CarSaas, Flying) and integration partnerships that bring the world's best technology to enterprises in the Middle East.
+- [Solutions — OceanAstra](https://oceanastra.net/solutions/): OceanAstra's three lines of business: AI organisation solutions (CorpOS), industry management solutions (CarSaas, Flying), and integration partnerships bringing global technology to the Middle East.
+- [About — OceanAstra](https://oceanastra.net/about/): OceanAstra is a technology company registered in Dubai, United Arab Emirates, working to bring AI into every enterprise in the Middle East through AI organisation solutions, industry management systems and integration partnerships.
+- [Contact — OceanAstra](https://oceanastra.net/contact/): Contact OceanAstra — office in Dubai, United Arab Emirates. Email addresses for enquiries, service support and partnerships, plus telephone, location and business hours.
+- [Privacy Policy — OceanAstra](https://oceanastra.net/privacy/): How OceanAstra collects, uses, shares and protects personal information through its website, software and mobile applications.
+- [Terms of Use — OceanAstra](https://oceanastra.net/terms/): Terms governing use of the OceanAstra website and the relationship between visitors and OceanAstra.
+
+## Contact
+
+- Enquiries and new projects: hello@oceanastra.net
+- Technical support: support@oceanastra.net
+- Registered address: Office 08, Building R.SH.038, Saih Shuaib 2, Dubai Industrial City, Dubai, United Arab Emirates
+- Business hours: Sunday – Thursday, 09:00 – 18:00 (GST, UTC+4)
