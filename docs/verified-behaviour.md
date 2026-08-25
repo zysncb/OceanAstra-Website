@@ -30,7 +30,16 @@ freezes whatever viewport it rendered at, permanently, at every screen size.
 **It is already trilingual.** The runtime carries a complete `DICT` for `zh` and
 `ar`, switches right-to-left for Arabic on its own (`isAr` drives line height,
 letter spacing and direction), and has a Chinese brand name — 越海星辰. The
-header switcher was never decorative; it sets component state and re-renders.
+header switcher was never decorative; as exported it set component state and
+re-rendered.
+
+**Setting state was not enough to keep a language.** State lives on one page.
+Every internal link is a full page load, so the next page booted from its own
+`defaultLang` and came back in English — the switch worked and lasted exactly
+until the visitor clicked something. `tools/lang-urls.py` repoints the switcher
+at the locale URL (`/about/` → `/zh/about/`), which is what makes the choice
+survive a click, a reload and a shared link. Verified in a browser across all
+eighteen pages, both directions, desktop and 375 px.
 
 **Language resolves as** `this.state.lang || this.props.defaultLang || "en"`,
 and props come from the schema in `data-props` on the `<x-dc>` script. Setting
