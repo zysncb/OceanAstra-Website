@@ -84,6 +84,15 @@ widths — which is what `tools/compare-viewports.sh` does.
 decided in JavaScript from the window width, the default is a decision. Set it
 explicitly.
 
+**Generated output is only as current as the base it was generated from.**
+The localised `<title>` work was produced in a separate worktree branched
+before the language-URL fix landed. Its twelve HTML files were correct about
+titles and, being rebuilt from that older base, silently dropped `switchLang`
+from every /zh/ and /ar/ page — reintroducing the exact bug the fix had just
+removed. Reviewing them against the goal would have passed. Take the tool
+change and re-run it on the current base; then check the output still carries
+what the base carries, not only what the change was for.
+
 **A dumped DOM carries runtime artefacts.** `blob:` script srcs are minted
 against whatever origin rendered the page; baked into a file they point at a
 build server that existed for ninety seconds. `prerender.py` refuses to write a
