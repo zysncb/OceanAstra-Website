@@ -20,9 +20,10 @@ Three things go in:
   3. llms.txt, the convention AI crawlers increasingly look for: one markdown
      summary of what the company is and where the real pages are.
 
-It also removes the export's language-switch listener. The switcher has no
-translations behind it — the buttons only set <html lang>, so clicking 中文
-labelled English prose as Chinese. A wrong lang attribute is worse than none.
+It also strips a stray <html lang> click listener if one is still present.
+Read the note above LANG_SCRIPT before acting on that: the sentence that used
+to stand here — that the switcher has no translations behind it — was false,
+and removing the listener on the strength of it broke the site.
 """
 
 import json
@@ -195,8 +196,13 @@ def head_block(locale, slug):
     ])
 
 
-# The export ships a click listener that rewrites <html lang> to zh-Hans or ar
-# when the language buttons are pressed. There is no translated copy behind them.
+# A stray listener that rewrote <html lang> on button click. It was added on
+# the conclusion that the switcher was decorative — a conclusion produced by
+# grepping a JSON-encoded template for Chinese, which always returns zero
+# because JSON escapes non-ASCII as \uXXXX. The runtime has always carried a
+# full DICT for zh and ar; see docs/verified-behaviour.md. Language now lives
+# in the URL (tools/lang-urls.py) and no page matches this pattern any more,
+# so the strip is a no-op, kept only in case a re-export brings it back.
 LANG_SCRIPT = re.compile(r'<script>\(function\(\)\{var m=\{"EN".*?</script>\s*', re.S)
 
 
