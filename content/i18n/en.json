@@ -525,7 +525,7 @@
       {
         "heading": "10. Cookies and similar technologies",
         "paragraphs": [
-          "This website does not use advertising cookies, cross-site trackers or third-party analytics scripts, and stores nothing on your device — your language choice is carried in the page address rather than saved in your browser. We do use the search engines' own webmaster consoles, which report on data those engines collect themselves and place no tracking on this site. Standard server logs are retained for security and diagnostic purposes."
+          "This website uses Cloudflare Web Analytics to count page views. It sets no cookies, stores nothing on your device, and does not track you across other sites; Cloudflare processes this data on our behalf. Your language choice is carried in the page address rather than saved in your browser. We use no advertising cookies and no cross-site trackers, and we also use the search engines' own webmaster consoles, which report on data those engines collect themselves. Standard server logs are retained for security and diagnostic purposes."
         ]
       },
       {

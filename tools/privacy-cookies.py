@@ -30,6 +30,12 @@ language in the template's DICT, and once more in the prerendered copy, in that
 page's own language. content/i18n/{en,zh,ar}.json holds the same prose as the
 source of truth. Twelve occurrences in six files, all replaced here.
 
+PRIOR holds every wording this paragraph has had, newest last, and all of them
+map to NEW. That list is the point of the tool. A re-export restores the
+*export's* original sentence, not whatever the site said yesterday, so matching
+only the current text would leave the tool unable to fix the one case it exists
+for. Adding a wording here is how this paragraph gets revised.
+
 The Arabic is a translation of the new English, following the sentence shapes
 already in the file. It should be read by a native speaker before it is relied
 on — it is a legal document, and this tool cannot judge register.
@@ -43,16 +49,27 @@ ROOT = Path(__file__).resolve().parent.parent
 FILES = ["privacy/index.html", "zh/privacy/index.html", "ar/privacy/index.html",
          "content/i18n/en.json", "content/i18n/zh.json", "content/i18n/ar.json"]
 
-OLD = {
+PRIOR_1 = {
     "en": "This website does not use advertising cookies, cross-site trackers or third-party analytics. Your language preference is stored locally in your browser so that the site remembers it on your next visit; that preference stays on your device and is not transmitted to us. Standard server logs are retained for security and diagnostic purposes.",
     "zh": "本网站不使用广告 Cookie、跨站跟踪器或第三方分析工具。您的语言偏好保存在浏览器本地，以便下次访问时记住该设置；该偏好仅保留在您的设备上，不会传输给我们。标准服务器日志出于安全与诊断目的保留。",
     "ar": "لا يستخدم هذا الموقع ملفات تعريف ارتباط إعلانية، ولا أدوات تتبّع عبر المواقع، ولا تحليلات من أطراف ثالثة. ويُحفظ تفضيل اللغة محليًا في متصفّحك ليتذكّره الموقع في زيارتك التالية؛ ويبقى هذا التفضيل على جهازك ولا يُرسل إلينا. أمّا سجلات الخادم المعتادة فتُحفظ لأغراض الأمن والتشخيص.",
 }
 
-NEW = {
+
+# What PRIOR_1 was replaced with, before analytics went on the site.
+PRIOR_2 = {
     "en": "This website does not use advertising cookies, cross-site trackers or third-party analytics scripts, and stores nothing on your device — your language choice is carried in the page address rather than saved in your browser. We do use the search engines' own webmaster consoles, which report on data those engines collect themselves and place no tracking on this site. Standard server logs are retained for security and diagnostic purposes.",
     "zh": "本网站不使用广告 Cookie、跨站跟踪器或第三方统计脚本，也不在您的设备上存储任何内容——语言选择由页面地址承载，而不是保存在浏览器里。我们使用搜索引擎自有的站长工具，它呈现的是搜索引擎自行收集的数据，不会在本站植入任何跟踪代码。标准服务器日志出于安全与诊断目的保留。",
     "ar": "لا يستخدم هذا الموقع ملفات تعريف ارتباط إعلانية، ولا أدوات تتبّع عبر المواقع، ولا نصوص تحليلات من أطراف ثالثة، ولا يخزّن شيئًا على جهازك؛ فاختيار اللغة يُحمَل في عنوان الصفحة بدل أن يُحفظ في متصفّحك. ونستخدم أدوات مشرفي المواقع الخاصة بمحرّكات البحث نفسها، وهي تعرض بيانات تجمعها تلك المحرّكات بذاتها ولا تضيف أيّ تتبّع إلى هذا الموقع. أمّا سجلات الخادم المعتادة فتُحفظ لأغراض الأمن والتشخيص.",
+}
+
+PRIOR = [PRIOR_1, PRIOR_2]
+LANGS = ("en", "zh", "ar")
+
+NEW = {
+    "en": "This website uses Cloudflare Web Analytics to count page views. It sets no cookies, stores nothing on your device, and does not track you across other sites; Cloudflare processes this data on our behalf. Your language choice is carried in the page address rather than saved in your browser. We use no advertising cookies and no cross-site trackers, and we also use the search engines' own webmaster consoles, which report on data those engines collect themselves. Standard server logs are retained for security and diagnostic purposes.",
+    "zh": "本网站使用 Cloudflare Web Analytics 统计页面浏览量。它不写入 Cookie，不在您的设备上存储任何内容，也不会跨站点追踪您；相关数据由 Cloudflare 代我们处理。您的语言选择由页面地址承载，而不是保存在浏览器里。我们不使用广告 Cookie，也不使用跨站跟踪器；此外我们使用搜索引擎自有的站长工具，它呈现的是搜索引擎自行收集的数据。标准服务器日志出于安全与诊断目的保留。",
+    "ar": "يستخدم هذا الموقع Cloudflare Web Analytics لإحصاء مرات عرض الصفحات. وهو لا يكتب ملفات تعريف ارتباط، ولا يخزّن شيئًا على جهازك، ولا يتتبّعك عبر المواقع الأخرى؛ وتعالج Cloudflare هذه البيانات نيابةً عنّا. ويُحمَل اختيار اللغة في عنوان الصفحة بدل أن يُحفظ في متصفّحك. ولا نستخدم ملفات تعريف ارتباط إعلانية ولا أدوات تتبّع عبر المواقع، كما نستخدم أدوات مشرفي المواقع الخاصة بمحرّكات البحث نفسها، وهي تعرض بيانات تجمعها تلك المحرّكات بذاتها. أمّا سجلات الخادم المعتادة فتُحفظ لأغراض الأمن والتشخيص.",
 }
 
 # The template is JSON-encoded, so a replacement carrying a quote, a backslash
@@ -72,7 +89,7 @@ def main():
         path = ROOT / rel
         text = path.read_text(encoding="utf-8")
 
-        counts = {c: text.count(OLD[c]) for c in OLD}
+        counts = {c: sum(text.count(prior[c]) for prior in PRIOR) for c in LANGS}
         if not any(counts.values()):
             already = sum(text.count(NEW[c]) for c in NEW)
             status = "already done" if already else "NOT FOUND"
@@ -83,16 +100,17 @@ def main():
                 failed.append(rel)
             continue
 
-        for code in OLD:
-            text = text.replace(OLD[code], NEW[code])
+        for prior in PRIOR:
+            for code in LANGS:
+                text = text.replace(prior[code], NEW[code])
         path.write_text(text, encoding="utf-8")
 
         # Nothing of the old wording may survive anywhere in the file — the
         # prerendered copy carries it as well as the DICT, and a page that
         # disagrees with itself is worse than one that is merely out of date.
         after = path.read_text(encoding="utf-8")
-        leftover = sum(after.count(OLD[c]) for c in OLD)
-        row = "  ".join(f"{counts[c]:>4}" for c in ("en", "zh", "ar"))
+        leftover = sum(after.count(prior[c]) for prior in PRIOR for c in LANGS)
+        row = "  ".join(f"{counts[c]:>4}" for c in LANGS)
         if leftover:
             print(f"  {rel:<28} {row}   {leftover} left behind")
             failed.append(rel)
