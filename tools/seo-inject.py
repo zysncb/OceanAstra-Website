@@ -28,6 +28,7 @@ and removing the listener on the strength of it broke the site.
 
 import json
 import re
+import sys
 import subprocess
 from pathlib import Path
 
@@ -187,6 +188,7 @@ def head_block(locale, slug):
         MARK,
         '<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">',
         f'<link rel="canonical" href="{url}">',
+        f'<meta property="og:url" content="{url}">',
         *alts,
         f'<meta property="og:image" content="{SITE}/assets/img/og-image.png">',
         '<meta property="og:image:width" content="1200">',
@@ -213,17 +215,61 @@ def head_block(locale, slug):
 LANG_SCRIPT = re.compile(r'<script>\(function\(\)\{var m=\{"EN".*?</script>\s*', re.S)
 
 
+TEMPLATE = re.compile(r'(<script type="__bundler/template">)(.*?)(</script>)', re.S)
+
+# Tags this block re-declares. Left in place they would appear twice, and for
+# canonical and og:url the inherited value is the English URL — the thing being
+# corrected.
+SUPERSEDED = re.compile(
+    r'\s*<(?:link rel="canonical"|meta property="og:url"|meta property="og:locale")[^>]*>')
+
+
+def strip_ours(doc):
+    return SUPERSEDED.sub("", re.sub(re.escape(MARK) + r".*?" + re.escape(END) + r"\s*",
+                                     "", doc, flags=re.S))
+
+
+def inject_template(html, locale, slug):
+    """Put the same block inside the template.
+
+    The served <head> is not what a rendering crawler ends up reading. The
+    bundle replaces the whole document element on load, so everything written
+    here is gone from the DOM by the time the page is interactive, and the
+    template's own head takes over — a head that was copied from the English
+    page and still says so. Measured on /zh/about/ before this existed: zero
+    ld+json, zero hreflang, and rel=canonical pointing at /about/, which tells
+    a crawler the Chinese page is a duplicate of the English one.
+
+    Non-rendering crawlers read the served HTML and were always fine. Googlebot
+    renders. Both need the block, so both get it.
+
+    Re-encoding escapes "</" — the template holds a nested </script> and the
+    JSON-LD adds another, and leaving either literal ends the enclosing script
+    element early and truncates the page.
+    """
+    match = TEMPLATE.search(html)
+    if not match:
+        return html, False
+    template = json.loads(match.group(2))
+    if "</head>" not in template:
+        return html, False
+    template = strip_ours(template)
+    template = template.replace("</head>", head_block(locale, slug) + "\n</head>", 1)
+    encoded = json.dumps(template, ensure_ascii=False).replace("</", "<\\/")
+    return html[:match.start(2)] + encoded + html[match.end(2):], True
+
+
 def inject(path, locale, slug):
     html = path.read_text(encoding="utf-8")
-    html = re.sub(re.escape(MARK) + r".*?" + re.escape(END) + r"\s*", "", html, flags=re.S)
-    # prepare-export.py writes its own canonical for the English page; the
-    # localised copies inherit it verbatim, which would point zh and ar at the
-    # English URL. Ours replaces it.
-    html = re.sub(r'\s*<link rel="canonical"[^>]*>', "", html)
+    # prepare-export.py writes its own canonical and og:url for the English
+    # page; the localised copies inherit them verbatim, which points zh and ar
+    # at the English URL. Ours replace them.
+    html = strip_ours(html)
     html, dropped = LANG_SCRIPT.subn("", html)
     html = html.replace("</head>", head_block(locale, slug) + "\n</head>", 1)
+    html, in_template = inject_template(html, locale, slug)
     path.write_text(html, encoding="utf-8")
-    return dropped
+    return dropped, in_template
 
 
 def llms_txt():
@@ -342,14 +388,20 @@ def robots_txt():
 def main():
     print(f"\n  {'locale':<8} {'page':<12}   status")
     print("  " + "-" * 34)
-    n = 0
+    n, templated = 0, 0
     for locale in LOCALES:
+        done = 0
         for slug in PAGES:
             rel = f"{slug}/index.html" if slug else "index.html"
             path = ROOT / (rel if locale == "en" else f"{locale}/{rel}")
-            inject(path, locale, slug)
+            _, in_template = inject(path, locale, slug)
+            done += in_template
             n += 1
-        print(f"  {locale:<8} {'(' + str(len(PAGES)) + ' pages)':<12}   ok")
+        templated += done
+        print(f"  {locale:<8} {'(' + str(len(PAGES)) + ' pages)':<12}   ok, {done}/{len(PAGES)} in template")
+    if templated != n:
+        sys.exit(f"\n  Only {templated}/{n} templates took the block — a page is shaped "
+                 "differently and its rendered head would keep the English canonical.\n")
     size = llms_txt()
     print(f"\n  {n} pages total")
     stamp, urls = finalise_sitemap()
