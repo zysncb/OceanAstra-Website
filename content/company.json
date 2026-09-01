@@ -1,12 +1,11 @@
 {
   "_comment": "SINGLE SOURCE OF TRUTH for all company facts. Values below are transcribed from the Dubai Commercial License No. 1646635 (issued 20/08/2026). Anything published here must match the trade licence and the D-U-N-S record exactly. Run `node build/build.mjs` after editing.",
-  "_placeholders": true,
-  "_needsReview": [
-    "dunsNumber — D-U-N-S application submitted to D&B 2026-08-20, expected within a few days; fill in the number here once issued (required for Apple Developer Program enrolment)"
-  ],
+  "_placeholders": false,
+  "_needsReview": [],
   "_done": [
     "2026-08-20 hello@, support@ and partners@ mailboxes live on Lark Mail (MX -> larksuite.com)",
-    "2026-08-20 DNS live: apex A/AAAA -> GitHub Pages, www CNAME -> zysncb.github.io, MX untouched; site serving at https://oceanastra.net with HTTPS"
+    "2026-08-20 DNS live: apex A/AAAA -> GitHub Pages, www CNAME -> zysncb.github.io, MX untouched; site serving at https://oceanastra.net with HTTPS",
+    "2026-08-25 D-U-N-S 851077092 issued by D&B (applied 2026-08-20); recorded here for Apple Developer Program enrolment. Not published on the site: structured data may only carry what is also visible on the page, and no page shows it."
   ],
 
   "brand": "OceanAstra",
@@ -82,7 +81,7 @@
     }
   },
 
-  "dunsNumber": "",
+  "dunsNumber": "851077092",
 
   "hours": {
     "en": "Sunday – Thursday, 09:00 – 18:00 (GST, UTC+4)",
