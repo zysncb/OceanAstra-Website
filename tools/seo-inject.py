@@ -74,7 +74,7 @@ def page_url(locale, slug):
 
 def organisation():
     lic = CO["licence"]
-    return {
+    org = {
         "@type": "Organization",
         "@id": ORG,
         "name": CO["brand"],
@@ -133,6 +133,13 @@ def organisation():
             ],
         },
     }
+    # schema.org has a dedicated property for it, which is what a parser
+    # reads; repeating it in `identifier` would state the same fact twice.
+    # Emitted only once tools/duns.py has put it on /about/ — every value
+    # here needs a visible counterpart on the page.
+    if CO.get("dunsNumber"):
+        org["duns"] = CO["dunsNumber"]
+    return org
 
 
 def website():

@@ -5,7 +5,7 @@
   "_done": [
     "2026-08-20 hello@, support@ and partners@ mailboxes live on Lark Mail (MX -> larksuite.com)",
     "2026-08-20 DNS live: apex A/AAAA -> GitHub Pages, www CNAME -> zysncb.github.io, MX untouched; site serving at https://oceanastra.net with HTTPS",
-    "2026-08-25 D-U-N-S 851077092 issued by D&B (applied 2026-08-20); recorded here for Apple Developer Program enrolment. Not published on the site: structured data may only carry what is also visible on the page, and no page shows it."
+    "2026-09-01 D-U-N-S 851077092 recorded (applied to D&B 2026-08-20). Needed for Apple Developer Program enrolment; also printed in the company information table on /about/ in all three languages, and emitted as Organization.duns in the structured data."
   ],
 
   "brand": "OceanAstra",
