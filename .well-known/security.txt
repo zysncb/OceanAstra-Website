@@ -1,0 +1,7 @@
+# Security contact for oceanastra.net, per RFC 9116.
+# Expires 2027-10-18 — renew before that date or this file is stale.
+
+Contact: mailto:support@oceanastra.net
+Expires: 2027-10-18T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://oceanastra.net/.well-known/security.txt
