@@ -32,7 +32,7 @@
   },
   "home": {
     "title": "OceanAstra — Bringing AI into every enterprise in the Middle East",
-    "description": "OceanAstra is a Dubai-based technology company delivering AI-native organisation solutions (CorpOS), industry management systems (CarSaas, Flying) and integration partnerships that bring the world's best technology to enterprises in the Middle East.",
+    "description": "OceanAstra is a Dubai-based technology company delivering AI-native organisation solutions (CorpOS), industry management systems (CarSaas, Invobay) and integration partnerships that bring the world's best technology to enterprises in the Middle East.",
     "hero": {
       "eyebrow": "Dubai, United Arab Emirates",
       "heading": "Bringing AI into every enterprise in the Middle East.",
@@ -43,7 +43,7 @@
     "credentials": [
       "Registered in Dubai, United Arab Emirates",
       "Serving the UAE, the wider GCC and Greater China",
-      "Delivery in English, Arabic and Chinese"
+      "Product interfaces in English, Arabic and Chinese"
     ],
     "mission": {
       "eyebrow": "What we believe",
@@ -80,10 +80,10 @@
           "id": "industry",
           "number": "02",
           "title": "Industry Management Solutions",
-          "summary": "Either AI teammates who hold defined roles, or AI assistance layered onto existing work — a new way to manage the operations of a specific industry, and a way to bring AI to the systems that industry already runs.",
+          "summary": "A new way to manage the operations of a specific industry — through AI teammates who hold defined roles, or AI assistance layered onto existing work — and the systems a business is required to run, UAE e-invoicing first among them.",
           "points": [
             "CarSaas — an ERP for automotive trading in the Middle East, currently in development and launching soon",
-            "Flying — a cross-border trading system for construction and interior fit-out, delivered as a tailored solution that matches how each business actually trades",
+            "Invobay — UAE e-invoicing for businesses in the Emirates (built in-house at invobay.com, in development and launching soon): choose a service provider accredited by the Ministry of Finance, get onboarded on EmaraTax, and issue invoices your provider accepts",
             "AI capability added to the systems an industry already runs, without replacing them"
           ]
         },
@@ -95,7 +95,7 @@
           "points": [
             "Lark — deployment and integration of the all-in-one digital workplace across the region",
             "Amap — mapping and location services for logistics and field operations",
-            "From requirement assessment through tenant setup, migration, training and support in three languages"
+            "From requirement assessment through tenant setup, migration, training and support"
           ]
         }
       ]
@@ -133,7 +133,7 @@
       "items": [
         {
           "name": "Lark",
-          "body": "A new generation of all-in-one digital workplace: messaging, documents, approvals, calendar and company directory in a single platform. We deliver its deployment, integration and three-language support across the region."
+          "body": "A new generation of all-in-one digital workplace: messaging, documents, approvals, calendar and company directory in a single platform. We deliver its deployment and integration across the region."
         },
         {
           "name": "Amap",
@@ -148,7 +148,7 @@
       "heading": "About OceanAstra.",
       "body": [
         "OceanAstra Technologies L.L.C is a technology company registered in Dubai, United Arab Emirates, holding a commercial licence issued by the Department of Economy and Tourism, Government of Dubai.",
-        "We provide AI organisation solutions, industry management solutions and integration partnerships to enterprise clients across the UAE, the wider GCC and Greater China, delivered and supported in English, Arabic and Chinese."
+        "We provide AI organisation solutions, industry management solutions and integration partnerships to enterprise clients across the UAE, the wider GCC and Greater China."
       ],
       "button": "More about us"
     },
@@ -160,7 +160,7 @@
   },
   "solutions": {
     "title": "Solutions — OceanAstra",
-    "description": "OceanAstra's three lines of business: AI organisation solutions (CorpOS), industry management solutions (CarSaas, Flying), and integration partnerships bringing global technology to the Middle East.",
+    "description": "OceanAstra's three lines of business: AI organisation solutions (CorpOS), industry management solutions (CarSaas, Invobay), and integration partnerships bringing global technology to the Middle East.",
     "hero": {
       "eyebrow": "Solutions",
       "heading": "From the organisation to the industry, AI that actually lands.",
@@ -200,10 +200,11 @@
         "id": "industry",
         "number": "02",
         "title": "Industry Management Solutions",
-        "lede": "Either AI teammates who hold defined roles, or AI assistance layered onto existing work — a new operating model for a specific industry, and AI capability for the systems it already runs.",
+        "lede": "Either AI teammates who hold defined roles, or AI assistance layered onto existing work — a new operating model for a specific industry, AI capability for the systems it already runs, and the compliance systems a business is now required to operate.",
         "body": [
           "Generic software struggles to match the operating reality of a specific industry, and industry software often stops at recording what already happened. We work deep inside particular industries and build AI capability directly into the business system.",
-          "There are two ways in: AI teammates who take on roles within the process, or AI assistance that strengthens the systems and the people already in place."
+          "There are two ways in: AI teammates who take on roles within the process, or AI assistance that strengthens the systems and the people already in place.",
+          "This line also covers the systems a business does not choose to run but must. UAE e-invoicing is the immediate one, and Invobay is what we build for it."
         ],
         "groups": [
           {
@@ -217,17 +218,26 @@
             ]
           },
           {
-            "title": "Flying — cross-border trading system for construction fit-out (tailored delivery)",
+            "title": "Invobay — e-invoicing readiness for UAE businesses (in development, launching soon)",
             "items": [
-              "End-to-end cross-border procurement and trading for the fit-out industry",
-              "Supplier, quotation and order collaboration across currencies and languages",
-              "Logistics and customs milestone tracking, with delivery dates visible throughout",
-              "Cost captured and settled at project level",
-              "Delivered as a tailored solution, matching how a particular business trades and runs its projects"
+              "Compare service providers accredited by the Ministry of Finance and appoint one, or choose any provider on the Ministry's published list",
+              "EmaraTax onboarding, either step by step with a published guide or handled for you, with approval given through UAE PASS",
+              "Issue invoices by form, CSV upload or API, with every mandatory field checked before the invoice reaches the provider",
+              "Invoices received through the appointed provider collected in the same place",
+              "Published at invobay.com"
             ]
           },
           {
-            "title": "Across both",
+            "title": "Where OceanAstra stands in this",
+            "items": [
+              "OceanAstra is not a service provider accredited by the Ministry of Finance, and is not applying to become one",
+              "Invobay connects to accredited providers through their APIs; the business appoints its provider and contracts with it directly",
+              "OceanAstra does not use data obtained through a provider to solicit that provider's customers",
+              "The rules come from the Ministry of Finance and the Federal Tax Authority, and Invobay is not affiliated with either"
+            ]
+          },
+          {
+            "title": "How the industry systems are delivered",
             "items": [
               "AI teammates or AI assistance, whichever suits the team as it is today",
               "Arabic, English and Chinese interfaces with correct right-to-left layout",
@@ -236,7 +246,7 @@
             ]
           }
         ],
-        "note": "CarSaas is in development and expected to launch shortly. Flying is delivered as a tailored solution and can be adapted to how a particular business trades and runs its projects — tell us about your operation and we will say what would carry over."
+        "note": "CarSaas and Invobay are both in development and expected to launch shortly — tell us about your operation and we will say what would carry over."
       },
       {
         "id": "integration",
@@ -264,7 +274,7 @@
               "Migration from existing tools, including historical data where feasible",
               "Integration with your ERP, finance system or internal applications",
               "Administrator enablement and end-user training",
-              "First-line support in English, Arabic and Chinese"
+              "First-line support"
             ]
           }
         ],
@@ -290,7 +300,7 @@
       "paragraphs": [
         "The companies that keep this region moving — vehicle traders, fit-out contractors, distributors, logistics operators — run on operating models that are genuinely sophisticated. Their software rarely reflects that. AI creates a rare opening: rather than carrying the weight of an old system forward, a company can move straight to a new way of working.",
         "We believe technology knows no borders. The most advanced productivity in the world — wherever it was built — should be within reach of enterprises here. OceanAstra was set up by people who have implemented enterprise systems from both sides, inside the organisations that run them and inside the vendors that sell them. We based the company in Dubai to do the last part properly: bring the technology here, and make it land.",
-        "We work across three lines: AI organisation solutions, including CorpOS, which we build ourselves and where the organisation is made up of human colleagues and AI teammates; industry management solutions, including CarSaas for automotive trading and Flying for cross-border fit-out trading; and integration partnerships that bring proven global platforms into the region. The three inform each other. What we learn delivering other people's products shapes what we build; what we build shapes what we are willing to recommend."
+        "We work across three lines: AI organisation solutions, including CorpOS, which we build ourselves and where the organisation is made up of human colleagues and AI teammates; industry management solutions, including CarSaas for automotive trading and Invobay for UAE e-invoicing; and integration partnerships that bring proven global platforms into the region. They inform each other. What we learn delivering other people's products shapes what we build; what we build shapes what we are willing to recommend."
       ]
     },
     "principles": {
@@ -310,7 +320,7 @@
         },
         {
           "title": "Work in your language",
-          "body": "English, Arabic and Chinese — in the interface, in the documentation, in training and on the support line. Not translated at the end, but built in from the start."
+          "body": "The interface, the documentation and the training are built in the language your team actually works in, not translated at the end."
         }
       ]
     },
@@ -360,11 +370,6 @@
           "linkLabel": "Email support"
         },
         {
-          "title": "Telephone",
-          "body": "Available during business hours for issues that are blocking operations. If you reach voicemail outside those hours, leave the company name and a callback number.",
-          "linkLabel": "Call us"
-        },
-        {
           "title": "Named contacts",
           "body": "Clients under a support agreement receive named contacts and a direct escalation path, documented at the start of the engagement."
         }
@@ -387,7 +392,7 @@
         },
         {
           "title": "Languages",
-          "body": "English, Arabic and Chinese. You will not be asked to explain a technical problem in a second language."
+          "body": "We work in the language your team uses day to day. You will not be asked to explain a technical problem in a second language."
         }
       ]
     },
@@ -403,7 +408,7 @@
   },
   "contact": {
     "title": "Contact — OceanAstra",
-    "description": "Contact OceanAstra — office in Dubai, United Arab Emirates. Email addresses for enquiries, service support and partnerships, plus telephone, location and business hours.",
+    "description": "Contact OceanAstra — office in Dubai, United Arab Emirates. Email addresses for enquiries, service support and partnerships, plus location and business hours.",
     "hero": {
       "eyebrow": "Contact",
       "heading": "Get in touch.",
@@ -666,8 +671,8 @@
     "registered": "Registered",
     "marketsServed": "Markets served",
     "marketsValue": "UAE · Wider GCC",
-    "deliveryLangs": "Delivery languages",
-    "deliveryValue": "English · Arabic · Chinese",
+    "interfaceLangs": "Interface languages",
+    "interfaceValue": "English · Arabic · Chinese",
     "larkCard": "A new generation of all-in-one digital workplace: messaging, documents, approvals, calendar and company directory in a single platform. We deliver its deployment and integration across the region.",
     "aboutSummary": "We provide AI organisation solutions, industry management solutions and integration partnerships to enterprise clients across the UAE and the wider GCC.",
     "integrationScope": "From requirement assessment through tenant setup, migration, training and support",
