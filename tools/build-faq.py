@@ -103,6 +103,22 @@ def switcher_links(header, locale):
                   convert, header, flags=re.S)
 
 
+# Answers name invobay.com as plain prose. The page is generated here, so the
+# domain can be a real link without the answer text changing — which matters,
+# because the FAQPage markup below quotes the same answers and Google requires
+# the two to say the same thing.
+LINKS = {"invobay.com": "https://invobay.com"}
+
+
+def linkify(escaped):
+    for text, href in LINKS.items():
+        escaped = escaped.replace(
+            text,
+            f'<a href="{href}" target="_blank" rel="noopener" '
+            f'style="color:#5B6CFF;">{text}</a>')
+    return escaped
+
+
 def body(locale):
     t = FAQ[locale]
     parts = [f'<div data-dc-tpl="33" style="{H.escape(WRAP, quote=True)}">',
@@ -113,7 +129,7 @@ def body(locale):
         parts.append(f'<span style="{H.escape(GROUP_LABEL, quote=True)}">{H.escape(group["title"])}</span>')
         for question, answer in group["items"]:
             parts.append(f'<h2 style="{H.escape(Q, quote=True)}">{H.escape(question)}</h2>')
-            parts.append(f'<p style="{H.escape(A, quote=True)}">{H.escape(answer)}</p>')
+            parts.append(f'<p style="{H.escape(A, quote=True)}">{linkify(H.escape(answer))}</p>')
         parts.append("</section>")
     parts.append("</div>")
     return "\n".join(parts)

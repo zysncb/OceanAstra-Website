@@ -110,7 +110,34 @@ def js_string(text):
 
 def render_group(group):
     items = ",\n".join(f"            {js_string(i)}" for i in group["items"])
-    return f'          {{ title: {js_string(group["title"])}, items: [\n{items}\n          ]}},'
+    tail = ""
+    if group.get("link"):
+        tail = (f', link: {js_string(group["link"])}'
+                f', linkLabel: {js_string(group["linkLabel"])}')
+    return (f'          {{ title: {js_string(group["title"])}, items: [\n{items}\n'
+            f'          ]{tail} }},')
+
+
+# The solutions groups render their items and nothing else, so a bare
+# "invobay.com" in an item was only ever text — the runtime escapes everything
+# it interpolates, as a page built with an <a> inside a string shows. A link
+# has to be markup, which is why this is injected rather than written in the
+# copy. Only a group carrying a link renders one, so the three that do not are
+# untouched. The styling is the one the contact page's map link already uses.
+GROUP_CLOSE = ('                </sc-for>\n'
+               '              </div>\n'
+               '            </div>\n'
+               '          </sc-for>\n')
+
+GROUP_LINK = ('                </sc-for>\n'
+              '              </div>\n'
+              '              <sc-if value="{{ g.link }}">\n'
+              '                <a href="{{ g.link }}" target="_blank" rel="noopener" '
+              'style="align-self:flex-start; font-size:14px; color:#5B6CFF;" '
+              'style-hover="color:#8B98FF;">{{ g.linkLabel }}</a>\n'
+              '              </sc-if>\n'
+              '            </div>\n'
+              '          </sc-for>\n')
 
 
 def edit_template(html):
@@ -120,6 +147,12 @@ def edit_template(html):
         return html, 0
     template = json.loads(match.group(2))
     inserts = 0
+
+    # The markup that turns a group's link into an anchor, on the one page
+    # whose sections have groups at all.
+    if "{{ g.link }}" not in template and GROUP_CLOSE in template:
+        template = template.replace(GROUP_CLOSE, GROUP_LINK, 1)
+        inserts += 1
 
     for lang in LANGS:
         c = copy_for(lang)
@@ -152,11 +185,19 @@ def edit_template(html):
             inserts += n
 
         # Invobay's group and the role boundary go above the delivery group.
-        if c["groups"][0]["title"] not in template:
-            blocks = "\n".join(render_group(g) for g in c["groups"])
-            template, n = re.subn(
-                r'(?=\n          \{ title: "' + re.escape(ANCHORS[lang]["delivery"]) + r'",)',
-                "\n" + blocks, template, count=1)
+        blocks = "\n".join(render_group(g) for g in c["groups"])
+        if blocks not in template:
+            existing = re.compile(
+                r'\n          \{ title: ' + re.escape(js_string(c["groups"][0]["title"]))
+                + r', items: \[\n.*?\n          \][^\n]*\},'
+                r'\n          \{ title: ' + re.escape(js_string(c["groups"][1]["title"]))
+                + r', items: \[\n.*?\n          \][^\n]*\},', re.S)
+            if existing.search(template):
+                template, n = existing.subn("\n" + blocks, template, count=1)
+            else:
+                template, n = re.subn(
+                    r'(?=\n          \{ title: "' + re.escape(ANCHORS[lang]["delivery"]) + r'",)',
+                    "\n" + blocks, template, count=1)
             inserts += n
 
     if not inserts:

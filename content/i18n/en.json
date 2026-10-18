@@ -223,9 +223,10 @@
               "Compare service providers accredited by the Ministry of Finance and appoint one, or choose any provider on the Ministry's published list",
               "EmaraTax onboarding, either step by step with a published guide or handled for you, with approval given through UAE PASS",
               "Issue invoices by form, CSV upload or API, with every mandatory field checked before the invoice reaches the provider",
-              "Invoices received through the appointed provider collected in the same place",
-              "Published at invobay.com"
-            ]
+              "Invoices received through the appointed provider collected in the same place"
+            ],
+            "link": "https://invobay.com",
+            "linkLabel": "Visit invobay.com"
           },
           {
             "title": "Where OceanAstra stands in this",
