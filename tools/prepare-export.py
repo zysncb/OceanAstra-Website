@@ -24,14 +24,19 @@ export cannot produce any of it on its own:
   8. The header logo trades its opacity fade for the nav wavy underline.
   9. sitemap.xml is regenerated.
 
-This script is step one of four. Run in order:
+This script is step one. Run the whole chain in order:
 
     python3 tools/prepare-export.py <export-dir>   # this file
     python3 tools/localise.py                      # publish /zh/ and /ar/
     python3 tools/link-faq.py                      # footer link to /faq/
+    python3 tools/drop-flying.py                   # withdrawn product the export restores
+    python3 tools/add-invobay.py                   # product no export has heard of
     python3 tools/prerender.py                     # static copy for crawlers
     python3 tools/build-faq.py                     # /faq/, from the rendered shell
     python3 tools/seo-inject.py                    # structured data, cards, llms.txt
+    python3 tools/privacy-cookies.py               # cookies paragraph the export restores
+    python3 tools/credential-language.py           # language credential the export restores
+    python3 tools/analytics.py <token>             # beacon, last: build-faq drops it
 
     tools/compare-viewports.sh HEAD                # verify before pushing
 
@@ -76,15 +81,18 @@ PAGES = [
     ("terms/index.html", "terms", "/terms/"),
 ]
 
-# The licence was issued in 2026 and the site ships three languages, so the
-# export's "10+" claims contradict both the registration and the rest of the
-# page. Re-check these after every export — the Canvas source still has them.
+# The licence was issued in 2026, so the export's "10+" claims contradict the
+# registration. Re-check these after every export — the Canvas source still has
+# them. The third credential is a claim about the software, not about delivery
+# or support, and reads the same in all three languages; an earlier pass fixed
+# the three one at a time and left them saying different things.
+# tools/credential-language.py holds that card's full wording history.
 CLAIMS = [
-    (r'[\"出海中东\", \"10+ 年中东本地经验\"]', r'[\"出海中东\", \"中东本地交付\"]'),
+    (r'[\"出海中东\", \"10+ 年中东本地经验\"]', r'[\"界面语言\", \"英文 · 阿拉伯文 · 中文\"]'),
     (r'[\"Delivery languages\", \"10+ languages\"]',
-     r'[\"Delivery languages\", \"English · Arabic · Chinese\"]'),
+     r'[\"Interface languages\", \"English · Arabic · Chinese\"]'),
     (r'[\"لغات التنفيذ\", \"أكثر من 10 لغات\"]',
-     r'[\"لغات التنفيذ\", \"العربية · الإنجليزية · الصينية\"]'),
+     r'[\"لغات الواجهة\", \"العربية · الإنجليزية · الصينية\"]'),
 ]
 
 EXT = {"font/woff2": ".woff2", "font/woff": ".woff", "image/jpeg": ".jpg",
@@ -260,6 +268,16 @@ COPY_EDITS = [
      "integration partnerships to enterprise clients across the UAE and the wider GCC."),
     ("لعملائنا من المؤسسات في الإمارات ودول الخليج، وننفّذ وندعم بالعربية والإنجليزية والصينية.",
      "لعملائنا من المؤسسات في الإمارات ودول الخليج."),
+
+    # The same sentence as content/i18n carries it, which names Greater China as
+    # well. Whichever of the two the next export ships, the delivery-language
+    # promise comes off.
+    ("我们为阿联酋、海湾地区与大中华区的企业客户提供 AI 组织方案、行业管理方案与集成合作方案，并以英文、阿拉伯文、中文三种语言交付与支持。",
+     "我们为阿联酋、海湾地区与大中华区的企业客户提供 AI 组织方案、行业管理方案与集成合作方案。"),
+    ("across the UAE, the wider GCC and Greater China, delivered and supported in English, Arabic and Chinese.",
+     "across the UAE, the wider GCC and Greater China."),
+    ("ومنطقة الصين الكبرى، وننفّذ وندعم بالعربية والإنجليزية والصينية.",
+     "ومنطقة الصين الكبرى."),
 
     ("指定的支持对接人、约定的响应时限和书面的升级路径——用英文、阿拉伯文还是中文，取决于您的团队在用哪种。",
      "指定的支持对接人、约定的响应时限和书面的升级路径。"),

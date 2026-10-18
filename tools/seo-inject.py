@@ -26,6 +26,7 @@ to stand here — that the switcher has no translations behind it — was false,
 and removing the listener on the strength of it broke the site.
 """
 
+import html as H
 import json
 import re
 import sys
@@ -116,11 +117,14 @@ def organisation():
             {"@type": "Place", "name": "Gulf Cooperation Council"},
         ],
         "knowsLanguage": ["en", "ar", "zh"],
+        # No availableLanguage on either contact point. It states the languages
+        # a channel is served in — a staffing commitment, and the one the
+        # company withdrew on 2026-08-21. knowsLanguage above still carries the
+        # three languages as a property of the company, which is the claim the
+        # pages make.
         "contactPoint": [
-            {"@type": "ContactPoint", "contactType": "sales", "email": CO["email"]["general"],
-             "availableLanguage": ["English", "Arabic", "Chinese"]},
-            {"@type": "ContactPoint", "contactType": "technical support", "email": CO["email"]["support"],
-             "availableLanguage": ["English", "Arabic", "Chinese"]},
+            {"@type": "ContactPoint", "contactType": "sales", "email": CO["email"]["general"]},
+            {"@type": "ContactPoint", "contactType": "technical support", "email": CO["email"]["support"]},
         ],
         "hasOfferCatalog": {
             "@type": "OfferCatalog",
@@ -224,6 +228,37 @@ SUPERSEDED = re.compile(
     r'\s*<(?:link rel="canonical"|meta property="og:url"|meta property="og:locale")[^>]*>')
 
 
+# The four head tags prepare-export.py wrote at export time: <title>,
+# description and the Open Graph pair. Nothing refreshed them afterwards for
+# English — localise.py rewrites them, but only for the copies it makes — so a
+# change in content/i18n reached the JSON-LD and the Twitter card while the
+# description a search result actually shows kept the wording of the last
+# export. They are rewritten here, for every locale, from the same file the
+# rest of this script reads.
+RETITLE = [
+    (re.compile(r"<title>.*?</title>", re.S), "<title>{title}</title>"),
+    (re.compile(r'<meta name="description" content="[^"]*">'),
+     '<meta name="description" content="{desc}">'),
+    (re.compile(r'<meta property="og:title" content="[^"]*">'),
+     '<meta property="og:title" content="{title}">'),
+    (re.compile(r'<meta property="og:description" content="[^"]*">'),
+     '<meta property="og:description" content="{desc}">'),
+]
+
+
+def retitle(doc, locale, slug):
+    """Put this locale's title and description back in front of the tags."""
+    meta = L[locale][PAGES[slug][1]]
+    esc = lambda s: H.escape(s, quote=True)
+    title, desc = esc(meta["title"]), esc(meta["description"])
+    for pattern, shape in RETITLE:
+        replacement = shape.format(title=title, desc=desc)
+        # A function replacement, so a backslash in the copy is not read as a
+        # group reference.
+        doc = pattern.sub(lambda m: replacement, doc, count=1)
+    return doc
+
+
 def strip_ours(doc):
     return SUPERSEDED.sub("", re.sub(re.escape(MARK) + r".*?" + re.escape(END) + r"\s*",
                                      "", doc, flags=re.S))
@@ -254,6 +289,7 @@ def inject_template(html, locale, slug):
     if "</head>" not in template:
         return html, False
     template = strip_ours(template)
+    template = retitle(template, locale, slug)
     template = template.replace("</head>", head_block(locale, slug) + "\n</head>", 1)
     encoded = json.dumps(template, ensure_ascii=False).replace("</", "<\\/")
     return html[:match.start(2)] + encoded + html[match.end(2):], True
@@ -266,6 +302,7 @@ def inject(path, locale, slug):
     # at the English URL. Ours replace them.
     html = strip_ours(html)
     html, dropped = LANG_SCRIPT.subn("", html)
+    html = retitle(html, locale, slug)
     html = html.replace("</head>", head_block(locale, slug) + "\n</head>", 1)
     html, in_template = inject_template(html, locale, slug)
     path.write_text(html, encoding="utf-8")
@@ -280,7 +317,7 @@ def llms_txt():
         f"{CO['legalName']['en']} is a technology company registered in Dubai, United Arab "
         f"Emirates, holding commercial licence {CO['licence']['number']} issued by the "
         f"{CO['licence']['authority']['en']}. It serves enterprise clients across the UAE, the "
-        f"wider GCC and Greater China, and delivers in English, Arabic and Chinese.", "",
+        f"wider GCC and Greater China.", "",
         "## Lines of business", "",
     ]
     for item in h["pillars"]["items"]:
