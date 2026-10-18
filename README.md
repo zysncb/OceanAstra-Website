@@ -7,6 +7,8 @@
 - 字体与图片是外部共享文件，六页复用；页面本身 140–225 KB，只有 React 从 unpkg CDN 加载
 
 > 站点界面本身有三语，产品也宣称三语界面，但**不再对外承诺三语交付与支持**（2026-08-21 调整）。改文案时注意区分这两件事：产品界面语言是软件能力，支持语言是要配人的服务承诺。
+>
+> 2026-10-18 补齐了两处漏网的：首页那张卡片的第三格原本写「交付语言 / 英文 · 阿拉伯文 · 中文」（阿文同，中文则漂成了「出海中东 / 中东本地交付」），现在三语统一为「界面语言」，由 `tools/credential-language.py` 维护；JSON-LD 里两个 `contactPoint` 的 `availableLanguage` 已整个移除 —— 它声明的是某个渠道用哪些语言服务，正是撤回的那条承诺。三种语言仍以 `Organization.knowsLanguage` 表述，那是公司属性，不是服务承诺。
 
 ---
 
@@ -22,6 +24,7 @@ assets/
   img/logo/             ← OceanAstra 品牌标志（SVG + PNG，多种版本；站内未引用，供对外物料使用）
   img/partners/         ← 合作伙伴标志，已按 3:1 槽位合成好（见 tools/make-partner-logo.sh）
 404.html  sitemap.xml  robots.txt  .nojekyll                 ← 站点配置
+.well-known/security.txt                                     ← 安全联系方式（RFC 9116），2027-10-18 到期
 content/
   company.json          ← 公司信息事实来源（法人名、执照号、地址、电话、邮箱）
   i18n/{en,zh,ar}.json  ← 三语文案定稿，页面 SEO 元数据取自这里
@@ -29,7 +32,15 @@ content/
 
 `assets/` 下的文件名是内容哈希，内容一变文件名就变，可以放心让 CDN 长期缓存。
 
-`content/` 现在**不参与构建**，它是文案与公司信息的事实来源，供改稿、翻译和核对 Apple 材料时查阅。原先的静态生成器（`build/`）已随设计改版删除。
+`content/` 是文案与公司信息的事实来源。页面正文不从这里生成（那是 Design Canvas 的事），但 `/faq/` 三页、`llms.txt`、各页 `<head>` 的 SEO 元数据与 JSON-LD 结构化数据都从这里生成 —— 改完 `content/` 要按下面的顺序重跑脚本。原先的静态生成器（`build/`）已随设计改版删除。
+
+```bash
+python3 tools/build-faq.py
+python3 tools/seo-inject.py
+python3 tools/analytics.py <令牌>   # 令牌：grep -o '"token": "[0-9a-f]*"' index.html
+```
+
+`build-faq.py` 重建 `/faq/` 时不带分析脚本，所以 `analytics.py` 必须跑在最后。
 
 ---
 
@@ -41,7 +52,7 @@ content/
 
 1. **SEO 元数据** —— 导出的 `<title>` 是 `Bundled Page`，且没有 description / canonical / Open Graph。需在**外层 `<head>` 和 `__bundler/template` 两处**注入，文案取自 `content/i18n/en.json` 的各页 `title` 与 `description`。
 2. **`<html lang>` 与语言同步脚本** —— 导出产物的 `<html>` 没有 `lang`/`dir`，切换语言时也不更新，屏幕阅读器会一直当成英文。同步脚本必须放在外层 `<head>`：放进 template 里不会执行，还会截断模板。
-3. **核对数字宣称** —— 导出稿曾出现「10+ 年中东本地经验」「10+ languages」这类与执照信息和三语事实冲突的表述，已在当前页面中修正为「中东本地交付」与真实语言列表。Design Canvas 源文件里可能仍有，每次导出都要复查。
+3. **核对数字宣称与语言口径** —— 导出稿曾出现「10+ 年中东本地经验」「10+ languages」这类与执照信息冲突的表述，`prepare-export.py` 的 `CLAIMS` 会把它们改掉。Design Canvas 源文件里可能仍有旧说法，每次导出后除了 `CLAIMS`，还要跑 `tools/credential-language.py`（首页语言卡片）与 `tools/privacy-cookies.py`（隐私政策第 10 节）—— 这两处的文案住在 DICT 里，重新导出会把旧说法带回来。两个脚本的 `PRIOR` 都存着历来的措辞，所以无论导出带回哪一版都能改掉。
 
 ## 本地预览
 
@@ -164,6 +175,54 @@ Apple 在审核 Organization 账号时会人工查看官网。以下**加粗**�
 | `dunsNumber` | ⏳ 等待发放 | 已于 2026-08-20 向邓白氏提交申请，预计数天内发放。拿到号码后填入 `content/company.json` 的 `dunsNumber` 并重新生成 —— 这是 Apple 企业账号的前置条件 |
 
 D-U-N-S 号码到手后填入 `company.json`，并把 `"_placeholders"` 改成 `false`。注意页面上的公司信息是导出时写死的，改 `company.json` **不会**自动更新页面 —— 涉及对外展示的字段（法人名、执照号、地址、电话、邮箱）需回 Design Canvas 改后重新导出。
+
+---
+
+## 两个站点的内容同步
+
+Invobay（[invobay.com](https://invobay.com)，仓库 `zysncb/invobay-website`，Astro 静态站）是本公司的产品，两个站点对同一件事的说法必须一致：
+
+- **公司事实**（法人名、执照号、发照机关、地址、邮箱）以本仓库 `content/company.json` 为准，逐字一致。
+- **Invobay 的产品说法**以 `invobay-website/src/i18n/en.ts` 为准。
+- 任何一边改了这两类内容，另一边同步改。
+
+### 产品线现状：Flying 下线，Invobay 并入行业管理方案
+
+两处变动（2026-10-18）：
+
+- **Flying 已从全站移除** —— 页面正文、FAQ、`llms.txt`、结构化数据与 `content/` 都不再提它，建筑装饰行业也不再作为「专门构建系统的行业」出现。
+- **Invobay 归入业务线 02「行业管理方案」**，与 CarSaas 并列，不单独成线。全站仍是三条业务线。
+
+这两件事都已经落到页面正文上，不是只改了 `content/`。页面文案住在导出产物的 DICT 里，所以各有一个可重复执行的脚本：
+
+| 脚本 | 做什么 |
+|---|---|
+| `tools/drop-flying.py` | 摘掉首页那条 bullet、解决方案页那一整组，并改写三处「二选一」的句子 |
+| `tools/add-invobay.py` | 把 Invobay 的 bullet、两个分组与新增段落插进业务线 02；新文案从 `content/i18n` 读，脚本只决定位置 |
+
+**重新导出后这两个脚本都要再跑一遍**，顺序见 `tools/prepare-export.py` 开头 —— Design Canvas 的源文件里 Flying 还在，而它从没听说过 Invobay。跑完要接着跑 `prerender.py`，否则爬虫读到的静态副本还是旧的。
+
+把 Invobay 放进业务线 02 改变了这条线的性质：CarSaas 是企业自己选择上的行业系统，而阿联酋电子发票是法规要求必须运行的，且 Invobay 本身不含任何 AI。这条线的 summary、lede 和新增的那段话都把这一点说明白了，没有让原本的 AI 叙事顺带把它罩进去。章节末尾那组交付保证也因此改成了明确针对行业系统的标题 —— 其中「AI 职员或 AI 辅助」「部署在贵司基础设施」对 Invobay 并不成立，它是 invobay.com 上的托管产品。
+
+对外口径（与 invobay.com 一致，发布前经产品负责人确认）：
+
+- OceanAstra **不是**阿联酋财政部认证的服务商（ASP），也不申请成为服务商。
+- Invobay 通过 API 与经认证的服务商对接；服务商由企业自行指定，并由企业与其直接签约。
+- 不利用经由服务商获得的数据去招揽该服务商的客户。
+- 正式上线前不公布任何已合作 ASP 的名称、logo、价格与数据。
+- 产品状态照 CarSaas 的写法标「开发中 / 即将上线」。
+
+---
+
+## 安全联系方式
+
+`.well-known/security.txt` 按 RFC 9116 提供安全问题的联系方式，内容指向 `support@oceanastra.net`。
+
+**`Expires` 为 2027-10-18，到期前必须续期** —— 过期的 security.txt 等于没有。仓库有 `.nojekyll`，以点开头的目录能正常发布；部署后确认：
+
+```bash
+curl -I https://oceanastra.net/.well-known/security.txt
+```
 
 ---
 
