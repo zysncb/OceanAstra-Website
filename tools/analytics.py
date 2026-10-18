@@ -55,9 +55,12 @@ TOKEN = re.compile(r"^[A-Za-z0-9]{16,64}$")
 
 def pages():
     """Every published page: the eighteen bundle pages and the three FAQs."""
+    # Matched against the path *relative to ROOT*: a git worktree for this
+    # repository lives under .claude/worktrees/, so testing the absolute path
+    # filtered out every page and the tool reported finding none.
     found = sorted(
         p for p in ROOT.glob("**/index.html")
-        if ".claude" not in p.parts and "node_modules" not in p.parts
+        if not {".claude", "node_modules"} & set(p.relative_to(ROOT).parts)
     )
     return found
 
