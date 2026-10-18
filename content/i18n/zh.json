@@ -85,7 +85,9 @@
             "CarSaas —— 面向中东本地市场的汽车贸易 ERP，目前处于研发阶段，即将上线",
             "Invobay —— 面向阿联酋企业的电子发票产品（自研，invobay.com，开发中、即将上线）：选定一家经财政部认证的服务商，在 EmaraTax 完成开户，并开出服务商受理的发票",
             "为行业既有的传统系统提供 AI 增强，而不必推翻重来"
-          ]
+          ],
+          "link": "https://invobay.com",
+          "linkLabel": "访问 invobay.com"
         },
         {
           "id": "integration",

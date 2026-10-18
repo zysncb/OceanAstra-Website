@@ -92,6 +92,8 @@ def copy_for(lang):
     bullet = next(p for p in pillar["points"] if p.startswith(("Invobay", "إنفوباي")))
     return {
         "bullet": bullet,
+        "link": pillar.get("link"),
+        "linkLabel": pillar.get("linkLabel"),
         "summary": pillar["summary"],
         "lede": section["lede"],
         "para": section["body"][2],
@@ -129,6 +131,38 @@ GROUP_CLOSE = ('                </sc-for>\n'
                '            </div>\n'
                '          </sc-for>\n')
 
+# The home page's cards are the same story: the points loop renders text, so
+# the link is markup here too. It hangs off the line rather than off one
+# bullet, which is why the label names the destination outright instead of
+# saying "read more" — CarSaas's bullet sits in the same card.
+LINE_CLOSE = ('                </sc-for>\n'
+              '              </div>\n'
+              '            </div>\n'
+              '          </div>\n'
+              '        </sc-for>\n')
+
+LINE_LINK = ('                </sc-for>\n'
+             '              </div>\n'
+             '              <sc-if value="{{ ln.link }}">\n'
+             '                <a href="{{ ln.link }}" target="_blank" rel="noopener" '
+             'style="align-self:flex-start; font-size:14px; color:#5B6CFF;" '
+             'style-hover="color:#8B98FF;">{{ ln.linkLabel }}</a>\n'
+             '              </sc-if>\n'
+             '            </div>\n'
+             '          </div>\n'
+             '        </sc-for>\n')
+
+# The card's display objects are built by a .map() that names every field it
+# keeps, so a link left in the DICT would never reach the markup.
+LINE_MAP = ('        summary: l.summary,\n'
+            '        points: l.points\n'
+            '      })),')
+LINE_MAP_NEW = ('        summary: l.summary,\n'
+                '        points: l.points,\n'
+                '        link: l.link,\n'
+                '        linkLabel: l.linkLabel\n'
+                '      })),')
+
 GROUP_LINK = ('                </sc-for>\n'
               '              </div>\n'
               '              <sc-if value="{{ g.link }}">\n'
@@ -153,6 +187,12 @@ def edit_template(html):
     if "{{ g.link }}" not in template and GROUP_CLOSE in template:
         template = template.replace(GROUP_CLOSE, GROUP_LINK, 1)
         inserts += 1
+    if "{{ ln.link }}" not in template and LINE_CLOSE in template:
+        template = template.replace(LINE_CLOSE, LINE_LINK, 1)
+        inserts += 1
+    if LINE_MAP in template:
+        template = template.replace(LINE_MAP, LINE_MAP_NEW, 1)
+        inserts += 1
 
     for lang in LANGS:
         c = copy_for(lang)
@@ -167,6 +207,18 @@ def edit_template(html):
                 r'(summary: ' + re.escape(js_string(c["summary"]))
                 + r',\n          points: \[\n            "[^"]*",\n)',
                 lambda m: m.group(1) + f'            {js_string(c["bullet"])},\n',
+                template, count=1)
+            inserts += n
+
+        # The line's link, appended to its points array in the DICT.
+        if c["link"] and f'link: {js_string(c["link"])}' not in template.split(
+                js_string(c["summary"]))[-1][:600]:
+            template, n = re.subn(
+                r'(summary: ' + re.escape(js_string(c["summary"]))
+                + r',\n          points: \[\n(?:[^\n]*\n)*?          \])(\n        \})',
+                lambda m: (m.group(1) + f',\n          link: {js_string(c["link"])}'
+                           f',\n          linkLabel: {js_string(c["linkLabel"])}'
+                           + m.group(2)),
                 template, count=1)
             inserts += n
 

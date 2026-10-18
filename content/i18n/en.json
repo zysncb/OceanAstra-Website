@@ -85,7 +85,9 @@
             "CarSaas — an ERP for automotive trading in the Middle East, currently in development and launching soon",
             "Invobay — UAE e-invoicing for businesses in the Emirates (built in-house at invobay.com, in development and launching soon): choose a service provider accredited by the Ministry of Finance, get onboarded on EmaraTax, and issue invoices your provider accepts",
             "AI capability added to the systems an industry already runs, without replacing them"
-          ]
+          ],
+          "link": "https://invobay.com",
+          "linkLabel": "Visit invobay.com"
         },
         {
           "id": "integration",
