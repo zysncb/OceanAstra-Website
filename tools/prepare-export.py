@@ -31,8 +31,10 @@ This script is step one. Run the whole chain in order:
     python3 tools/link-faq.py                      # footer link to /faq/
     python3 tools/drop-flying.py                   # withdrawn product the export restores
     python3 tools/add-invobay.py                   # product no export has heard of
+    python3 tools/drop-corpos.py                   # line 01 is Lark now, not CorpOS
     python3 tools/prerender.py                     # static copy for crawlers
     python3 tools/build-faq.py                     # /faq/, from the rendered shell
+    python3 tools/build-lark.py                    # /lark/, the same way
     python3 tools/seo-inject.py                    # structured data, cards, llms.txt
     python3 tools/privacy-cookies.py               # cookies paragraph the export restores
     python3 tools/credential-language.py           # language credential the export restores

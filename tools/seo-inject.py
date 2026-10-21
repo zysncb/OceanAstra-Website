@@ -64,9 +64,10 @@ lat, lon = [c.strip() for c in CO["coordinates"].split(",")]
 addr = CO["address"]["en"]
 
 
-# Built by tools/build-faq.py with a head of its own. Listed for discovery,
-# but never head-injected — doing so would overwrite its FAQPage markup.
-EXTRA = ["faq"]
+# Built by tools/build-faq.py and tools/build-lark.py with heads of their own.
+# Listed for discovery, but never head-injected — doing so would overwrite the
+# FAQPage markup on /faq/ and the breadcrumbs across /lark/.
+EXTRA = ["faq", "lark", "lark/pricing", "lark/migration"]
 
 
 def page_url(locale, slug):
@@ -335,6 +336,11 @@ def llms_txt():
         lines.append(f"- [{EN[key]['title']}]({page_url('en', slug)}): {EN[key]['description']}")
     faq = json.loads((ROOT / "content/faq.json").read_text(encoding="utf-8"))["en"]
     lines.append(f"- [{faq['title']}]({page_url('en', 'faq')}): {faq['description']}")
+    lark = json.loads((ROOT / "content/lark.json").read_text(encoding="utf-8"))
+    for slug in lark["order"]:
+        d = lark["en"]["pages"][slug]
+        path = "lark" if slug == "index" else f"lark/{slug}"
+        lines.append(f"- [{d['title']}]({page_url('en', path)}): {d['description']}")
 
     others = [c for c in ("zh", "ar") if c in L]
     if others:

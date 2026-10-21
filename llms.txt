@@ -6,13 +6,13 @@ OceanAstra Technologies L.L.C is a technology company registered in Dubai, Unite
 
 ## Lines of business
 
-### AI Organisation Solutions
+### AI Workplace
 
-Management tools built on how work changes in the age of AI — enabling companies founded today, and giving established businesses a route into AI without tearing anything down.
+Lark as the company's single workplace — chat, email, documents, approvals and calendar in one platform, with the AI inside it actually put to work. Supplied and supported from Dubai.
 
-- CorpOS (built in-house) — an AI-native management platform entered through instant messaging, where the organisation is made up of human colleagues and AI teammates
-- Or keep the messaging platform you already use and add a CorpOS team of AI teammates to it — Lark + CorpOS, for example
-- Management capability for newly founded companies, and a step-by-step transition path for established ones
+- Lark's own AI actually put to work — meeting notes, an AI teammate that knows your documents and approvals, automation in Base, and real-time translation inside chat and documents
+- Lark licences supplied under a signed reseller agreement — quoted and invoiced in AED by a UAE company, through the purchase-order process your finance team already uses
+- Tenant setup, migration from the mail and file tools you run today, organisation structure, approval flows and integration with your existing systems
 
 ### Industry Management Solutions
 
@@ -26,19 +26,22 @@ A new way to manage the operations of a specific industry — through AI teammat
 
 Bringing proven technology from around the world into the Middle East: selection, integration, localised delivery and long-term support.
 
-- Lark — deployment and integration of the all-in-one digital workplace across the region
 - Amap — mapping and location services for logistics and field operations
+- Further platforms assessed case by case; we bring in only what we are prepared to stand behind
 - From requirement assessment through tenant setup, migration, training and support
 
 ## Pages
 
-- [OceanAstra — Bringing AI into every enterprise in the Middle East](https://oceanastra.net/): OceanAstra is a Dubai-based technology company delivering AI-native organisation solutions (CorpOS), industry management systems (CarSaas, Invobay) and integration partnerships that bring the world's best technology to enterprises in the Middle East.
-- [Solutions — OceanAstra](https://oceanastra.net/solutions/): OceanAstra's three lines of business: AI organisation solutions (CorpOS), industry management solutions (CarSaas, Invobay), and integration partnerships bringing global technology to the Middle East.
-- [About — OceanAstra](https://oceanastra.net/about/): OceanAstra is a technology company registered in Dubai, United Arab Emirates, working to bring AI into every enterprise in the Middle East through AI organisation solutions, industry management systems and integration partnerships.
+- [OceanAstra — Bringing AI into every enterprise in the Middle East](https://oceanastra.net/): OceanAstra is a Dubai-based technology company supplying and implementing Lark as an authorised reseller, building industry management systems (CarSaas, Invobay) and bringing the world's best technology to enterprises in the Middle East.
+- [Solutions — OceanAstra](https://oceanastra.net/solutions/): OceanAstra's three lines of business: the AI workplace built on Lark, industry management solutions (CarSaas, Invobay), and integration partnerships bringing global technology to the Middle East.
+- [About — OceanAstra](https://oceanastra.net/about/): OceanAstra is a technology company registered in Dubai, United Arab Emirates, working to bring AI into every enterprise in the Middle East through the AI workplace, industry management systems and integration partnerships.
 - [Contact — OceanAstra](https://oceanastra.net/contact/): Contact OceanAstra — office in Dubai, United Arab Emirates. Email addresses for enquiries, service support and partnerships, plus location and business hours.
 - [Privacy Policy — OceanAstra](https://oceanastra.net/privacy/): How OceanAstra collects, uses, shares and protects personal information through its website, software and mobile applications.
 - [Terms of Use — OceanAstra](https://oceanastra.net/terms/): Terms governing use of the OceanAstra website and the relationship between visitors and OceanAstra.
-- [Frequently asked questions — OceanAstra](https://oceanastra.net/faq/): Answers about OceanAstra Technologies L.L.C: what the company does, where it is registered, what CorpOS, CarSaas and Invobay are, which platforms it works with, and how projects and support run.
+- [Frequently asked questions — OceanAstra](https://oceanastra.net/faq/): Answers about OceanAstra Technologies L.L.C: what the company does, where it is registered, how it supplies Lark, what CarSaas and Invobay are, which platforms it works with, and how projects and support run.
+- [Lark in the UAE — supplied and implemented by OceanAstra](https://oceanastra.net/lark/): OceanAstra is an authorised Lark reseller in Dubai. Licences quoted in AED against a purchase order, tenant setup, migration from Microsoft 365 or Google Workspace, and the AI inside Lark actually put to work.
+- [Lark pricing and purchasing in the UAE — OceanAstra](https://oceanastra.net/lark/pricing/): How OceanAstra quotes Lark: Lark's own published plans, quoted line by line in AED and invoiced against a purchase order from Dubai, with the implementation priced as its own line.
+- [Migrating to Lark from Microsoft 365 or Google Workspace — OceanAstra](https://oceanastra.net/lark/migration/): What carries across, what does not, and a realistic sequence. OceanAstra runs Lark migrations from Dubai: mail, files, directory, calendars and approvals.
 
 ## Other languages
 

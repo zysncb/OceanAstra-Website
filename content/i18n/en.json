@@ -32,7 +32,7 @@
   },
   "home": {
     "title": "OceanAstra — Bringing AI into every enterprise in the Middle East",
-    "description": "OceanAstra is a Dubai-based technology company delivering AI-native organisation solutions (CorpOS), industry management systems (CarSaas, Invobay) and integration partnerships that bring the world's best technology to enterprises in the Middle East.",
+    "description": "OceanAstra is a Dubai-based technology company supplying and implementing Lark as an authorised reseller, building industry management systems (CarSaas, Invobay) and bringing the world's best technology to enterprises in the Middle East.",
     "hero": {
       "eyebrow": "Dubai, United Arab Emirates",
       "heading": "Bringing AI into every enterprise in the Middle East.",
@@ -65,16 +65,18 @@
       "lede": "From how a company is organised, to the systems an industry runs on, to bringing proven technology into the region — all three point at the same thing: advanced productivity that is genuinely used inside enterprises here.",
       "items": [
         {
-          "id": "ai-org",
+          "id": "workplace",
           "number": "01",
-          "title": "AI Organisation Solutions",
-          "summary": "Management tools built on how work changes in the age of AI — enabling companies founded today, and giving established businesses a route into AI without tearing anything down.",
+          "title": "AI Workplace",
+          "summary": "Lark as the company's single workplace — chat, email, documents, approvals and calendar in one platform, with the AI inside it actually put to work. Supplied and supported from Dubai.",
           "points": [
-            "CorpOS (built in-house) — an AI-native management platform entered through instant messaging, where the organisation is made up of human colleagues and AI teammates",
-            "Or keep the messaging platform you already use and add a CorpOS team of AI teammates to it — Lark + CorpOS, for example",
-            "Management capability for newly founded companies, and a step-by-step transition path for established ones"
+            "Lark's own AI actually put to work — meeting notes, an AI teammate that knows your documents and approvals, automation in Base, and real-time translation inside chat and documents",
+            "Lark licences supplied under a signed reseller agreement — quoted and invoiced in AED by a UAE company, through the purchase-order process your finance team already uses",
+            "Tenant setup, migration from the mail and file tools you run today, organisation structure, approval flows and integration with your existing systems"
           ],
-          "badge": "CorpOS in active development"
+          "badge": "Authorised Lark reseller",
+          "link": "/lark/",
+          "linkLabel": "More on Lark"
         },
         {
           "id": "industry",
@@ -95,8 +97,8 @@
           "title": "Integration Partnerships",
           "summary": "Bringing proven technology from around the world into the Middle East: selection, integration, localised delivery and long-term support.",
           "points": [
-            "Lark — deployment and integration of the all-in-one digital workplace across the region",
             "Amap — mapping and location services for logistics and field operations",
+            "Further platforms assessed case by case; we bring in only what we are prepared to stand behind",
             "From requirement assessment through tenant setup, migration, training and support"
           ]
         }
@@ -150,7 +152,7 @@
       "heading": "About OceanAstra.",
       "body": [
         "OceanAstra Technologies L.L.C is a technology company registered in Dubai, United Arab Emirates, holding a commercial licence issued by the Department of Economy and Tourism, Government of Dubai.",
-        "We provide AI organisation solutions, industry management solutions and integration partnerships to enterprise clients across the UAE, the wider GCC and Greater China."
+        "We provide the AI workplace, industry management solutions and integration partnerships to enterprise clients across the UAE, the wider GCC and Greater China."
       ],
       "button": "More about us"
     },
@@ -162,7 +164,7 @@
   },
   "solutions": {
     "title": "Solutions — OceanAstra",
-    "description": "OceanAstra's three lines of business: AI organisation solutions (CorpOS), industry management solutions (CarSaas, Invobay), and integration partnerships bringing global technology to the Middle East.",
+    "description": "OceanAstra's three lines of business: the AI workplace built on Lark, industry management solutions (CarSaas, Invobay), and integration partnerships bringing global technology to the Middle East.",
     "hero": {
       "eyebrow": "Solutions",
       "heading": "From the organisation to the industry, AI that actually lands.",
@@ -170,33 +172,52 @@
     },
     "sections": [
       {
-        "id": "ai-org",
+        "id": "workplace",
         "number": "01",
-        "title": "AI Organisation Solutions",
-        "badge": "CorpOS in active development",
-        "lede": "Management tools built on how work changes in the age of AI — enabling companies founded today, and helping established businesses make the transition.",
+        "title": "AI Workplace",
+        "badge": "Authorised Lark reseller",
+        "lede": "One platform for how a company communicates, decides and keeps its records — and the AI inside it actually put to work.",
         "body": [
-          "AI is not only making old processes faster; it is changing the shape of the organisation itself. Once an AI teammate can hold a real role with real responsibilities, the question of how a company should be structured has a new answer.",
-          "We work with two kinds of company: those founded in the age of AI, which can be AI-native from day one, and established businesses that need a route into AI which does not require tearing out what already works."
+          "Most companies run the working day across four or five tools that do not know about each other: one for chat, another for mail, a third for files, a fourth for approvals. Lark brings them into a single platform. The gain is less in licence fees than in work no longer falling through the gaps between them.",
+          "Lark ships with AI already inside it, and that is exactly why so little of it gets used. The capability arrives with the licence; deciding which parts of the working day are worth automating, and configuring them so people actually reach for them, does not. That second part is the work we take on, and it is where AI stops being a word on a website and starts being something a team notices on a Tuesday.",
+          "OceanAstra supplies Lark under a signed reseller agreement. A UAE company quotes in AED and invoices against a purchase order, and the people who provision the tenant, move the data and answer the first support call are in the same time zone as the client."
         ],
         "groups": [
           {
-            "title": "Solutions",
+            "title": "Putting the AI to work",
             "items": [
-              "CorpOS (built in-house) — an AI-native management platform entered through instant messaging. The organisation is made up of human colleagues and AI teammates: each AI teammate holds a defined role, defined responsibilities and a defined reporting line, working alongside people in the same space",
-              "Your existing messaging platform + a CorpOS team of AI teammates — keep the platform your company already runs on, such as Lark, and add AI teammates into it to take on the work that can be automated, one role at a time"
+              "AI meeting notes and searchable minutes, so what a meeting decided stays findable instead of being remembered differently by everyone who was in it",
+              "An AI teammate inside the workspace, set against your own documents, approvals and company knowledge rather than the open internet",
+              "Automation in Base, so the recurring judgement calls in a process are carried by the system rather than by whoever remembers them",
+              "Real-time translation in chat and documents, so a team that does not share one working language still works in one channel",
+              "AnyCross, so the automation reaches the ERP and the finance system instead of stopping at the chat window",
+              "Deciding what is worth automating in the first place — the part no licence performs"
             ]
+          },
+          {
+            "title": "What we supply",
+            "items": [
+              "Lark licences under a signed reseller agreement, quoted line by line by product so every item on the invoice traces back to a Lark plan",
+              "Tenant provisioning, verified domain, company directory, organisation structure and permissions",
+              "Migration from the mail, file and chat tools in use today, including historical data where it can be carried across",
+              "Approval flows, forms and Base applications built around the processes a company actually runs",
+              "Integration with an ERP, finance system or internal applications through Lark's open APIs and AnyCross",
+              "Administrator enablement, end-user training and first-line support"
+            ],
+            "link": "/lark/",
+            "linkLabel": "Pricing, purchasing and migration"
           },
           {
             "title": "Where it applies",
             "items": [
-              "Companies founded in the age of AI — build the team as human colleagues and AI teammates from day one",
-              "Growing small and mid-sized businesses — add capacity through AI teammates instead of headcount alone",
-              "Established businesses adopting AI — bring AI into daily operations without replacing existing systems"
+              "Companies whose procurement cannot buy software on a credit card — a local quotation and an invoice raised against a purchase order is the reason to buy through a reseller rather than direct",
+              "Companies moving off Microsoft 365 or Google Workspace, where the migration is the project and the licence is the easy part",
+              "Groups operating in both China and the Gulf, whose headquarters already runs on Feishu and whose regional office needs the international Lark tenant",
+              "Frontline and field operations — retail, logistics, construction — where most of the company does not work at a desk"
             ]
           }
         ],
-        "note": "CorpOS is under active development, and we are refining it with a small number of design partners. If you would like to be an early user, we would like to hear from you."
+        "note": "Lark is a trademark of its owner. Lark sets the plans, the product scope and the list prices; what OceanAstra sets is the scope and the price of the work around them, confirmed in writing before anything begins."
       },
       {
         "id": "industry",
@@ -264,7 +285,6 @@
           {
             "title": "Platforms we work with",
             "items": [
-              "Lark — messaging, documents, approvals, calendar and company directory brought together as a single digital workplace",
               "Amap — geocoding, routing, fleet visibility and delivery operations for logistics and field teams",
               "Further platforms assessed case by case; we only bring in what we are prepared to stand behind"
             ]
@@ -281,7 +301,7 @@
             ]
           }
         ],
-        "note": "Lark and Amap are trademarks of their respective owners. The scope of each partnership, and what it covers commercially, is confirmed in writing during commercial discussion."
+        "note": "Lark and Amap are trademarks of their respective owners. Lark is supplied under a reseller agreement and now has a line of its own — see 01, AI Workplace. The scope of each partnership, and what it covers commercially, is confirmed in writing during commercial discussion."
       }
     ],
     "cta": {
@@ -292,7 +312,7 @@
   },
   "about": {
     "title": "About — OceanAstra",
-    "description": "OceanAstra is a technology company registered in Dubai, United Arab Emirates, working to bring AI into every enterprise in the Middle East through AI organisation solutions, industry management systems and integration partnerships.",
+    "description": "OceanAstra is a technology company registered in Dubai, United Arab Emirates, working to bring AI into every enterprise in the Middle East through the AI workplace, industry management systems and integration partnerships.",
     "hero": {
       "eyebrow": "About us",
       "heading": "A technology company headquartered in Dubai.",
@@ -303,7 +323,7 @@
       "paragraphs": [
         "The companies that keep this region moving — vehicle traders, fit-out contractors, distributors, logistics operators — run on operating models that are genuinely sophisticated. Their software rarely reflects that. AI creates a rare opening: rather than carrying the weight of an old system forward, a company can move straight to a new way of working.",
         "We believe technology knows no borders. The most advanced productivity in the world — wherever it was built — should be within reach of enterprises here. OceanAstra was set up by people who have implemented enterprise systems from both sides, inside the organisations that run them and inside the vendors that sell them. We based the company in Dubai to do the last part properly: bring the technology here, and make it land.",
-        "We work across three lines: AI organisation solutions, including CorpOS, which we build ourselves and where the organisation is made up of human colleagues and AI teammates; industry management solutions, including CarSaas for automotive trading and Invobay for UAE e-invoicing; and integration partnerships that bring proven global platforms into the region. They inform each other. What we learn delivering other people's products shapes what we build; what we build shapes what we are willing to recommend."
+        "We work across three lines: the AI workplace, where we supply and implement Lark under a reseller agreement; industry management solutions, including CarSaas for automotive trading and Invobay for UAE e-invoicing; and integration partnerships that bring proven global platforms into the region. They inform each other. What we learn delivering other people's products shapes what we build; what we build shapes what we are willing to recommend."
       ]
     },
     "principles": {
@@ -677,7 +697,7 @@
     "interfaceLangs": "Interface languages",
     "interfaceValue": "English · Arabic · Chinese",
     "larkCard": "A new generation of all-in-one digital workplace: messaging, documents, approvals, calendar and company directory in a single platform. We deliver its deployment and integration across the region.",
-    "aboutSummary": "We provide AI organisation solutions, industry management solutions and integration partnerships to enterprise clients across the UAE and the wider GCC.",
+    "aboutSummary": "We provide the AI workplace, industry management solutions and integration partnerships to enterprise clients across the UAE and the wider GCC.",
     "integrationScope": "From requirement assessment through tenant setup, migration, training and support",
     "supportPromise": "Named support contacts, agreed response targets and a documented escalation path.",
     "firstLineSupport": "First-line support",
