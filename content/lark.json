@@ -1,0 +1,617 @@
+{
+  "_comment": "The /lark/ sub-site, built into /lark/, /zh/lark/ and /ar/lark/ by tools/build-lark.py. Three pages per locale, each with its own URL, because the audience for this line reads Chinese and Arabic and the main site's single-URL language switch is invisible to search engines. Written for a buyer who is comparing, not browsing: every section answers a question someone actually types. Claims here must also be true on the main site — no VAT on the invoice until registration is done, no support-language promise, no published discount, and no Lark product named that is not in Lark's own published plan table.",
+  "order": ["index", "pricing", "migration"],
+  "email": "hello@oceanastra.net",
+
+  "en": {
+    "eyebrow": "Lark",
+    "nav": {
+      "index": "Overview",
+      "pricing": "Pricing and purchasing",
+      "migration": "Migration"
+    },
+    "pages": {
+      "index": {
+        "title": "Lark in the UAE — supplied and implemented by OceanAstra",
+        "description": "OceanAstra is an authorised Lark reseller in Dubai. Licences quoted in AED against a purchase order, tenant setup, migration from Microsoft 365 or Google Workspace, and the AI inside Lark actually put to work.",
+        "heading": "Lark, supplied and implemented from Dubai.",
+        "lede": "Lark brings chat, email, documents, approvals, calendar and the company directory into one platform. OceanAstra supplies it under a signed reseller agreement, sets it up, moves your data into it, and makes the AI inside it something your team actually uses.",
+        "sections": [
+          {
+            "label": "What Lark is",
+            "heading": "One platform instead of five",
+            "paras": [
+              "Most companies run the working day across tools that do not know about each other: one for chat, another for mail, a third for files, a fourth for approvals. Each handover between them is a place where work waits, or quietly stops. Lark is the same working day on one platform."
+            ],
+            "items": [
+              "Messenger, email, calendar and video meetings",
+              "Docs, Wiki, Slides and Forms, with the company directory behind them",
+              "Approval flows, so a decision leaves a record rather than a message",
+              "Base — tables, dashboards and automation built without code",
+              "AnyCross and open APIs, for the systems that are not going to move"
+            ]
+          },
+          {
+            "label": "Why buy through a reseller",
+            "heading": "What Lark's own checkout cannot do",
+            "paras": [
+              "Lark publishes its prices and will sell you a Pro plan on a credit card in about four minutes. If that is what your company needs, do that — it is faster than talking to us, and we would rather say so now than halfway through a meeting. What the checkout cannot do is the part most companies here get stuck on."
+            ],
+            "items": [
+              "A quotation and an invoice in AED, from a company registered in Dubai under trade licence 1646635",
+              "An invoice raised against your purchase order, through the procurement cycle your finance team already runs",
+              "Payment by bank transfer, with no company card involved at any point",
+              "Vendor registration: trade licence, company documents and the forms your finance system needs before a new supplier exists in it",
+              "One contract covering the licences and the work around them, rather than a subscription on one side and a project on the other",
+              "People in your time zone for the setup, the migration and the first support call"
+            ]
+          },
+          {
+            "label": "What we do",
+            "heading": "From a quotation to a company that has moved in",
+            "items": [
+              "A fit assessment before anyone signs anything — including telling you when Lark is the wrong answer for what you described",
+              "Tenant provisioning, domain verification, company directory, organisation structure and permissions",
+              "Migration of mail, files and directory from what you run today, as far as each can be carried across",
+              "Approval flows, forms and Base applications built around your processes rather than around a template",
+              "Integration with your ERP, finance system or internal applications through open APIs and AnyCross",
+              "Administrator enablement, end-user training, and first-line support once you are live"
+            ]
+          },
+          {
+            "label": "The AI part",
+            "heading": "The capability ships with the licence. Using it does not.",
+            "paras": [
+              "Lark has AI in the platform already, which is why so little of it gets used: the capability arrives the day the licence does, and then nothing happens. Deciding which parts of the working day are worth automating, and configuring them so people reach for them without being reminded, is a separate job that no licence performs. That job is the one we take on."
+            ],
+            "items": [
+              "AI meeting notes and searchable minutes, so what a meeting decided stays findable",
+              "An AI teammate inside the workspace, set against your own documents, approvals and company knowledge rather than the open internet",
+              "Automation in Base, so the recurring judgement calls in a process are carried by the system rather than by whoever remembers them",
+              "Real-time translation in chat and documents, so a team that does not share one working language still works in one channel",
+              "AnyCross, so the automation reaches the ERP and the finance system instead of stopping at the chat window",
+              "A short list, agreed with you, of what is worth automating first — and what is not worth automating at all"
+            ]
+          },
+          {
+            "label": "Who this is for",
+            "heading": "Where we are worth the conversation",
+            "items": [
+              "Thirty seats and up, where the migration matters more than the licence",
+              "Companies whose procurement cannot buy software on a credit card, and whose finance team needs a local invoice against a purchase order",
+              "Groups operating in both China and the Gulf, running Feishu at headquarters and needing the international Lark tenant here",
+              "Frontline and field operations — retail, logistics, construction — where most of the company does not work at a desk",
+              "Companies leaving Microsoft 365 or Google Workspace with years of mail and files to bring along"
+            ]
+          }
+        ],
+        "cta": {
+          "heading": "Tell us how your team works today.",
+          "body": "Send the headcount, the tools you run now, and what your finance team needs to see on an invoice. We will come back with a scope, a quotation, and an honest answer about what will and will not carry across."
+        }
+      },
+
+      "pricing": {
+        "title": "Lark pricing and purchasing in the UAE — OceanAstra",
+        "description": "How OceanAstra quotes Lark: Lark's own published plans, quoted line by line in AED and invoiced against a purchase order from Dubai, with the implementation priced as its own line.",
+        "heading": "What it costs, and how it is bought.",
+        "lede": "Lark sets the plans and the list prices, and publishes them. We quote against those plans in AED, invoice from a Dubai company against your purchase order, and price the work around them separately, so you can see what you are paying for.",
+        "sections": [
+          {
+            "label": "The plans",
+            "heading": "Lark's plans, at Lark's prices",
+            "paras": [
+              "Lark publishes its plans and prices on its own site, per user per month, billed annually. Those are Lark's numbers and we quote against them. We do not publish a licence price list of our own, because the plan that fits depends on seat count, storage, meeting size and which administrative controls your security team needs — and quoting before those are known produces a number that changes later."
+            ],
+            "items": [
+              "A free tier for small teams with simple communication needs",
+              "Paid plans per user per month, billed annually, with the limits published by Lark",
+              "An enterprise plan quoted individually, for advanced security and organisational controls",
+              "Add-ons and AI products priced separately by Lark, and quoted separately by us"
+            ]
+          },
+          {
+            "label": "How we quote",
+            "heading": "Line by line, so the invoice is readable",
+            "items": [
+              "Every product on its own line, so each item traces back to a named Lark plan",
+              "Licences, add-ons and AI products quoted separately rather than rolled into a single number",
+              "Implementation scoped and priced as its own line, with what it includes written down before it starts",
+              "Prices in AED, from a company registered in Dubai under trade licence 1646635",
+              "A quotation your finance team can attach to a purchase order without rewriting it"
+            ]
+          },
+          {
+            "label": "Purchasing",
+            "heading": "The procurement path, start to finish",
+            "items": [
+              "Vendor registration pack — trade licence, company registration, bank details, and whatever else your system asks of a new supplier",
+              "A quotation valid for a stated period, naming the exact plans and seat counts",
+              "Your purchase order, and an invoice issued against it",
+              "Payment by bank transfer; no card at any point",
+              "Renewal quoted ahead of the anniversary rather than charged in silence, with a seat count you have had the chance to correct"
+            ]
+          },
+          {
+            "label": "What we will not do",
+            "heading": "Two things we would rather say now",
+            "paras": [
+              "We do not undercut Lark's published prices as a way of winning the deal. A discount given at signature becomes the baseline at renewal and every year after it, and the same money spent on getting the migration right is worth more to you. If price is the whole conversation, Lark's own checkout will serve you better than we will.",
+              "We also do not quote a locked multi-year price. Our own supply terms can be changed on written notice from Lark, and we are not going to sign a number we may not be able to hold. Each year is quoted on what is true that year."
+            ]
+          }
+        ],
+        "cta": {
+          "heading": "Ask for a quotation.",
+          "body": "Send the seat count, the plan you think you need, and the entity the invoice should be addressed to. If a different plan fits better, we will say so before quoting."
+        }
+      },
+
+      "migration": {
+        "title": "Migrating to Lark from Microsoft 365 or Google Workspace — OceanAstra",
+        "description": "What carries across, what does not, and a realistic sequence. OceanAstra runs Lark migrations from Dubai: mail, files, directory, calendars and approvals.",
+        "heading": "The licence is the easy part.",
+        "lede": "A move to Lark is a data project with a licence attached. This page is what we would tell you in the first meeting: what actually carries across, what does not, and what a sensible sequence looks like.",
+        "sections": [
+          {
+            "label": "What moves",
+            "heading": "Carries across",
+            "items": [
+              "Mail, with its folder structure and history, mailbox by mailbox",
+              "Files and shared drives, with their folder tree intact",
+              "The company directory, departments and reporting lines",
+              "Calendars, including recurring meetings and room bookings",
+              "Distribution lists and shared mailboxes, remapped onto groups",
+              "Documents, converted into Lark Docs where that is better than keeping them as files"
+            ]
+          },
+          {
+            "label": "What does not",
+            "heading": "Does not carry across cleanly",
+            "paras": [
+              "Every migration leaves a residue. It is cheaper to hear about it now than to discover it on cutover weekend."
+            ],
+            "items": [
+              "Chat history from another platform rarely transfers in a shape anyone can use; we normally keep the old tool read-only for a period instead",
+              "Deeply nested permission models are usually redesigned rather than copied — copying them carries the problem across too",
+              "Macro-heavy spreadsheets stay as files. They do not become Base tables by themselves, and pretending otherwise is how a migration slips a month",
+              "Add-ins written for the old suite need an equivalent found, rebuilt, or dropped on purpose"
+            ]
+          },
+          {
+            "label": "Sequence",
+            "heading": "What a sensible plan looks like",
+            "items": [
+              "Inventory — seats, mailbox sizes, file volume, and the integrations nobody remembers until they break",
+              "Tenant, domain, directory and permissions, proved on a pilot group before anyone else sees it",
+              "Mail and files migrated in waves, oldest data first, while the old system is still running",
+              "Cutover, with the old system left read-only rather than switched off",
+              "Then approvals, Base applications and the AI configuration — once people are in and working, not before"
+            ]
+          },
+          {
+            "label": "From you",
+            "heading": "What we need on your side",
+            "items": [
+              "Administrator access to the current tenant, or someone in the room who has it",
+              "A named person who can decide what the organisation structure should be, because that decision is not ours to make",
+              "An honest list of the integrations in use, including the ones built by someone who has since left"
+            ]
+          }
+        ],
+        "cta": {
+          "heading": "Send us what you run today.",
+          "body": "Headcount, current mail and file platform, rough data volume, and any integration you would be unhappy to lose. We will come back with a sequence and the parts we think are at risk."
+        }
+      }
+    }
+  },
+
+  "zh": {
+    "eyebrow": "Lark",
+    "nav": {
+      "index": "概览",
+      "pricing": "价格与采购",
+      "migration": "迁移"
+    },
+    "pages": {
+      "index": {
+        "title": "Lark（飞书国际版）阿联酋供货与实施 — OceanAstra",
+        "description": "OceanAstra 是迪拜的 Lark 授权经销商：以迪拉姆报价、凭采购单开票，提供租户搭建、从 Microsoft 365 与 Google Workspace 迁移，并把 Lark 自带的 AI 真正用起来。",
+        "heading": "Lark，由迪拜本地供货与实施。",
+        "lede": "Lark 把即时沟通、邮件、文档、审批、日历与组织通讯录收进一个平台。OceanAstra 依据已签署的经销协议供应它，负责搭建、把你的数据迁进去，并让平台自带的 AI 成为团队真的会用的东西。",
+        "sections": [
+          {
+            "label": "Lark 是什么",
+            "heading": "一个平台，替掉五个",
+            "paras": [
+              "多数公司的一天分散在互不相通的工具里：一个用来聊天，一个收邮件，一个放文件，还有一个走审批。每一次工具之间的交接，都是工作停下来等的地方——或者悄悄停住不动了。Lark 是把同样这一天放进一个平台。"
+            ],
+            "items": [
+              "即时消息、邮件、日历与视频会议",
+              "文档、知识库、幻灯片与表单，背后是统一的组织通讯录",
+              "审批流程——让一个决定留下记录，而不是留下一条消息",
+              "Base——不写代码就能搭的多维表格、看板与自动化",
+              "AnyCross 与开放 API，接那些不打算搬家的系统"
+            ]
+          },
+          {
+            "label": "为什么通过经销商买",
+            "heading": "Lark 官网的结账页做不了的那部分",
+            "paras": [
+              "Lark 的价格是公开的，刷张信用卡四分钟就能买到 Pro。如果你们公司需要的就是这个，那就直接去买——比跟我们谈快得多，这句话我们宁可现在说，也不想在会议进行到一半时才说。官网结账页做不了的，恰恰是本地企业最容易卡住的那部分。"
+            ],
+            "items": [
+              "以迪拉姆出具的报价单与发票，开票方是持迪拜商业执照 1646635 的本地公司",
+              "凭贵司采购单开具发票，走财务既有的采购流程",
+              "银行转账付款，全程不需要动用公司信用卡",
+              "供应商注册所需的材料：营业执照、公司文件，以及财务系统里新增供应商要填的那些表",
+              "一份合同同时覆盖许可与围绕它的实施工作，而不是一边订阅、一边项目",
+              "搭建、迁移与第一通支持电话，都由和你同一个时区的人来接"
+            ]
+          },
+          {
+            "label": "我们做什么",
+            "heading": "从一张报价单，到一家真正搬完家的公司",
+            "items": [
+              "签任何东西之前先做适配评估——包括在 Lark 并不适合你描述的场景时直接告诉你",
+              "租户开通、域名验证、组织通讯录、组织架构与权限体系",
+              "从现用系统迁移邮件、文件与通讯录，在各自可迁移的范围内尽量迁全",
+              "围绕你的真实流程搭建审批流、表单与 Base 应用，而不是套模板",
+              "通过开放 API 与 AnyCross，与 ERP、财务系统或内部应用集成",
+              "管理员赋能、全员培训，以及上线之后的一线支持"
+            ]
+          },
+          {
+            "label": "关于 AI",
+            "heading": "能力随许可一起到货，用起来不会",
+            "paras": [
+              "Lark 平台里本来就有 AI，而这恰恰是它用不起来的原因：许可到账那天能力就在了，然后什么也没发生。判断一天的工作里哪些值得自动化，并把它配置到人不用提醒也会主动去用，是另一件事——没有任何许可能替你做。这件事就是我们承担的工作。"
+            ],
+            "items": [
+              "AI 会议纪要与可检索的会议记录——会上定了什么，事后查得到",
+              "工作区里的 AI 同事，接的是你自己的文档、审批与公司知识，而不是开放互联网",
+              "Base 里的自动化——流程中反复出现的判断交给系统，而不是交给「谁还记得」",
+              "聊天与文档里的实时翻译——不共用一种工作语言的团队，也能待在同一个群里",
+              "通过 AnyCross 让自动化延伸到 ERP 与财务系统，而不是停在聊天窗口",
+              "和你一起定下一份短清单：先自动化什么，以及什么根本不值得自动化"
+            ]
+          },
+          {
+            "label": "适合谁",
+            "heading": "什么情况下值得跟我们聊",
+            "items": [
+              "三十席以上——这时迁移比许可本身重要得多",
+              "采购流程不允许刷信用卡买软件、财务需要凭采购单拿到本地发票的企业",
+              "同时在中国与海湾地区经营的集团：总部已经在用飞书，海湾公司需要的是国际版 Lark 租户",
+              "一线与外勤为主的业务——零售、物流、建筑——公司里大部分人并不坐在工位上",
+              "要从 Microsoft 365 或 Google Workspace 搬走、且有多年邮件与文件要带走的企业"
+            ]
+          }
+        ],
+        "cta": {
+          "heading": "告诉我们你们团队现在怎么工作。",
+          "body": "把人数、现在在用的工具，以及财务对发票的要求发给我们。我们会回一份实施范围、一张报价单，以及一个关于「哪些能迁、哪些迁不过来」的老实回答。"
+        }
+      },
+
+      "pricing": {
+        "title": "Lark 价格与采购（阿联酋） — OceanAstra",
+        "description": "OceanAstra 如何为 Lark 报价：套餐与标准价格由 Lark 制定，我们按产品逐行以迪拉姆报价、从迪拜凭采购单开票，实施单独成行计价。",
+        "heading": "多少钱，以及怎么买。",
+        "lede": "套餐与标准价格由 Lark 制定并公开。我们按这些套餐以迪拉姆报价，由迪拜公司凭你们的采购单开票，围绕它的实施工作单独计价——你付的每一笔钱都看得见对应什么。",
+        "sections": [
+          {
+            "label": "套餐",
+            "heading": "Lark 的套餐，Lark 的价格",
+            "paras": [
+              "Lark 在自己的网站上公开套餐与价格，按用户每月计价、年度付费。那是 Lark 的数字，我们按它报价。我们不另外公布一份自己的许可价目表——因为合适的套餐取决于席位数、存储、会议规模，以及安全团队需要哪些管理控制项；在这些还没弄清之前报出来的数字，后面一定会变。"
+            ],
+            "items": [
+              "面向沟通需求简单的小团队的免费档",
+              "按用户每月计价、年度付费的付费档，限额以 Lark 公布的为准",
+              "面向高级安全与组织管理需求的企业版，单独报价",
+              "附加组件与 AI 产品由 Lark 单独定价，我们也单独报价"
+            ]
+          },
+          {
+            "label": "怎么报价",
+            "heading": "逐行列示，让发票看得懂",
+            "items": [
+              "每个产品单独成行，每一项都能对应到 Lark 的具体套餐名称",
+              "许可、附加组件与 AI 产品分开报，不揉成一个总数",
+              "实施单独成行计价，开始之前就把包含哪些内容写清楚",
+              "以迪拉姆计价，开票方是持迪拜商业执照 1646635 的公司",
+              "报价单的格式，财务可以直接附在采购单上，不用再改写一遍"
+            ]
+          },
+          {
+            "label": "采购",
+            "heading": "从头到尾的采购路径",
+            "items": [
+              "供应商注册资料包——营业执照、商业登记、银行信息，以及贵司系统对新供应商要求的其他材料",
+              "有明确有效期的报价单，写明具体套餐与席位数",
+              "由贵司开出采购单，我们凭单开具发票",
+              "银行转账付款，全程不需要信用卡",
+              "续费在到期前先报价，而不是悄悄扣款；席位数会先给你一次核对的机会"
+            ]
+          },
+          {
+            "label": "我们不做什么",
+            "heading": "两件宁可现在说清楚的事",
+            "paras": [
+              "我们不会用低于 Lark 公开价来抢单。签约时让掉的那个点，会变成续约和之后每一年的基准价；同样的钱花在把迁移做对，对你更划算。如果整场对话只剩价格，那 Lark 自己的结账页比我们更适合你。",
+              "我们也不报多年锁定价。我们自己的供货条件可以由 Lark 书面通知调整，我们不会去签一个未必守得住的数字。每一年都按那一年成立的条件报价。"
+            ]
+          }
+        ],
+        "cta": {
+          "heading": "来要一份报价。",
+          "body": "把席位数、你认为合适的套餐，以及发票抬头的主体发给我们。如果有更合适的套餐，我们会在报价之前先说。"
+        }
+      },
+
+      "migration": {
+        "title": "从 Microsoft 365 或 Google Workspace 迁移到 Lark — OceanAstra",
+        "description": "哪些能迁、哪些迁不干净，以及一个靠谱的排期。OceanAstra 在迪拜承接 Lark 迁移：邮件、文件、通讯录、日历与审批。",
+        "heading": "许可是整件事里最简单的一步。",
+        "lede": "搬到 Lark 本质上是一个带着许可的数据项目。这一页写的就是我们在第一次会议上会告诉你的：哪些真的能迁过来，哪些不能，以及一个靠谱的顺序长什么样。",
+        "sections": [
+          {
+            "label": "能迁的",
+            "heading": "可以带走",
+            "items": [
+              "邮件，连同文件夹结构与历史记录，逐个邮箱迁移",
+              "文件与共享盘，目录树保持原样",
+              "组织通讯录、部门与汇报关系",
+              "日历，包括周期性会议与会议室预订",
+              "通讯组与共享邮箱，重新映射成群组",
+              "文档——在「转成 Lark 文档」比「继续当文件存着」更好的地方，就转过去"
+            ]
+          },
+          {
+            "label": "迁不干净的",
+            "heading": "不会原样过来",
+            "paras": [
+              "每一次迁移都会留下残渣。现在听到，比在切换那个周末才发现，要便宜得多。"
+            ],
+            "items": [
+              "其他平台的聊天记录很少能迁成还能用的样子；我们通常的做法是让旧工具只读保留一段时间",
+              "层层嵌套的权限模型一般要重新设计，而不是照搬——照搬会把问题一起搬过来",
+              "宏很重的表格继续当文件存着。它们不会自己变成 Base 表，假装它们会，是迁移延期一个月的典型原因",
+              "为旧套件写的插件，要么找到等价方案，要么重做，要么明确决定不要了"
+            ]
+          },
+          {
+            "label": "顺序",
+            "heading": "一个靠谱的计划长什么样",
+            "items": [
+              "盘点——席位、邮箱大小、文件体量，以及那些不坏就没人记得的集成",
+              "租户、域名、通讯录与权限，先在试点组里跑通，再让其他人看见",
+              "邮件与文件分批迁移，从最旧的数据开始，这期间旧系统照常运行",
+              "切换，旧系统改为只读，而不是直接关掉",
+              "然后才是审批流、Base 应用与 AI 配置——等人都进来开始干活之后，不是之前"
+            ]
+          },
+          {
+            "label": "需要你配合的",
+            "heading": "我们需要你这边提供什么",
+            "items": [
+              "现有租户的管理员权限，或者会议室里有一个手上有权限的人",
+              "一个能拍板「组织架构应该长什么样」的人——这个决定不该由我们替你做",
+              "一份诚实的集成清单，包括那些由已经离职的人搭的"
+            ]
+          }
+        ],
+        "cta": {
+          "heading": "把你们现在在用的发给我们。",
+          "body": "人数、现在的邮件与文件平台、大致的数据量，以及任何一个你不愿意弄丢的集成。我们会回一个迁移顺序，并指出我们认为有风险的部分。"
+        }
+      }
+    }
+  },
+
+  "ar": {
+    "eyebrow": "لارك",
+    "nav": {
+      "index": "نظرة عامة",
+      "pricing": "الأسعار والشراء",
+      "migration": "الترحيل"
+    },
+    "pages": {
+      "index": {
+        "title": "لارك في الإمارات — التوريد والتنفيذ عبر أوشن أسترا",
+        "description": "أوشن أسترا موزّع معتمد لمنصّة لارك في دبي: عروض أسعار وفواتير بالدرهم مقابل أمر شراء، وتهيئة المستأجر، والترحيل من Microsoft 365 أو Google Workspace، وتشغيل فعليّ للذكاء الاصطناعي المدمج في لارك.",
+        "heading": "لارك، تُورَّد وتُنفَّذ من دبي.",
+        "lede": "تجمع لارك المراسلة والبريد والمستندات والموافقات والتقويم ودليل الشركة في منصّة واحدة. تورّدها أوشن أسترا بموجب اتفاقية إعادة بيع موقّعة، وتتولّى تهيئتها ونقل بياناتكم إليها، وتجعل الذكاء الاصطناعي المدمج فيها شيئًا يستخدمه فريقكم فعلًا.",
+        "sections": [
+          {
+            "label": "ما هي لارك",
+            "heading": "منصّة واحدة بدل خمس",
+            "paras": [
+              "تدير معظم الشركات يومها عبر أدوات لا تعرف إحداها الأخرى: واحدة للمحادثة، وأخرى للبريد، وثالثة للملفات، ورابعة للموافقات. وكل انتقال بينها موضع ينتظر فيه العمل، أو يتوقّف بهدوء. لارك هي اليوم نفسه على منصّة واحدة."
+            ],
+            "items": [
+              "المراسلة والبريد والتقويم والاجتماعات المرئية",
+              "المستندات وقاعدة المعرفة والعروض والنماذج، ومن خلفها دليل الشركة",
+              "مسارات الموافقات، فيترك القرار أثرًا موثّقًا لا رسالة عابرة",
+              "Base — جداول ولوحات وأتمتة تُبنى دون كتابة شيفرة",
+              "AnyCross وواجهات برمجية مفتوحة، للأنظمة التي لن تنتقل"
+            ]
+          },
+          {
+            "label": "لماذا الشراء عبر موزّع",
+            "heading": "ما لا تستطيعه صفحة الشراء لدى لارك",
+            "paras": [
+              "تنشر لارك أسعارها، ويمكنكم شراء باقة احترافية ببطاقة ائتمان في أربع دقائق. وإن كان هذا ما تحتاجه شركتكم فافعلوه — فهو أسرع من التحدّث إلينا، ونفضّل قول ذلك الآن لا في منتصف اجتماع. أما ما لا تستطيعه صفحة الشراء فهو تحديدًا ما تتعثّر عنده معظم الشركات هنا."
+            ],
+            "items": [
+              "عرض سعر وفاتورة بالدرهم، من شركة مسجّلة في دبي برخصة تجارية رقم ١٦٤٦٦٣٥",
+              "فاتورة تُصدر مقابل أمر الشراء، ضمن دورة الشراء التي تعمل بها إدارتكم المالية",
+              "السداد بتحويل بنكي، دون أي بطاقة شركة في أي مرحلة",
+              "ملفّ تسجيل المورّد: الرخصة التجارية ووثائق الشركة والنماذج التي يطلبها نظامكم المالي قبل أن يوجد مورّد جديد فيه",
+              "عقد واحد يغطّي التراخيص والعمل المحيط بها، بدل اشتراك في جهة ومشروع في أخرى",
+              "أشخاص في منطقتكم الزمنية للتهيئة والترحيل وأول مكالمة دعم"
+            ]
+          },
+          {
+            "label": "ماذا نفعل",
+            "heading": "من عرض سعر إلى شركة انتقلت فعلًا",
+            "items": [
+              "تقييم للملاءمة قبل توقيع أي شيء — بما في ذلك إخباركم متى تكون لارك إجابة غير مناسبة لما وصفتموه",
+              "تهيئة المستأجر، وتوثيق النطاق، ودليل الشركة، والهيكل التنظيمي والصلاحيات",
+              "ترحيل البريد والملفات والدليل من أنظمتكم الحالية، بالقدر الذي يمكن نقله من كلٍّ منها",
+              "مسارات الموافقات والنماذج وتطبيقات Base مبنية على عملياتكم لا على قالب جاهز",
+              "التكامل مع نظام تخطيط الموارد أو النظام المالي أو تطبيقاتكم الداخلية عبر الواجهات المفتوحة وAnyCross",
+              "تمكين المسؤولين، وتدريب المستخدمين، والدعم من الخط الأول بعد التشغيل"
+            ]
+          },
+          {
+            "label": "جانب الذكاء الاصطناعي",
+            "heading": "القدرة تصل مع الترخيص. أما استخدامها فلا.",
+            "paras": [
+              "الذكاء الاصطناعي موجود في لارك أصلًا، وهذا تحديدًا سبب قلّة استخدامه: القدرة تصل يوم يصل الترخيص، ثم لا يحدث شيء. أما تحديد ما يستحقّ الأتمتة من يوم العمل، وتهيئته بحيث يلجأ إليه الناس دون تذكير، فعمل منفصل لا يؤدّيه أي ترخيص. وهذا العمل هو ما نتولّاه."
+            ],
+            "items": [
+              "محاضر اجتماعات بالذكاء الاصطناعي وسجلّات قابلة للبحث، فيبقى ما قُرِّر قابلًا للاسترجاع",
+              "زميل رقمي داخل بيئة العمل، مضبوط على مستنداتكم وموافقاتكم ومعرفة شركتكم لا على الإنترنت المفتوح",
+              "الأتمتة في Base، فتتولّى المنظومة القرارات المتكرّرة في العملية بدل أن تعتمد على من يتذكّرها",
+              "الترجمة الفورية في المحادثات والمستندات، فيعمل فريق لا تجمعه لغة عمل واحدة في قناة واحدة",
+              "AnyCross، كي تمتدّ الأتمتة إلى نظام تخطيط الموارد والنظام المالي بدل أن تتوقّف عند نافذة المحادثة",
+              "قائمة قصيرة متّفق عليها معكم بما يستحقّ الأتمتة أولًا، وبما لا يستحقّها أصلًا"
+            ]
+          },
+          {
+            "label": "لمن هذا",
+            "heading": "متى يستحقّ الأمر حديثًا معنا",
+            "items": [
+              "ثلاثون مقعدًا فأكثر، حيث يصبح الترحيل أهمّ من الترخيص نفسه",
+              "الشركات التي لا تسمح إجراءات الشراء لديها ببطاقة ائتمان، وتحتاج إدارتها المالية فاتورة محلية مقابل أمر شراء",
+              "المجموعات العاملة في الصين والخليج معًا: المقرّ الرئيسي يعمل على فيشو (Feishu)، والمكتب الإقليمي يحتاج مستأجر لارك الدولي",
+              "العمليات الميدانية والخطوط الأمامية — التجزئة والخدمات اللوجستية والمقاولات — حيث لا يعمل معظم الموظفين خلف مكتب",
+              "الشركات المغادرة لـ Microsoft 365 أو Google Workspace ولديها سنوات من البريد والملفات"
+            ]
+          }
+        ],
+        "cta": {
+          "heading": "حدّثونا كيف يعمل فريقكم اليوم.",
+          "body": "أرسلوا عدد الموظفين، والأدوات التي تستخدمونها الآن، وما تحتاج إدارتكم المالية رؤيته على الفاتورة. وسنعود إليكم بنطاق عمل وعرض سعر وإجابة صريحة عمّا سينتقل وما لن ينتقل."
+        }
+      },
+
+      "pricing": {
+        "title": "أسعار لارك وشراؤها في الإمارات — أوشن أسترا",
+        "description": "كيف تسعّر أوشن أسترا لارك: باقات لارك المنشورة، بعرض سعر مفصّل بالدرهم وفاتورة من دبي مقابل أمر شراء، مع تسعير التنفيذ في بند مستقلّ.",
+        "heading": "كم يكلّف، وكيف يُشترى.",
+        "lede": "تحدّد لارك الباقات والأسعار الاسترشادية وتنشرها. ونحن نسعّر وفقها بالدرهم، ونُصدر الفاتورة من شركة في دبي مقابل أمر الشراء، ونسعّر العمل المحيط بها على حدة، فيكون واضحًا مقابل ماذا تدفعون.",
+        "sections": [
+          {
+            "label": "الباقات",
+            "heading": "باقات لارك، وبأسعار لارك",
+            "paras": [
+              "تنشر لارك باقاتها وأسعارها على موقعها، لكل مستخدم شهريًا بفوترة سنوية. تلك أرقام لارك ونحن نسعّر وفقها. ولا ننشر قائمة أسعار خاصة بنا للتراخيص، لأن الباقة المناسبة تتوقّف على عدد المقاعد والتخزين وحجم الاجتماعات وأي ضوابط إدارية يحتاجها فريق الأمن لديكم — والتسعير قبل معرفة ذلك ينتج رقمًا يتغيّر لاحقًا."
+            ],
+            "items": [
+              "باقة مجانية للفرق الصغيرة ذات الاحتياجات البسيطة",
+              "باقات مدفوعة لكل مستخدم شهريًا بفوترة سنوية، بالحدود التي تنشرها لارك",
+              "باقة للمؤسسات تُسعَّر على حدة، لاحتياجات الأمن والإدارة التنظيمية المتقدّمة",
+              "الإضافات ومنتجات الذكاء الاصطناعي تسعّرها لارك على حدة، ونسعّرها نحن على حدة كذلك"
+            ]
+          },
+          {
+            "label": "كيف نسعّر",
+            "heading": "بندًا بندًا، لتكون الفاتورة مقروءة",
+            "items": [
+              "كل منتج في بند مستقلّ، بحيث يعود كل بند إلى باقة محدّدة باسمها لدى لارك",
+              "التراخيص والإضافات ومنتجات الذكاء الاصطناعي تُسعَّر منفصلة لا مجمّعة في رقم واحد",
+              "التنفيذ في بند مستقلّ بنطاق مكتوب قبل أن يبدأ",
+              "الأسعار بالدرهم، من شركة مسجّلة في دبي برخصة تجارية رقم ١٦٤٦٦٣٥",
+              "عرض سعر تستطيع إدارتكم المالية إرفاقه بأمر الشراء دون إعادة كتابته"
+            ]
+          },
+          {
+            "label": "الشراء",
+            "heading": "مسار الشراء من أوّله إلى آخره",
+            "items": [
+              "ملفّ تسجيل المورّد — الرخصة التجارية والسجل التجاري والبيانات البنكية وما يطلبه نظامكم من مورّد جديد",
+              "عرض سعر بمدّة صلاحية محدّدة، يسمّي الباقات وأعداد المقاعد بدقّة",
+              "أمر شراء تصدرونه، وفاتورة تُصدر مقابله",
+              "السداد بتحويل بنكي، دون بطاقة في أي مرحلة",
+              "التجديد يُسعَّر قبل موعده لا يُخصم بصمت، مع عدد مقاعد أتيحت لكم مراجعته"
+            ]
+          },
+          {
+            "label": "ما لن نفعله",
+            "heading": "أمران نفضّل قولهما الآن",
+            "paras": [
+              "لا نبيع بأقلّ من أسعار لارك المنشورة لكسب الصفقة. فالخصم الممنوح عند التوقيع يصير أساس التجديد وكل سنة بعده، والمبلغ نفسه إن أُنفق على إتقان الترحيل كان أنفع لكم. وإن كان السعر هو الحديث كلّه، فصفحة الشراء لدى لارك أنسب لكم منّا.",
+              "ولا نقدّم سعرًا مثبّتًا لعدّة سنوات. فشروط التوريد لدينا قابلة للتعديل بإشعار كتابي من لارك، ولن نوقّع رقمًا قد لا نقدر على الوفاء به. كل سنة تُسعَّر بما يصحّ فيها."
+            ]
+          }
+        ],
+        "cta": {
+          "heading": "اطلبوا عرض سعر.",
+          "body": "أرسلوا عدد المقاعد، والباقة التي ترونها مناسبة، والجهة التي تُصدر الفاتورة باسمها. وإن كانت باقة أخرى أنسب فسنقول ذلك قبل التسعير."
+        }
+      },
+
+      "migration": {
+        "title": "الترحيل إلى لارك من Microsoft 365 أو Google Workspace — أوشن أسترا",
+        "description": "ما الذي ينتقل، وما الذي لا ينتقل بنظافة، وتسلسل واقعي. تنفّذ أوشن أسترا عمليات الترحيل إلى لارك من دبي: البريد والملفات والدليل والتقويمات والموافقات.",
+        "heading": "الترخيص أسهل خطوات الأمر.",
+        "lede": "الانتقال إلى لارك مشروع بيانات يرافقه ترخيص. وهذه الصفحة هي ما سنقوله لكم في الاجتماع الأول: ما الذي ينتقل فعلًا، وما الذي لا ينتقل، وكيف يبدو التسلسل المعقول.",
+        "sections": [
+          {
+            "label": "ما ينتقل",
+            "heading": "ينتقل معكم",
+            "items": [
+              "البريد بهيكل مجلّداته وسجلّه، صندوقًا صندوقًا",
+              "الملفات والأقراص المشتركة، بشجرة مجلّداتها كما هي",
+              "دليل الشركة والإدارات وتسلسل المسؤولية",
+              "التقويمات، بما فيها الاجتماعات المتكرّرة وحجوزات القاعات",
+              "القوائم البريدية والصناديق المشتركة، معادًا ربطها بالمجموعات",
+              "المستندات، محوَّلة إلى مستندات لارك حيث يكون ذلك أفضل من إبقائها ملفات"
+            ]
+          },
+          {
+            "label": "وما لا ينتقل",
+            "heading": "لا ينتقل بنظافة",
+            "paras": [
+              "كل عملية ترحيل تترك بقايا. وسماع ذلك الآن أرخص من اكتشافه في عطلة التحويل."
+            ],
+            "items": [
+              "سجلّ المحادثات من منصّة أخرى نادرًا ما ينتقل في صورة قابلة للاستخدام؛ وعادتنا أن نُبقي الأداة القديمة للقراءة فقط مدّة من الزمن",
+              "نماذج الصلاحيات المتداخلة تُعاد هندستها غالبًا بدل نسخها — فالنسخ ينقل المشكلة معها",
+              "الجداول المثقلة بوحدات الماكرو تبقى ملفات. فهي لا تتحوّل إلى جداول Base من تلقاء نفسها، والتظاهر بغير ذلك سبب شائع لتأخّر الترحيل شهرًا",
+              "الإضافات المكتوبة للحزمة القديمة تحتاج بديلًا يُوجد أو يُبنى، أو قرارًا صريحًا بالاستغناء عنها"
+            ]
+          },
+          {
+            "label": "التسلسل",
+            "heading": "كيف تبدو الخطة المعقولة",
+            "items": [
+              "الجرد — المقاعد وأحجام الصناديق وحجم الملفات والتكاملات التي لا يتذكّرها أحد حتى تتعطّل",
+              "المستأجر والنطاق والدليل والصلاحيات، مُثبتة على مجموعة تجريبية قبل أن يراها غيرها",
+              "ترحيل البريد والملفات على دفعات، من الأقدم أولًا، والنظام القديم ما يزال يعمل",
+              "التحويل، مع إبقاء النظام القديم للقراءة فقط بدل إغلاقه",
+              "ثم الموافقات وتطبيقات Base وتهيئة الذكاء الاصطناعي — بعد أن يدخل الناس ويعملوا، لا قبل ذلك"
+            ]
+          },
+          {
+            "label": "منكم",
+            "heading": "ما نحتاجه من جانبكم",
+            "items": [
+              "صلاحية إدارية على المستأجر الحالي، أو حضور من يملكها",
+              "شخص مسمّى يقرّر كيف ينبغي أن يكون الهيكل التنظيمي، فهذا قرار ليس لنا أن نتّخذه عنكم",
+              "قائمة صريحة بالتكاملات المستخدمة، بما فيها ما بناه من غادر الشركة"
+            ]
+          }
+        ],
+        "cta": {
+          "heading": "أرسلوا لنا ما تشغّلونه اليوم.",
+          "body": "عدد الموظفين، ومنصّة البريد والملفات الحالية، وحجم البيانات تقريبًا، وأي تكامل يصعب عليكم فقدانه. وسنعود بتسلسل عمل وبالأجزاء التي نراها معرّضة للخطر."
+        }
+      }
+    }
+  }
+}

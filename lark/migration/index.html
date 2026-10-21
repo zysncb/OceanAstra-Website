@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Migrating to Lark from Microsoft 365 or Google Workspace — OceanAstra</title>
+  <meta name="description" content="What carries across, what does not, and a realistic sequence. OceanAstra runs Lark migrations from Dubai: mail, files, directory, calendars and approvals.">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+  <link rel="canonical" href="https://oceanastra.net/lark/migration/">
+  <link rel="alternate" hreflang="en" href="https://oceanastra.net/lark/migration/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://oceanastra.net/zh/lark/migration/">
+  <link rel="alternate" hreflang="ar" href="https://oceanastra.net/ar/lark/migration/">
+  <link rel="alternate" hreflang="x-default" href="https://oceanastra.net/lark/migration/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="OceanAstra">
+  <meta property="og:title" content="Migrating to Lark from Microsoft 365 or Google Workspace — OceanAstra">
+  <meta property="og:description" content="What carries across, what does not, and a realistic sequence. OceanAstra runs Lark migrations from Dubai: mail, files, directory, calendars and approvals.">
+  <meta property="og:url" content="https://oceanastra.net/lark/migration/">
+  <meta property="og:image" content="https://oceanastra.net/assets/img/og-image.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://oceanastra.net/assets/img/og-image.png">
+  <meta name="theme-color" content="#07090f">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/fonts/fonts.css">
+  <style>
+    html { background: #07090F; }
+    body { margin: 0; background: #07090F; color: #F2F2F0;
+           font-family: Archivo, "Noto Sans SC", "Noto Kufi Arabic", sans-serif;
+           font-variation-settings: "wdth" 100, "wght" 400;
+           -webkit-font-smoothing: antialiased; }
+    /* The bundle ships its own reset; without it the browser defaults show
+       through as underlined nav links and bold headings at the wrong weight. */
+    *, *::before, *::after { box-sizing: border-box; }
+    a { color: inherit; text-decoration: none; }
+    h1, h2 { font-weight: inherit; }
+    p { margin: 0; }
+    section > h2:first-of-type { margin-top: 0; }
+  </style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://oceanastra.net/lark/migration/#webpage","url":"https://oceanastra.net/lark/migration/","name":"Migrating to Lark from Microsoft 365 or Google Workspace — OceanAstra","description":"What carries across, what does not, and a realistic sequence. OceanAstra runs Lark migrations from Dubai: mail, files, directory, calendars and approvals.","inLanguage":"en","isPartOf":{"@id":"https://oceanastra.net/#website"},"about":{"@id":"https://oceanastra.net/#organization"},"breadcrumb":{"@id":"https://oceanastra.net/lark/migration/#breadcrumb"}},{"@type":"BreadcrumbList","@id":"https://oceanastra.net/lark/migration/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://oceanastra.net/"},{"@type":"ListItem","position":2,"name":"Overview","item":"https://oceanastra.net/lark/"},{"@type":"ListItem","position":3,"name":"Migration","item":"https://oceanastra.net/lark/migration/"}]}]}</script>
+<!-- analytics -->
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "084a81ba2246487e91d0ad2c8ec91beb"}'></script>
+<!-- /analytics -->
+</head>
+<body>
+
+<div id="dc-root"><div class="sc-host" data-sc-name="Root"><div data-dc-tpl="4" dir="ltr" style="font-family: Archivo, &quot;Noto Sans SC&quot;, &quot;Noto Kufi Arabic&quot;, sans-serif; font-variation-settings: &quot;wdth&quot; 100, &quot;wght&quot; 400; background: rgb(7, 9, 15); color: rgb(242, 242, 240); min-height: 100vh; overflow-x: hidden;">
+
+  <div data-dc-tpl="5" style="position: fixed; top: 0px; left: 0px; right: 0px; z-index: 60; background: transparent; backdrop-filter: blur(0px); border-bottom: 1px solid transparent; transition: background 380ms, border-color 380ms;">
+    <div data-dc-tpl="6" style="max-width: 1280px; margin: 0px auto; padding: 0px clamp(20px, 4vw, 48px); height: 70px; display: flex; align-items: center; justify-content: space-between; gap: 28px;">
+      <a data-dc-tpl="7" href="/../" dir="ltr" data-oa-brand="" style="display: flex; align-items: center; gap: 9px; color: rgb(242, 242, 240); flex: 0 0 auto;">
+        <svg data-dc-tpl="8" width="28" height="28" viewBox="0 0 120 120" fill="none" style="flex: 0 0 auto;">
+          <defs data-dc-tpl="9"><clipPath data-dc-tpl="10" id="w-nav"><circle data-dc-tpl="11" cx="60" cy="60" r="42"></circle></clipPath></defs>
+          <g data-dc-tpl="12" clip-path="url(#w-nav)">
+            <path data-dc-tpl="13" d="M 8 70.4 Q 28 56.4 48 70.4 T 88 70.4 T 128 70.4" stroke="#5B6CFF" stroke-width="9" fill="none"></path>
+            <circle data-dc-tpl="14" cx="70.4" cy="46" r="6" fill="#F2F2F0"></circle>
+          </g>
+          <circle data-dc-tpl="15" cx="60" cy="60" r="46" stroke="#F2F2F0" stroke-width="8" fill="none"></circle>
+        </svg>
+        <span data-dc-tpl="16" style="font-family: &quot;Space Grotesk&quot;, sans-serif; font-weight: 700; font-size: 17px; letter-spacing: -0.03em;"><span class="sc-interp">OceanAstra</span></span>
+      </a>
+      
+        <div data-dc-tpl="18" style="display: flex; align-items: center; gap: clamp(18px, 2.4vw, 32px);">
+          
+            <a data-dc-tpl="20" href="/../" class="scp0" style="font-size: 14px; color: rgb(154, 163, 184);"><span class="sc-interp">Home</span></a>
+          
+            <a data-dc-tpl="20" href="/../solutions/" class="scp0" style="font-size: 14px; color: rgb(154, 163, 184);"><span class="sc-interp">Solutions</span></a>
+          
+            <a data-dc-tpl="20" href="/../about/" class="scp0" style="font-size: 14px; color: rgb(154, 163, 184);"><span class="sc-interp">About</span></a>
+          
+            <a data-dc-tpl="20" href="/../contact/" class="scp0" style="font-size: 14px; color: rgb(154, 163, 184);"><span class="sc-interp">Contact</span></a>
+          
+        </div>
+      
+      <div data-dc-tpl="21" style="display: flex; align-items: center; gap: clamp(10px, 2vw, 18px); flex: 0 0 auto;">
+        <div data-dc-tpl="22" style="display: flex; align-items: center; gap: 2px; border: 1px solid rgb(26, 31, 46); padding: 3px;">
+          
+            <a href="/lark/migration/" hreflang="en" data-lang="en" aria-current="true" style="background: rgb(242, 242, 240); color: rgb(7, 9, 15); border: 0px; cursor: pointer; font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 10px; letter-spacing: 0.1em; padding: 6px 9px; line-height: 1;; text-decoration: none; display: inline-block;"><span class="sc-interp">EN</span></a>
+          
+            <a href="/zh/lark/migration/" hreflang="zh" data-lang="zh" style="background: transparent; color: rgb(138, 147, 168); border: 0px; cursor: pointer; font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 10px; letter-spacing: 0.1em; padding: 6px 9px; line-height: 1;; text-decoration: none; display: inline-block;"><span class="sc-interp">中文</span></a>
+          
+            <a href="/ar/lark/migration/" hreflang="ar" data-lang="ar" style="background: transparent; color: rgb(138, 147, 168); border: 0px; cursor: pointer; font-family: &quot;Noto Kufi Arabic&quot;, sans-serif; font-size: 10px; letter-spacing: 0px; padding: 6px 9px; line-height: 1;; text-decoration: none; display: inline-block;"><span class="sc-interp">عربي</span></a>
+          
+        </div>
+        
+      </div>
+    </div>
+    
+  </div>
+
+  <div data-dc-tpl="33" style="max-width: 820px; margin: 0px auto; padding: clamp(126px, 16vh, 168px) clamp(20px, 4vw, 48px) clamp(64px, 8vw, 96px);">
+<span style="display: block; margin: 0px 0px 14px; font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; color: rgb(91, 108, 255);">Lark</span>
+<h1 style="margin: 0px 0px 10px; font-size: clamp(28px, 4vw, 42px); line-height: 1.16; letter-spacing: -0.03em; font-variation-settings: &quot;wdth&quot; 100, &quot;wght&quot; 700;">The licence is the easy part.</h1>
+<p style="margin: 18px 0px 0px; font-size: 15px; line-height: 1.8; color: rgb(154, 163, 184); text-wrap: pretty;">A move to Lark is a data project with a licence attached. This page is what we would tell you in the first meeting: what actually carries across, what does not, and what a sensible sequence looks like.</p>
+<nav style="margin: 30px 0px 0px; display: flex; flex-wrap: wrap; gap: 10px 24px;">
+<a href="/lark/" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: rgb(154, 163, 184);">Overview</a>
+<a href="/lark/pricing/" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: rgb(154, 163, 184);">Pricing and purchasing</a>
+<span style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: rgb(91, 108, 255);" aria-current="page">Migration</span>
+</nav>
+<section style="margin-top: clamp(40px, 5vw, 56px); padding-top: clamp(28px, 3.4vw, 36px); border-top: 1px solid rgb(26, 31, 46);">
+<span style="display: block; margin: 0px 0px 26px; font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; color: rgb(91, 108, 255);">What moves</span>
+<h2 style="margin: 0px 0px 12px; font-size: 19px; line-height: 1.3; letter-spacing: -0.016em; font-variation-settings: &quot;wdth&quot; 100, &quot;wght&quot; 600;">Carries across</h2>
+<ul style="margin: 0px 0px 10px; padding-inline-start: 20px;">
+<li style="margin: 0px 0px 10px; font-size: 15px; line-height: 1.8; color: rgb(195, 201, 214); text-wrap: pretty;">Mail, with its folder structure and history, mailbox by mailbox</li>
+<li style="margin: 0px 0px 10px; font-size: 15px; line-height: 1.8; color: rgb(195, 201, 214); text-wrap: pretty;">Files and shared drives, with their folder tree intact</li>
+<li style="margin: 0px 0px 10px; font-size: 15px; line-height: 1.8; color: rgb(195, 201, 214); text-wrap: pretty;">The company directory, departments and reporting lines</li>
+<li style="margin: 0px 0px 10px; font-size: 15px; line-height: 1.8; color: rgb(195, 201, 214); text-wrap: pretty;">Calendars, including recurring meetings and room bookings</li>
+<li style="margin: 0px 0px 10px; font-size: 15px; line-height: 1.8; color: rgb(195, 201, 214); text-wrap: pretty;">Distribution lists and shared mailboxes, remapped onto groups</li>
+<li style="margin: 0px 0px 10px; font-size: 15px; line-height: 1.8; color: rgb(195, 201, 214); text-wrap: pretty;">Documents, converted into Lark Docs where that is better than keeping them as files</li>
+</ul>
+</section>
+<section style="margin-top: clamp(40px, 5vw, 56px); padding-top: clamp(28px, 3.4vw, 36px); border-top: 1px solid rgb(26, 31, 46);">
+<span style="display: block; margin: 0px 0px 26px; font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; color: rgb(91, 108, 255);">What does not</span>
+<h2 style="margin: 0px 0px 12px; font-size: 19px; line-height: 1.3; letter-spacing: -0.016em; font-variation-settings: &quot;wdth&quot; 100, &quot;wght&quot; 600;">Does not carry across cleanly</h2>
+<p style="margin: 0px 0px 22px; font-size: 15px; line-height: 1.8; color: rgb(195, 201, 214); text-wrap: pretty;">Every migration leaves a residue. It is cheaper to hear about it now than to discover it on cutover weekend.</p>
+<ul style="margin: 0px 0px 10px; padding-inline-start: 20px;">
+<li style="margin: 0px 0px 10px; font-size: 15px; line-height: 1.8; color: rgb(195, 201, 214); text-wrap: pretty;">Chat history from another platform rarely transfers in a shape anyone can use; we normally keep the old tool read-only for a period instead</li>
+<li style="margin: 0px 0px 10px; font-size: 15px; line-height: 1.8; color: rgb(195, 201, 214); text-wrap: pretty;">Deeply nested permission models are usually redesigned rather than copied — copying them carries the problem across too</li>
+<li style="margin: 0px 0px 10px; font-size: 15px; line-height: 1.8; color: rgb(195, 201, 214); text-wrap: pretty;">Macro-heavy spreadsheets stay as files. They do not become Base tables by themselves, and pretending otherwise is how a migration slips a month</li>
+<li style="margin: 0px 0px 10px; font-size: 15px; line-height: 1.8; color: rgb(195, 201, 214); text-wrap: pretty;">Add-ins written for the old suite need an equivalent found, rebuilt, or dropped on purpose</li>
+</ul>
+</section>
+<section style="margin-top: clamp(40px, 5vw, 56px); padding-top: clamp(28px, 3.4vw, 36px); border-top: 1px solid rgb(26, 31, 46);">
+<span style="display: block; margin: 0px 0px 26px; font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; color: rgb(91, 108, 255);">Sequence</span>
+<h2 style="margin: 0px 0px 12px; font-size: 19px; line-height: 1.3; letter-spacing: -0.016em; font-variation-settings: &quot;wdth&quot; 100, &quot;wght&quot; 600;">What a sensible plan looks like</h2>
+<ul style="margin: 0px 0px 10px; padding-inline-start: 20px;">
+<li style="margin: 0px 0px 10px; font-size: 15px; line-height: 1.8; color: rgb(195, 201, 214); text-wrap: pretty;">Inventory — seats, mailbox sizes, file volume, and the integrations nobody remembers until they break</li>
+<li style="margin: 0px 0px 10px; font-size: 15px; line-height: 1.8; color: rgb(195, 201, 214); text-wrap: pretty;">Tenant, domain, directory and permissions, proved on a pilot group before anyone else sees it</li>
+<li style="margin: 0px 0px 10px; font-size: 15px; line-height: 1.8; color: rgb(195, 201, 214); text-wrap: pretty;">Mail and files migrated in waves, oldest data first, while the old system is still running</li>
+<li style="margin: 0px 0px 10px; font-size: 15px; line-height: 1.8; color: rgb(195, 201, 214); text-wrap: pretty;">Cutover, with the old system left read-only rather than switched off</li>
+<li style="margin: 0px 0px 10px; font-size: 15px; line-height: 1.8; color: rgb(195, 201, 214); text-wrap: pretty;">Then approvals, Base applications and the AI configuration — once people are in and working, not before</li>
+</ul>
+</section>
+<section style="margin-top: clamp(40px, 5vw, 56px); padding-top: clamp(28px, 3.4vw, 36px); border-top: 1px solid rgb(26, 31, 46);">
+<span style="display: block; margin: 0px 0px 26px; font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; color: rgb(91, 108, 255);">From you</span>
+<h2 style="margin: 0px 0px 12px; font-size: 19px; line-height: 1.3; letter-spacing: -0.016em; font-variation-settings: &quot;wdth&quot; 100, &quot;wght&quot; 600;">What we need on your side</h2>
+<ul style="margin: 0px 0px 10px; padding-inline-start: 20px;">
+<li style="margin: 0px 0px 10px; font-size: 15px; line-height: 1.8; color: rgb(195, 201, 214); text-wrap: pretty;">Administrator access to the current tenant, or someone in the room who has it</li>
+<li style="margin: 0px 0px 10px; font-size: 15px; line-height: 1.8; color: rgb(195, 201, 214); text-wrap: pretty;">A named person who can decide what the organisation structure should be, because that decision is not ours to make</li>
+<li style="margin: 0px 0px 10px; font-size: 15px; line-height: 1.8; color: rgb(195, 201, 214); text-wrap: pretty;">An honest list of the integrations in use, including the ones built by someone who has since left</li>
+</ul>
+</section>
+<section style="margin-top: clamp(40px, 5vw, 56px); padding-top: clamp(28px, 3.4vw, 36px); border-top: 1px solid rgb(26, 31, 46);">
+<h2 style="margin: 0px 0px 12px; font-size: 19px; line-height: 1.3; letter-spacing: -0.016em; font-variation-settings: &quot;wdth&quot; 100, &quot;wght&quot; 600;">Send us what you run today.</h2>
+<p style="margin: 0px 0px 22px; font-size: 15px; line-height: 1.8; color: rgb(195, 201, 214); text-wrap: pretty;">Headcount, current mail and file platform, rough data volume, and any integration you would be unhappy to lose. We will come back with a sequence and the parts we think are at risk.</p>
+<a href="mailto:hello@oceanastra.net" style="display: inline-block; margin-top: 4px; font-size: 15px; color: rgb(91, 108, 255);">hello@oceanastra.net</a>
+</section>
+</div>
+
+  <div data-dc-tpl="54" style="border-top: 1px solid rgb(26, 31, 46);">
+    <div data-dc-tpl="55" style="max-width: 1280px; margin: 0px auto; padding: clamp(36px, 4vw, 52px) clamp(20px, 4vw, 48px); display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center;">
+      <span data-dc-tpl="56" style="font-family: &quot;Space Grotesk&quot;, sans-serif; font-weight: 700; font-size: 15px; letter-spacing: -0.03em;"><span class="sc-interp">OceanAstra</span></span>
+      <div data-dc-tpl="57" style="display: flex; gap: 22px;">
+        <a data-dc-tpl="58" href="/../privacy/" style="font-size: 12.5px; color: rgb(242, 242, 240);"><span class="sc-interp">Privacy Policy</span></a>
+        <a data-dc-tpl="59" href="/../terms/" class="scp0" style="font-size: 12.5px; color: rgb(90, 100, 120);"><span class="sc-interp">Terms of Use</span></a>
+      </div>
+      <span data-dc-tpl="60" style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 10.5px; letter-spacing: 0.06em; color: rgb(90, 100, 120);"><span class="sc-interp">© 2026 OceanAstra Technologies L.L.C. All rights reserved.</span></span>
+    </div>
+  </div></div></div></div>
+
+
+</body>
+</html>
