@@ -38,6 +38,7 @@ content/
 `content/` 是文案与公司信息的事实来源。页面正文不从这里生成（那是 Design Canvas 的事），但 `/faq/` 三页、`llms.txt`、各页 `<head>` 的 SEO 元数据与 JSON-LD 结构化数据都从这里生成 —— 改完 `content/` 要按下面的顺序重跑脚本。原先的静态生成器（`build/`）已随设计改版删除。
 
 ```bash
+python3 tools/address.py            # 只在地址变更时跑
 python3 tools/build-faq.py
 python3 tools/build-lark.py
 python3 tools/seo-inject.py
@@ -45,6 +46,8 @@ python3 tools/analytics.py <令牌>   # 令牌：grep -o '"token": "[0-9a-f]*"' 
 ```
 
 `build-faq.py` 与 `build-lark.py` 重建页面时不带分析脚本，所以 `analytics.py` 必须跑在最后。
+
+`address.py` 要跑在 `seo-inject.py` 之前：地址在 26 个文件里有 17 种写法（完整一行、JSON-LD 的 `streetAddress`、`/about/` 公司信息表的 `Dubai, UAE` 缩写、`company.json` 的四行 `lines`、FAQ 里的整句话，再加地图链接与经纬度），三语各一套，脚本把它们一次改齐；`seo-inject.py` 随后按新的 `company.json` 重建 JSON-LD 与 `llms.txt`。`FORMS` 里存着每种写法历来的值，重新导出后再跑一次就能把旧地址换掉。
 
 ---
 
@@ -56,7 +59,8 @@ python3 tools/analytics.py <令牌>   # 令牌：grep -o '"token": "[0-9a-f]*"' 
 
 1. **SEO 元数据** —— 导出的 `<title>` 是 `Bundled Page`，且没有 description / canonical / Open Graph。需在**外层 `<head>` 和 `__bundler/template` 两处**注入，文案取自 `content/i18n/en.json` 的各页 `title` 与 `description`。
 2. **`<html lang>` 与语言同步脚本** —— 导出产物的 `<html>` 没有 `lang`/`dir`，切换语言时也不更新，屏幕阅读器会一直当成英文。同步脚本必须放在外层 `<head>`：放进 template 里不会执行，还会截断模板。
-3. **核对数字宣称与语言口径** —— 导出稿曾出现「10+ 年中东本地经验」「10+ languages」这类与执照信息冲突的表述，`prepare-export.py` 的 `CLAIMS` 会把它们改掉。Design Canvas 源文件里可能仍有旧说法，每次导出后除了 `CLAIMS`，还要跑 `tools/credential-language.py`（首页语言卡片）与 `tools/privacy-cookies.py`（隐私政策第 10 节）—— 这两处的文案住在 DICT 里，重新导出会把旧说法带回来。两个脚本的 `PRIOR` 都存着历来的措辞，所以无论导出带回哪一版都能改掉。
+3. **核对办公地址** —— 导出产物带回的是 Design Canvas 源文件里的地址。2026-10-25 办公地址迁至 Business Bay 的 Churchill Tower 1，由 `tools/address.py` 维护，每次导出后都要跑。注意：执照 1646635 与 D-U-N-S 851077092 上印的仍是迪拜工业城的旧地址，站点已先行一步 —— 详见 `content/company.json` 的 `_needsReview`。
+4. **核对数字宣称与语言口径** —— 导出稿曾出现「10+ 年中东本地经验」「10+ languages」这类与执照信息冲突的表述，`prepare-export.py` 的 `CLAIMS` 会把它们改掉。Design Canvas 源文件里可能仍有旧说法，每次导出后除了 `CLAIMS`，还要跑 `tools/credential-language.py`（首页语言卡片）与 `tools/privacy-cookies.py`（隐私政策第 10 节）—— 这两处的文案住在 DICT 里，重新导出会把旧说法带回来。两个脚本的 `PRIOR` 都存着历来的措辞，所以无论导出带回哪一版都能改掉。
 
 ## 本地预览
 
@@ -153,7 +157,7 @@ Apple 在审核 Organization 账号时会人工查看官网。以下**加粗**�
 | 商业登记号 | 2913183 |
 | 迪拜商会会员号 | 698189 |
 | 发照机关 | Department of Economy and Tourism, Government of Dubai |
-| 注册地址 | Office 08, Building R.SH.038, Saih Shuaib 2, Dubai Industrial City, Dubai, UAE |
+| 注册地址 | 3707, Churchill Tower 1, Business Bay, Dubai, UAE |
 | 电话 | +971 50 813 8014 |
 | 成立年份 | 2026 |
 

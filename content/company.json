@@ -1,7 +1,9 @@
 {
-  "_comment": "SINGLE SOURCE OF TRUTH for all company facts. Values below are transcribed from the Dubai Commercial License No. 1646635 (issued 20/08/2026). Anything published here must match the trade licence and the D-U-N-S record exactly. Run `node build/build.mjs` after editing.",
+  "_comment": "SINGLE SOURCE OF TRUTH for all company facts. Values below are transcribed from the Dubai Commercial License No. 1646635 (issued 20/08/2026). Anything published here must match the trade licence and the D-U-N-S record exactly — with the one exception recorded in _needsReview. After editing, run tools/address.py (if the address changed), then build-faq.py, build-lark.py, seo-inject.py and analytics.py, in that order.",
   "_placeholders": false,
-  "_needsReview": [],
+  "_needsReview": [
+    "2026-10-25 ADDRESS AHEAD OF THE REGISTERS. The published address is now 3707, Churchill Tower 1, Business Bay, Dubai, which is where the office is. Trade licence 1646635 still prints the Dubai Industrial City address (Office 08, Building R.SH.038, Saih Shuaib 2), and D-U-N-S 851077092 still carries it too. Amend the licence with the Department of Economy and Tourism and update the D&B record, then delete this entry — until then the site and the registers disagree, and a verifier cross-checking /about/ against the licence will find it. tools/address.py holds both addresses and can move the site either way."
+  ],
   "_done": [
     "2026-08-20 hello@, support@ and partners@ mailboxes live on Lark Mail (MX -> larksuite.com)",
     "2026-08-20 DNS live: apex A/AAAA -> GitHub Pages, www CNAME -> zysncb.github.io, MX untouched; site serving at https://oceanastra.net with HTTPS",
@@ -35,36 +37,37 @@
     "href": "+971508138014"
   },
 
-  "mapUrl": "https://www.google.com/maps?q=24.8260152,55.1065874",
-  "coordinates": "24.8260152, 55.1065874",
+  "_mapNote": "Coordinates are the Churchill Tower 1 place marker on Google Maps (https://maps.app.goo.gl/TS4c5Th98nBC1Zd19). mapUrl is written out in full rather than as the short link so the destination is readable in the page source and does not depend on a redirect service.",
+  "mapUrl": "https://www.google.com/maps?q=25.181282,55.2621665",
+  "coordinates": "25.181282, 55.2621665",
 
   "address": {
     "en": {
       "lines": [
-        "Office 08, Building R.SH.038",
-        "Saih Shuaib 2, Dubai Industrial City",
+        "3707, Churchill Tower 1",
+        "Business Bay",
         "Dubai",
         "United Arab Emirates"
       ],
-      "full": "Office 08, Building R.SH.038, Saih Shuaib 2, Dubai Industrial City, Dubai, United Arab Emirates"
+      "full": "3707, Churchill Tower 1, Business Bay, Dubai, United Arab Emirates"
     },
     "zh": {
       "lines": [
-        "Office 08, Building R.SH.038",
-        "Saih Shuaib 2，迪拜工业城",
+        "3707, Churchill Tower 1",
+        "商务湾（Business Bay）",
         "迪拜",
         "阿拉伯联合酋长国"
       ],
-      "full": "阿拉伯联合酋长国 迪拜 迪拜工业城 Saih Shuaib 2 R.SH.038 楼 08 室"
+      "full": "阿拉伯联合酋长国 迪拜 商务湾 Churchill Tower 1 3707 室"
     },
     "ar": {
       "lines": [
-        "مكتب رقم 08، مبنى R.SH.038",
-        "سيح شعيب 2، مدينة دبي الصناعية",
+        "مكتب رقم 3707، برج تشرشل 1",
+        "الخليج التجاري",
         "دبي",
         "الإمارات العربية المتحدة"
       ],
-      "full": "مكتب رقم 08، مبنى R.SH.038، سيح شعيب 2، مدينة دبي الصناعية، دبي، الإمارات العربية المتحدة"
+      "full": "مكتب رقم 3707، برج تشرشل 1، الخليج التجاري، دبي، الإمارات العربية المتحدة"
     }
   },
 
