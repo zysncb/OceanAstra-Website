@@ -42,9 +42,9 @@ Both should be read by a native speaker before they are relied on.
 Coordinates are the Churchill Tower 1 place marker on Google Maps, from the
 link the move was given with (https://maps.app.goo.gl/TS4c5Th98nBC1Zd19).
 
-NOTE: the old address is the one printed on trade licence 1646635 and recorded
-against D-U-N-S 851077092. Publishing this one puts the site ahead of both
-registers until they are amended; see _needsReview in content/company.json.
+NOTE: trade licence 1646635 carries this address too (product owner, 2026-11-06).
+D-U-N-S 851077092 was last known to carry the old one; see _needsReview in
+content/company.json.
 """
 
 import sys
