@@ -59,7 +59,7 @@ python3 tools/analytics.py <令牌>   # 令牌：grep -o '"token": "[0-9a-f]*"' 
 
 1. **SEO 元数据** —— 导出的 `<title>` 是 `Bundled Page`，且没有 description / canonical / Open Graph。需在**外层 `<head>` 和 `__bundler/template` 两处**注入，文案取自 `content/i18n/en.json` 的各页 `title` 与 `description`。
 2. **`<html lang>` 与语言同步脚本** —— 导出产物的 `<html>` 没有 `lang`/`dir`，切换语言时也不更新，屏幕阅读器会一直当成英文。同步脚本必须放在外层 `<head>`：放进 template 里不会执行，还会截断模板。
-3. **核对办公地址** —— 导出产物带回的是 Design Canvas 源文件里的地址。2026-10-25 办公地址迁至 Business Bay 的 Churchill Tower 1，由 `tools/address.py` 维护，每次导出后都要跑。执照 1646635 上的注册地址也已改为新址（产品负责人 2026-11-06 确认）；D-U-N-S 851077092 上是否已改还没确认 —— 详见 `content/company.json` 的 `_needsReview`。
+3. **核对办公地址** —— 导出产物带回的是 Design Canvas 源文件里的地址。2026-10-25 办公地址迁至 Business Bay 的 Churchill Tower 1，由 `tools/address.py` 维护，每次导出后都要跑。执照 1646635 上的注册地址也已改为新址（产品负责人 2026-11-06 确认）；D-U-N-S 851077092 暂时不改（产品负责人 2026-11-09）；中文、阿语页的地址也用英文（产品负责人 2026-11-09） —— 详见 `content/company.json` 的 `_needsReview`。
 4. **核对数字宣称与语言口径** —— 导出稿曾出现「10+ 年中东本地经验」「10+ languages」这类与执照信息冲突的表述，`prepare-export.py` 的 `CLAIMS` 会把它们改掉。Design Canvas 源文件里可能仍有旧说法，每次导出后除了 `CLAIMS`，还要跑 `tools/credential-language.py`（首页语言卡片）与 `tools/privacy-cookies.py`（隐私政策第 10 节）—— 这两处的文案住在 DICT 里，重新导出会把旧说法带回来。两个脚本的 `PRIOR` 都存着历来的措辞，所以无论导出带回哪一版都能改掉。
 
 ## 本地预览

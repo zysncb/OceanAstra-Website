@@ -32,12 +32,8 @@ Arabic full line contains both Arabic lines; the map URL contains both
 coordinates. Replacing the longest match first consumes each outer shape
 before its own parts can be matched out from under it.
 
-The Chinese and Arabic renderings follow the shapes already in the file:
-Chinese keeps the building name in English and names the district in Chinese
-with the English in parentheses; Arabic translates both (برج تشرشل for
-Churchill Tower, الخليج التجاري for Business Bay, the standard name). The
-Arabic FAQ sentence uses Arabic-Indic digits, as it did for the old address.
-Both should be read by a native speaker before they are relied on.
+The address is written in English on the Chinese and Arabic pages as well
+(product owner, 2026-11-09): an address is a proper noun, not copy to translate.
 
 Coordinates are the Churchill Tower 1 place marker on Google Maps, from the
 link the move was given with (https://maps.app.goo.gl/TS4c5Th98nBC1Zd19).
@@ -85,25 +81,28 @@ FORMS = [
     ("en.prose", ["OceanAstra is based in Dubai Industrial City, Dubai, United Arab Emirates, with its registered office at Office 08, Building R.SH.038, Saih Shuaib 2."],
      "OceanAstra is based in Business Bay, Dubai, United Arab Emirates, with its registered office at 3707, Churchill Tower 1."),
 
-    # Chinese. The one-line form runs largest-to-smallest, as a Chinese
-    # address does; line 1 is shared with the English and is replaced by
-    # en.line1 above.
-    ("zh.full", ["阿拉伯联合酋长国 迪拜 迪拜工业城 Saih Shuaib 2 R.SH.038 楼 08 室"],
-     "阿拉伯联合酋长国 迪拜 商务湾 Churchill Tower 1 3707 室"),
-    ("zh.line2", ["Saih Shuaib 2，迪拜工业城"], "商务湾（Business Bay）"),
-    ("zh.prose", ["OceanAstra 位于阿拉伯联合酋长国迪拜的迪拜工业城，注册办公地址为 Saih Shuaib 2，R.SH.038 楼 08 室。"],
-     "OceanAstra 位于阿拉伯联合酋长国迪拜的商务湾（Business Bay），注册办公地址为 Churchill Tower 1，3707 室。"),
+    # Chinese. The address stays in English on every language page (product
+    # owner, 2026-11-09); only the sentence around it is translated.
+    ("zh.full", ["阿拉伯联合酋长国 迪拜 迪拜工业城 Saih Shuaib 2 R.SH.038 楼 08 室",
+                 "阿拉伯联合酋长国 迪拜 商务湾 Churchill Tower 1 3707 室"],
+     "3707, Churchill Tower 1, Business Bay, Dubai, United Arab Emirates"),
+    ("zh.line2", ["Saih Shuaib 2，迪拜工业城", "商务湾（Business Bay）"], "Business Bay"),
+    ("zh.prose", ["OceanAstra 位于阿拉伯联合酋长国迪拜的迪拜工业城，注册办公地址为 Saih Shuaib 2，R.SH.038 楼 08 室。",
+                 "OceanAstra 位于阿拉伯联合酋长国迪拜的商务湾（Business Bay），注册办公地址为 Churchill Tower 1，3707 室。"],
+     "OceanAstra 位于 Business Bay, Dubai, United Arab Emirates，注册办公地址为 3707, Churchill Tower 1。"),
 
-    # Arabic. `short` is the company information table's form, which drops
-    # رقم and the country; the prose sentence uses Arabic-Indic digits.
-    ("ar.full", ["مكتب رقم 08، مبنى R.SH.038، سيح شعيب 2، مدينة دبي الصناعية، دبي، الإمارات العربية المتحدة"],
-     "مكتب رقم 3707، برج تشرشل 1، الخليج التجاري، دبي، الإمارات العربية المتحدة"),
-    ("ar.short", ["مكتب 08، مبنى R.SH.038، سيح شعيب 2، مدينة دبي الصناعية، دبي"],
-     "مكتب 3707، برج تشرشل 1، الخليج التجاري، دبي"),
-    ("ar.line1", ["مكتب رقم 08، مبنى R.SH.038"], "مكتب رقم 3707، برج تشرشل 1"),
-    ("ar.line2", ["سيح شعيب 2، مدينة دبي الصناعية"], "الخليج التجاري"),
-    ("ar.prose", ["يقع مقر أوشن أسترا في مدينة دبي الصناعية بدبي، الإمارات العربية المتحدة، وعنوانها المسجّل هو مكتب رقم ٠٨، مبنى R.SH.038، سيح شعيب ٢."],
-     "يقع مقر أوشن أسترا في الخليج التجاري بدبي، الإمارات العربية المتحدة، وعنوانها المسجّل هو مكتب رقم ٣٧٠٧، برج تشرشل ١."),
+    # Arabic. English too; `short` is the company information table's form.
+    ("ar.full", ["مكتب رقم 08، مبنى R.SH.038، سيح شعيب 2، مدينة دبي الصناعية، دبي، الإمارات العربية المتحدة",
+                 "مكتب رقم 3707، برج تشرشل 1، الخليج التجاري، دبي، الإمارات العربية المتحدة"],
+     "3707, Churchill Tower 1, Business Bay, Dubai, United Arab Emirates"),
+    ("ar.short", ["مكتب 08، مبنى R.SH.038، سيح شعيب 2، مدينة دبي الصناعية، دبي",
+                  "مكتب 3707، برج تشرشل 1، الخليج التجاري، دبي"],
+     "3707, Churchill Tower 1, Business Bay, Dubai, UAE"),
+    ("ar.line1", ["مكتب رقم 08، مبنى R.SH.038", "مكتب رقم 3707، برج تشرشل 1"], "3707, Churchill Tower 1"),
+    ("ar.line2", ["سيح شعيب 2، مدينة دبي الصناعية", "الخليج التجاري"], "Business Bay"),
+    ("ar.prose", ["يقع مقر أوشن أسترا في مدينة دبي الصناعية بدبي، الإمارات العربية المتحدة، وعنوانها المسجّل هو مكتب رقم ٠٨، مبنى R.SH.038، سيح شعيب ٢.",
+                 "يقع مقر أوشن أسترا في الخليج التجاري بدبي، الإمارات العربية المتحدة، وعنوانها المسجّل هو مكتب رقم ٣٧٠٧، برج تشرشل ١."],
+     "يقع مقر أوشن أسترا في Business Bay, Dubai, United Arab Emirates، وعنوانها المسجّل هو 3707, Churchill Tower 1."),
 
     # The map link and the geo coordinates. The link is listed before the bare
     # numbers only for readability; the longest-first ordering is what makes
@@ -118,7 +117,8 @@ FORMS = [
 # fragments no wording of the new address contains, so a non-zero count after
 # the rewrite means a shape was missed rather than that a file was skipped.
 RESIDUE = ["R.SH.038", "Saih Shuaib", "Dubai Industrial City", "迪拜工业城",
-           "سيح شعيب", "مدينة دبي الصناعية", "24.8260152", "55.1065874"]
+           "سيح شعيب", "مدينة دبي الصناعية", "24.8260152", "55.1065874",
+           "商务湾", "3707 室", "برج تشرشل", "الخليج التجاري"]
 
 # The template is JSON-encoded, so a replacement carrying a quote, a backslash
 # or a "</" would have to be escaped to match how the payload is written. None
