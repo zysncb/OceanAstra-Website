@@ -2,7 +2,7 @@
   "_comment": "SINGLE SOURCE OF TRUTH for all company facts. Values below are transcribed from the Dubai Commercial License No. 1646635 (issued 20/08/2026). Anything published here must match the trade licence and the D-U-N-S record exactly — with the one exception recorded in _needsReview. After editing, run tools/address.py (if the address changed), then build-faq.py, build-lark.py, seo-inject.py and analytics.py, in that order.",
   "_placeholders": false,
   "_needsReview": [
-    "2026-11-06 ADDRESS AHEAD OF THE D-U-N-S RECORD. The published address is 3707, Churchill Tower 1, Business Bay, Dubai. The product owner confirmed on 2026-11-06 that the registered address on trade licence 1646635 is now this one too. D-U-N-S 851077092 was last known to carry the old Dubai Industrial City address (Office 08, Building R.SH.038, Saih Shuaib 2); confirm or update the D&B record, then delete this entry. tools/address.py holds both addresses and can move the site either way."
+    "2026-11-06 ADDRESS AHEAD OF THE D-U-N-S RECORD. The published address is 3707, Churchill Tower 1, Business Bay, Dubai. The product owner confirmed on 2026-11-06 that the registered address on trade licence 1646635 is now this one too. D-U-N-S 851077092 was last known to carry the old Dubai Industrial City address (Office 08, Building R.SH.038, Saih Shuaib 2); the product owner decided on 2026-11-09 to leave the D&B record as it is for now. Delete this entry once it is updated. tools/address.py holds both addresses and can move the site either way."
   ],
   "_done": [
     "2026-08-20 hello@, support@ and partners@ mailboxes live on Lark Mail (MX -> larksuite.com)",
